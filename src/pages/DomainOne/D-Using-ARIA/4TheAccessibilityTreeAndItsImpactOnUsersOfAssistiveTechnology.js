@@ -427,10 +427,10 @@ function TheAccessibilityTreeAndItsImpact() {
 
             {/* Navigation */}
             <nav className="page-navigation" aria-label="Page navigation">
-                <Link to="/domain-one/d-using-aria/keyboard-interaction-and-focus-management" className="nav-link prev">
+                <Link to="/domain-one/d/keyboard-interaction" className="nav-link prev">
                     ← Previous: Keyboard Interaction and Focus Management
                 </Link>
-                <Link to="/domain-one/d-using-aria/wai-aria-roles-states-properties" className="nav-link next">
+                <Link to="/domain-one/d/wai-aria-roles" className="nav-link next">
                     Next: WAI-ARIA Roles, States, and Properties →
                 </Link>
             </nav>

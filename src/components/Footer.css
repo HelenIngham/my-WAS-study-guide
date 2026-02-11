@@ -1,7 +1,7 @@
 /* Footer.css */
 .footer {
     text-align: center;
-    background-color: #333;
+    background-color: var(--color-footer-bg);
     color: white;
     padding: 16px 0;
     margin-top: 0;
@@ -10,11 +10,11 @@
 .footer p {
     font-size: 14px;
     margin: 0;
-    color: #fff;
+    color: white;
 }
 
 .footer p a {
-    color: #8a2846;
+    color: var(--color-primary-light);
 }
 
 .footer p a:hover {

@@ -378,10 +378,10 @@ function UnderstandingAccessibleNamesAndDescriptions() {
 
             {/* Navigation */}
             <nav className="page-navigation" aria-label="Page navigation">
-                <Link to="/domain-one/d-using-aria" className="nav-link prev">
+                <Link to="/domain-one/d" className="nav-link prev">
                     ← Back to Using ARIA Overview
                 </Link>
-                <Link to="/domain-one/d-using-aria/aria-authoring-practice-guide" className="nav-link next">
+                <Link to="/domain-one/d/authoring-practices" className="nav-link next">
                     Next: ARIA Authoring Practice Guide →
                 </Link>
             </nav>

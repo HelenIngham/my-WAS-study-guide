@@ -12,7 +12,7 @@
     background-color: var(--pink-100);
     padding: 16px 20px;
     position: relative;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-md);
 
     max-width: 1200px;
     margin: 0 auto;
@@ -56,7 +56,7 @@
 /* Top-level links and submenu triggers share the same visual styling */
 .menu-link,
 .menu-trigger {
-    color: #ffffff;
+    color: var(--color-text-on-primary);
     text-decoration: none;
     font-size: 16px;
     padding: 12px 18px;
@@ -80,10 +80,10 @@
 /* Hover (keep stable; no transform/movement) */
 .menu-link:hover,
 .menu-trigger:hover {
-    background-color: #FFF0F4;
-    border-color: #FFF0F4;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-    color: #333333;
+    background-color: var(--color-bg-page);
+    border-color: var(--color-bg-page);
+    box-shadow: var(--shadow-hover);
+    color: var(--color-text-primary);
 }
 
 /* Focus */
@@ -98,7 +98,7 @@
 .menu-link.active {
     background-color: var(--color-active);
     border-color: var(--color-active);
-    box-shadow: 0 4px 8px rgba(224, 87, 128, 0.4); /* pink glow */
+    box-shadow: var(--shadow-pink-glow); /* pink glow */
 }
 
 /* SUBMENU PANEL */
@@ -119,7 +119,7 @@
     background-color: var(--color-bg-white);
     border: 2px solid var(--color-primary);
     border-radius: 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-lg);
     padding: 10px;
 }
 
@@ -157,20 +157,20 @@
 }
 
 .submenu-link:hover {
-    background-color: #cbd5db;
-    color: #ffffff;
+    background-color: var(--neutral-450);
+    color: var(--color-white);
 }
 
 .submenu-link.active {
-    background-color: #ff7aa2;
-    border-color: #ff7aa2;
-    color: #333333;
+    background-color: var(--color-active);
+    border-color: var(--color-active);
+    color: var(--color-text-primary);
 }
 
 /* GROUPS (mirror folder structure A/B/C...) */
 .submenu-group {
     padding: 8px 6px 10px;
-    border-top: 1px solid #cfd6db;
+    border-top: 1px solid var(--neutral-500);
 }
 
 .submenu-group:first-of-type {
@@ -182,7 +182,7 @@
     font-weight: 800;
     letter-spacing: 0.3px;
     text-transform: none;
-    color: #1f2d3a;
+    color: var(--neutral-800);
     padding: 4px 6px 8px;
 }
 
@@ -206,13 +206,13 @@
 }
 
 .submenu-list .submenu-link:hover {
-    background-color: #FFF0F4;
-    color: #1a252f;
+    background-color: var(--color-bg-page);
+    color: var(--neutral-850);
 }
 
 .submenu-list .submenu-link.active {
-    background-color: #ff7aa2;
-    color: #333333;
+    background-color: var(--color-active);
+    color: var(--color-text-primary);
 }
 
 /* Scrollbar (optional) */
@@ -221,17 +221,17 @@
 }
 
 .submenu::-webkit-scrollbar-track {
-    background: #d0d7dc;
+    background: var(--neutral-400);
     border-radius: 8px;
 }
 
 .submenu::-webkit-scrollbar-thumb {
-    background: #7f8c8d;
+    background: var(--neutral-600);
     border-radius: 8px;
 }
 
 .submenu::-webkit-scrollbar-thumb:hover {
-    background: #566573;
+    background: var(--neutral-700);
 }
 
 /* Responsive */
@@ -300,86 +300,86 @@
 /* High contrast */
 @media (prefers-contrast: more) {
     .menu {
-        background: #000000;
-        border: 3px solid #ffffff;
+        background: black;
+        border: 3px solid white;
     }
 
     .menu-link,
     .menu-trigger {
-        background-color: #000000;
-        color: #ffffff;
-        border: 2px solid #ffffff;
+        background-color: black;
+        color: white;
+        border: 2px solid white;
     }
 
     .menu-link:hover,
     .menu-trigger:hover {
-        background-color: #ffffff;
-        color: #000000;
-        border-color: #000000;
+        background-color: white;
+        color: black;
+        border-color: black;
     }
 
     .submenu {
-        background-color: #ffffff;
-        border: 3px solid #000000;
+        background-color: white;
+        border: 3px solid black;
     }
 
     .submenu-link {
-        color: #000000;
-        background-color: #ffffff;
-        border: 2px solid #000000;
+        color: black;
+        background-color: white;
+        border: 2px solid black;
     }
 
     .submenu-link:hover {
-        background-color: #000000;
-        color: #ffffff;
+        background-color: black;
+        color: white;
     }
 
     .submenu-link.active {
-        background-color: #000000;
-        color: #ffffff;
-        border-color: #000000;
+        background-color: black;
+        color: white;
+        border-color: black;
     }
 
     .submenu-heading {
-        color: #000000;
+        color: black;
     }
 }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
     .menu {
-        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        background: linear-gradient(135deg, var(--dark-50) 0%, var(--dark-100) 100%);
     }
 
     .menu-link,
     .menu-trigger {
-        background-color: #3a3a3a;
-        color: #ffffff;
+        background-color: var(--dark-200);
+        color: white;
     }
 
     .menu-link:hover,
     .menu-trigger:hover {
-        background-color: #4a7ba7;
+        background-color: var(--accent-blue);
     }
 
     .menu-link.active {
-        background-color: #2d5a3d;
-        border-color: #2d5a3d;
+        background-color: var(--accent-green);
+        border-color: var(--accent-green);
     }
 
     .submenu {
-        background-color: #2d2d2d;
-        border-color: #555555;
+        background-color: var(--dark-100);
+        border-color: var(--neutral-650);
     }
 
     .submenu-heading {
-        color: #e8e8e8;
+        color: var(--neutral-220);
     }
 
     .submenu-link {
-        color: #e0e0e0;
-        background-color: rgba(255, 255, 255, 0.06);
-        border-color: rgba(255, 255, 255, 0.12);
+        color: var(--neutral-200);
+        background-color: var(--alpha-white-06);
+        border-color: var(--alpha-white-12);
     }
 
     .submenu-list .submenu-link {
@@ -387,16 +387,16 @@
     }
 
     .submenu-link:hover {
-        background-color: #4a7ba7;
-        color: #ffffff;
+        background-color: var(--accent-blue);
+        color: white;
     }
 
     .submenu-link.active {
-        background-color: #2d5a3d;
-        color: #ffffff;
+        background-color: var(--accent-green);
+        color: white;
     }
 
     .submenu-group {
-        border-top-color: rgba(255, 255, 255, 0.14);
+        border-top-color: var(--alpha-white-14);
     }
 }

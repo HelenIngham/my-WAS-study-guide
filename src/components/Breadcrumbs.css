@@ -4,8 +4,8 @@
     max-width: 1200px;
     margin: 15px auto 0;
     padding: 20px;
-    background-color: #FFF0F4;
-    border-bottom: 1px solid #FFF0F4;
+    background-color: var(--color-bg-page);
+    border-bottom: 1px solid var(--color-bg-page);
 }
 
 .breadcrumbs-list {
@@ -27,7 +27,7 @@
 
 .breadcrumbs-item::after {
     content: "/";
-    color: #6b7785;
+    color: var(--neutral-680);
 }
 
 .breadcrumbs-item:last-child::after {
@@ -35,7 +35,7 @@
 }
 
 .breadcrumbs-link {
-    color: #b9375e;
+    color: var(--pink-600);
     text-decoration: underline;
     text-underline-offset: 2px;
     font-weight: 600;
@@ -52,7 +52,7 @@
 }
 
 .breadcrumbs-current {
-    color: #602437;
+    color: var(--color-primary);
     font-weight: 700;
 }
 

@@ -76,7 +76,7 @@ function Menu() {
                         aria-expanded={openMenu === "domain-one"}
                         onClick={() => toggleMenu("domain-one")} // click ALSO works (in addition to hover/focus)
                     >
-                        Domain One: Creating Accessible Web Solutions
+                        Domain One:<br/>Creating Accessible Web Solutions
                     </button>
 
                     <div className="submenu" role="group" aria-label="Domain One sections">
@@ -292,7 +292,7 @@ function Menu() {
                         aria-expanded={openMenu === "domain-two"}
                         onClick={() => toggleMenu("domain-two")}
                     >
-                        Domain Two: Identify Accessibility Issues
+                        Domain Two:<br/>Identify Accessibility Issues
                     </button>
 
                     <div className="submenu" role="group" aria-label="Domain Two sections">
@@ -484,7 +484,7 @@ function Menu() {
                         aria-expanded={openMenu === "domain-three"}
                         onClick={() => toggleMenu("domain-three")}
                     >
-                        Domain Three: Remediating Issues
+                        Domain Three:<br/>Remediating Issues
                     </button>
 
                     <div className="submenu" role="group" aria-label="Domain Three sections">

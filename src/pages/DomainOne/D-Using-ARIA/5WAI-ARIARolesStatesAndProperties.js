@@ -654,10 +654,10 @@ function WAIARIARolesStatesAndProperties() {
 
             {/* Navigation */}
             <nav className="page-navigation" aria-label="Page navigation">
-                <Link to="/domain-one/d-using-aria/accessibility-tree-and-impact" className="nav-link prev">
+                <Link to="/domain-one/d/accessibility-tree" className="nav-link prev">
                     ← Previous: The Accessibility Tree
                 </Link>
-                <Link to="/domain-one/d-using-aria" className="nav-link next">
+                <Link to="/domain-one/d" className="nav-link next">
                     Back to Using ARIA Overview →
                 </Link>
             </nav>

@@ -10,7 +10,7 @@
 .resource-link a {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: #602437;
+    background-color: var(--color-primary);
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -20,14 +20,14 @@
 
 .resource-link a:hover,
 .resource-link a:focus {
-    background-color: #8a2846;
-    outline: 2px solid #602437;
+    background-color: var(--color-primary-light);
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
 }
 
 /* Flashcard Section */
 .flashcard-section {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card);
     padding: 2rem;
     border-radius: 8px;
     margin: 2rem 0;
@@ -43,7 +43,7 @@
 }
 
 .flashcard-nav {
-    background-color: #602437;
+    background-color: var(--color-primary);
     color: white;
     border: none;
     width: 3rem;
@@ -59,8 +59,8 @@
 
 .flashcard-nav:hover,
 .flashcard-nav:focus {
-    background-color: #8a2846;
-    outline: 2px solid #602437;
+    background-color: var(--color-primary-light);
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
 }
 
@@ -95,17 +95,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-card);
 }
 
 .flashcard-front {
     background-color: white;
-    border: 2px solid #602437;
+    border: 2px solid var(--color-primary);
 }
 
 .flashcard-front p {
     font-size: 1.1rem;
-    color: #333;
+    color: var(--color-text-primary);
     text-align: center;
 }
 
@@ -113,11 +113,11 @@
     position: absolute;
     bottom: 1rem;
     font-size: 0.8rem;
-    color: #888;
+    color: var(--color-text-subtle);
 }
 
 .flashcard-back {
-    background-color: #602437;
+    background-color: var(--color-primary);
     color: white;
     transform: rotateY(180deg);
 }
@@ -126,10 +126,11 @@
     font-size: 1rem;
     white-space: pre-line;
     text-align: left;
+    color: white;
 }
 
 .flashcard:focus {
-    outline: 3px solid #8a2846;
+    outline: 3px solid var(--color-primary-light);
     outline-offset: 4px;
     border-radius: 12px;
 }
@@ -164,7 +165,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.25rem;
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card);
     border: none;
     cursor: pointer;
     font-size: 1.1rem;

@@ -485,10 +485,10 @@ listbox.setAttribute(
 
             {/* Navigation */}
             <nav className="page-navigation" aria-label="Page navigation">
-                <Link to="/domain-one/d-using-aria/aria-authoring-practice-guide" className="nav-link prev">
+                <Link to="/domain-one/d/aria-authoring-practice-guide" className="nav-link prev">
                     ← Previous: ARIA Authoring Practice Guide
                 </Link>
-                <Link to="/domain-one/d-using-aria/accessibility-tree-and-impact" className="nav-link next">
+                <Link to="/domain-one/d/accessibility-tree-and-impact" className="nav-link next">
                     Next: The Accessibility Tree →
                 </Link>
             </nav>

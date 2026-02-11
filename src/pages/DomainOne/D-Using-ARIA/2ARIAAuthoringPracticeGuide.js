@@ -344,10 +344,10 @@ function ARIAAuthoringPracticeGuide() {
 
             {/* Navigation */}
             <nav className="page-navigation" aria-label="Page navigation">
-                <Link to="/domain-one/d-using-aria/understanding-accessible-names-and-descriptions" className="nav-link prev">
+                <Link to="/domain-one/d/understanding-accessible-names-and-descriptions" className="nav-link prev">
                     ← Previous: Accessible Names and Descriptions
                 </Link>
-                <Link to="/domain-one/d-using-aria/keyboard-interaction-and-focus-management" className="nav-link next">
+                <Link to="/domain-one/d/keyboard-interaction-and-focus-management" className="nav-link next">
                     Next: Keyboard Interaction and Focus Management →
                 </Link>
             </nav>
