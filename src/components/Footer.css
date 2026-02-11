@@ -1,0 +1,22 @@
+/* Footer.css */
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 16px 0;
+    margin-top: 0;
+}
+
+.footer p {
+    font-size: 14px;
+    margin: 0;
+    color: #fff;
+}
+
+.footer p a {
+    color: #8a2846;
+}
+
+.footer p a:hover {
+    text-decoration: underline;
+}

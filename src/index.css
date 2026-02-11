@@ -1,0 +1,179 @@
+/* Global Base Styles */
+/* CSS Custom Properties (Variables) */
+:root {
+    /* New Pink Palette (WCAG-friendly) */
+    --pink-0: #FFF0F4;       /* very light bg */
+    --pink-100: #ffe0e9;     /* petal frost */
+    --pink-200: #ffc2d4;     /* soft blossom */
+    --pink-300: #ff9ebb;     /* pink mist */
+    --pink-400: #ff7aa2;     /* petal rouge (active) */
+    --pink-500: #e05780;     /* blush rose */
+    --pink-600: #b9375e;     /* rosewood */
+    --pink-700: #8a2846;     /* dark amaranth (focus/heads) */
+    --pink-800: #602437;     /* wine plum (primary) */
+    --pink-900: #522e38;     /* mauve shadow (dark) */
+
+    /* Primary Brand mapped to pinks */
+    --color-primary: var(--pink-800);
+    --color-primary-light: var(--pink-700);
+    --color-primary-dark: var(--pink-900);
+
+    /* Backgrounds */
+    --color-bg-page: var(--pink-0);
+    --color-bg-card: #f8f4f5; /* keep neutral pinkish card */
+    --color-bg-white: #ffffff; /* keep white */
+
+    /* Borders */
+    --color-border: #e0d0d5; /* keep neutral */
+    --color-border-light: #ddd; /* keep neutral */
+
+    /* Text (neutrals stay) */
+    --color-text-primary: #333;
+    --color-text-secondary: #555;
+    --color-text-muted: #666;
+
+    /* Semantic statuses remapped to pink family */
+    --color-info: var(--pink-700);
+    --color-info-bg: var(--pink-100);
+
+    --color-success: var(--pink-700);
+    --color-success-bg: var(--pink-100);
+
+    --color-error: var(--pink-700);
+    --color-error-bg: var(--pink-100);
+
+    --color-warning: var(--pink-700);
+    --color-warning-bg: var(--pink-100);
+
+    /* Active & Focus */
+    --color-active: var(--pink-400);
+    --color-focus: var(--pink-700);
+
+    /* Code Blocks (keep as-is for readability) */
+    --color-code-bg: #2d2d2d;
+    --color-code-text: #f8f8f2;
+
+    /* Secondary/Neutral */
+    --color-secondary: #6c757d; /* as provided */
+}
+
+
+
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333; /* Primary text color */
+    margin: 0;
+    padding: 0;
+    background-color: #FFF0F4; /* Subtle background for contrast */
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-primary);
+    margin-bottom: 16px;
+}
+
+p {
+    font-size: 16px;
+    margin: 12px 0;
+}
+
+ul {
+    margin: 12px 0;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: var(--color-primary-light);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Container Styles */
+.container {
+    max-width: 900px;
+    margin: 20px auto; /* Center page, add margin space */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    padding: 24px;
+    overflow: hidden;
+}
+
+/* Add left margin and space */
+.container .content {
+    margin-left: 20px; /* Additional left margin */
+}
+
+/* Heading styles */
+.container h1 {
+    font-size: 2rem;
+    text-align: left;
+    border-bottom: 2px solid var(--color-primary); /* Underline effect */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.container h2 {
+    font-size: 1.75rem;
+}
+
+.container h3 {
+    font-size: 1.5rem;
+    color: #602437;
+}
+
+/* Sticky footer layout */
+html, body {
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}
+
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-main {
+    flex: 1 0 auto;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+        margin: 10px;
+    }
+    .container .content {
+        margin-left: 10px; /* Adjust margin for small screens */
+    }
+}
+
+
+

@@ -1,0 +1,358 @@
+/* Intro Section */
+.intro-section {
+    margin-bottom: 2rem;
+}
+
+.resource-link {
+    margin-top: 1rem;
+}
+
+.resource-link a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #602437;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.resource-link a:hover,
+.resource-link a:focus {
+    background-color: #8a2846;
+    outline: 2px solid #602437;
+    outline-offset: 2px;
+}
+
+/* Flashcard Section */
+.flashcard-section {
+    background-color: #f8f4f5;
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.flashcard-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.flashcard-nav {
+    background-color: #602437;
+    color: white;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flashcard-nav:hover,
+.flashcard-nav:focus {
+    background-color: #8a2846;
+    outline: 2px solid #602437;
+    outline-offset: 2px;
+}
+
+.flashcard {
+    width: 400px;
+    height: 250px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flashcard-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.flashcard-front {
+    background-color: white;
+    border: 2px solid #602437;
+}
+
+.flashcard-front p {
+    font-size: 1.1rem;
+    color: #333;
+    text-align: center;
+}
+
+.flip-hint {
+    position: absolute;
+    bottom: 1rem;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.flashcard-back {
+    background-color: #602437;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flashcard-back p {
+    font-size: 1rem;
+    white-space: pre-line;
+    text-align: left;
+}
+
+.flashcard:focus {
+    outline: 3px solid #8a2846;
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+.flashcard-counter {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Widget Patterns Section */
+.patterns-section {
+    margin: 2rem 0;
+}
+
+.widget-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.widget-card {
+    background-color: white;
+    border: 1px solid #e0d0d5;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.widget-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background-color: #f8f4f5;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+.widget-toggle:hover {
+    background-color: #e8d4d9;
+}
+
+.widget-toggle:focus {
+    outline: 3px solid #602437;
+    outline-offset: -3px;
+}
+
+.widget-name {
+    color: #602437;
+    font-weight: 600;
+}
+
+.toggle-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #602437;
+}
+
+.widget-description {
+    padding: 0 1.25rem 1rem;
+    color: #555;
+    margin: 0;
+}
+
+.widget-details {
+    padding: 0 1.25rem 1.25rem;
+    border-top: 1px solid #e0d0d5;
+    animation: slideDown 0.3s ease;
+}
+
+.detail-section {
+    margin-top: 1rem;
+}
+
+.detail-section h4 {
+    color: #602437;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.detail-section ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.detail-section li {
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+.detail-section code {
+    background-color: #f0e6e9;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+/* Concept Grid */
+.concepts-section {
+    margin: 2rem 0;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.concept-card {
+    background-color: #fff;
+    border: 1px solid #e0d0d5;
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.concept-card h3 {
+    color: #602437;
+    margin-top: 0;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #602437;
+    padding-bottom: 0.5rem;
+}
+
+.concept-card ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.25rem;
+}
+
+.concept-card li {
+    margin-bottom: 0.5rem;
+}
+
+/* Tips Section */
+.tips-section {
+    background-color: var(--color-info-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-info);
+    margin: 2rem 0;
+}
+
+.tips-section h2 {
+    color: var(--color-info);
+    margin-top: 0;
+}
+
+.tips-list {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.tips-list li {
+    margin-bottom: 0.75rem;
+}
+
+/* Page Navigation */
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0d0d5;
+}
+
+.nav-link {
+    color: #602437;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border: 1px solid #602437;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background-color: #602437;
+    color: white;
+    outline: 2px solid #8a2846;
+    outline-offset: 2px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .flashcard {
+        width: 100%;
+        max-width: 300px;
+        height: 200px;
+    }
+
+    .flashcard-nav {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+    }
+
+    .concept-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-navigation {
+        flex-direction: column;
+    }
+
+    .nav-link {
+        text-align: center;
+    }
+}

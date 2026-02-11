@@ -1,0 +1,67 @@
+/* index.css */
+
+/* Container Style */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 2rem;
+    color: #602437;
+    border-bottom: 2px solid #602437;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+}
+
+/* Paragraph Text Styles */
+p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+/* Subdomain List Styles */
+.domain-subsections {
+    list-style-type: none;
+    padding: 0;
+}
+
+.domain-subsections li {
+    margin: 8px 0;
+}
+
+.domain-subsections a {
+    text-decoration: none;
+    color: #1e90ff;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.domain-subsections a:hover {
+    color: #602437;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}

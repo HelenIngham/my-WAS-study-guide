@@ -1,0 +1,402 @@
+/* Menu.css */
+/* Accessible navigation menu:
+   - Centered at all widths
+   - Submenus stay open while keyboard focus moves into them (:focus-within)
+   - Button triggers for submenus (better for touch + keyboard)
+   - Submenu grouping mirrors the page/folder structure (A/B/C... groups)
+*/
+
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: var(--pink-100);
+    padding: 16px 20px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    align-items: center;
+}
+
+.menu-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.menu-item:hover .submenu {
+    display: block;
+}
+
+.menu-item:focus-within .submenu {
+    display: block;
+}
+
+/* Keep this, but JS now reliably clears .is-open on mouseleave/blur so it won't "stick" */
+.menu-item.is-open .submenu {
+    display: block;
+}
+
+.menu-item.has-submenu {
+    /* hover/focus bridge so moving into submenu doesn't close it */
+}
+/* Top-level links and submenu triggers share the same visual styling */
+.menu-link,
+.menu-trigger {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 12px 18px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: inline-block;
+    background-color: var(--color-primary-dark);
+    line-height: 1.2;
+}
+
+.menu-trigger {
+    appearance: none;
+    -webkit-appearance: none;
+    font: inherit;
+}
+
+/* Hover (keep stable; no transform/movement) */
+.menu-link:hover,
+.menu-trigger:hover {
+    background-color: #FFF0F4;
+    border-color: #FFF0F4;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    color: #333333;
+}
+
+/* Focus */
+.menu-link:focus-visible,
+.menu-trigger:focus-visible,
+.submenu-link:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+/* Active route (NavLink applies .active) */
+.menu-link.active {
+    background-color: var(--color-active);
+    border-color: var(--color-active);
+    box-shadow: 0 4px 8px rgba(224, 87, 128, 0.4); /* pink glow */
+}
+
+/* SUBMENU PANEL */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;             /* was: calc(100% + 8px) */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    width: max-content;
+    min-width: 320px;
+    max-width: min(92vw, 520px);
+    max-height: 70vh;
+    overflow: auto;
+
+    background-color: var(--color-bg-white);
+    border: 2px solid var(--color-primary);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+}
+
+
+/* Open conditions:
+   - hover for mouse
+   - focus-within for keyboard
+   - is-open class for click/tap toggling
+*/
+
+.menu-item.has-submenu:hover .submenu {
+    display: block;
+}
+
+.menu-item.has-submenu:focus-within .submenu {
+    display: block;
+}
+
+.menu-item.has-submenu.is-open .submenu {
+    display: block;
+}
+
+/* Submenu overview link at the top */
+.submenu-link {
+    display: block;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    margin-bottom: 10px;
+}
+
+.submenu-link:hover {
+    background-color: #cbd5db;
+    color: #ffffff;
+}
+
+.submenu-link.active {
+    background-color: #ff7aa2;
+    border-color: #ff7aa2;
+    color: #333333;
+}
+
+/* GROUPS (mirror folder structure A/B/C...) */
+.submenu-group {
+    padding: 8px 6px 10px;
+    border-top: 1px solid #cfd6db;
+}
+
+.submenu-group:first-of-type {
+    border-top: none;
+}
+
+.submenu-heading {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    text-transform: none;
+    color: #1f2d3a;
+    padding: 4px 6px 8px;
+}
+
+.submenu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu-list li {
+    margin: 0;
+    padding: 0;
+}
+
+.submenu-list .submenu-link {
+    margin: 10px 0;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    padding: 10px 12px;
+}
+
+.submenu-list .submenu-link:hover {
+    background-color: #FFF0F4;
+    color: #1a252f;
+}
+
+.submenu-list .submenu-link.active {
+    background-color: #ff7aa2;
+    color: #333333;
+}
+
+/* Scrollbar (optional) */
+.submenu::-webkit-scrollbar {
+    width: 10px;
+}
+
+.submenu::-webkit-scrollbar-track {
+    background: #d0d7dc;
+    border-radius: 8px;
+}
+
+.submenu::-webkit-scrollbar-thumb {
+    background: #7f8c8d;
+    border-radius: 8px;
+}
+
+.submenu::-webkit-scrollbar-thumb:hover {
+    background: #566573;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .menu {
+        padding: 12px 16px;
+        max-width: 100%;
+    }
+
+    .menu-link,
+    .menu-trigger {
+        padding: 10px 14px;
+        font-size: 15px;
+    }
+
+    .submenu {
+        min-width: 280px;
+        max-width: min(92vw, 480px);
+    }
+}
+
+@media (max-width: 768px) {
+    .menu {
+        padding: 12px;
+    }
+
+    .menu-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .menu-item {
+        width: 100%;
+        max-width: 560px;
+        justify-content: center;
+    }
+
+    .menu-link,
+    .menu-trigger {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* In-flow submenu for small screens (prevents clipping) */
+    .submenu {
+        position: static;
+        transform: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        max-height: none;
+        margin-top: 8px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .menu-link,
+    .menu-trigger,
+    .submenu-link {
+        transition: none;
+    }
+}
+
+/* High contrast */
+@media (prefers-contrast: more) {
+    .menu {
+        background: #000000;
+        border: 3px solid #ffffff;
+    }
+
+    .menu-link,
+    .menu-trigger {
+        background-color: #000000;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+    }
+
+    .menu-link:hover,
+    .menu-trigger:hover {
+        background-color: #ffffff;
+        color: #000000;
+        border-color: #000000;
+    }
+
+    .submenu {
+        background-color: #ffffff;
+        border: 3px solid #000000;
+    }
+
+    .submenu-link {
+        color: #000000;
+        background-color: #ffffff;
+        border: 2px solid #000000;
+    }
+
+    .submenu-link:hover {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .submenu-link.active {
+        background-color: #000000;
+        color: #ffffff;
+        border-color: #000000;
+    }
+
+    .submenu-heading {
+        color: #000000;
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .menu {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    }
+
+    .menu-link,
+    .menu-trigger {
+        background-color: #3a3a3a;
+        color: #ffffff;
+    }
+
+    .menu-link:hover,
+    .menu-trigger:hover {
+        background-color: #4a7ba7;
+    }
+
+    .menu-link.active {
+        background-color: #2d5a3d;
+        border-color: #2d5a3d;
+    }
+
+    .submenu {
+        background-color: #2d2d2d;
+        border-color: #555555;
+    }
+
+    .submenu-heading {
+        color: #e8e8e8;
+    }
+
+    .submenu-link {
+        color: #e0e0e0;
+        background-color: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .submenu-list .submenu-link {
+        background: transparent;
+    }
+
+    .submenu-link:hover {
+        background-color: #4a7ba7;
+        color: #ffffff;
+    }
+
+    .submenu-link.active {
+        background-color: #2d5a3d;
+        color: #ffffff;
+    }
+
+    .submenu-group {
+        border-top-color: rgba(255, 255, 255, 0.14);
+    }
+}
