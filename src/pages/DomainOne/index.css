@@ -5,8 +5,8 @@
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--pink-0);
+    border: 1px solid var(--pink-100);
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -14,8 +14,8 @@
 /* Heading Styles */
 h1 {
     font-size: 2rem;
-    color: #602437;
-    border-bottom: 2px solid #602437;
+    color: var(--pink-800);
+    border-bottom: 2px solid var(--pink-800);
     margin-bottom: 16px;
     padding-bottom: 8px;
 }
@@ -23,7 +23,7 @@ h1 {
 /* Paragraph Text Styles */
 p {
     font-size: 1rem;
-    color: #333;
+    color: var(--color-text-primary);
     margin-bottom: 16px;
 }
 
@@ -39,14 +39,14 @@ p {
 
 .domain-subsections a {
     text-decoration: none;
-    color: #1e90ff;
+    color: var(--pink-800);
     font-size: 1rem;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .domain-subsections a:hover {
-    color: #602437;
+    color: var(--pink-800);
     text-decoration: underline;
 }
 

@@ -5,8 +5,8 @@
 }
 
 .key-concept {
-    background-color: #f8f4f5;
-    border-left: 4px solid #602437;
+    background-color: var(--color-bg-card-hover);
+    border-left: 4px solid var(--pink-900);
     padding: 1rem 1.5rem;
     margin: 1.5rem 0;
     border-radius: 0 8px 8px 0;
@@ -14,7 +14,7 @@
 
 .key-concept h3 {
     margin-top: 0;
-    color: #602437;
+    color: var(--pink-900);
 }
 
 .aria-rules {
@@ -28,12 +28,12 @@
 .rules-list li {
     margin-bottom: 1rem;
     padding: 0.5rem;
-    background-color: #fff;
+    background-color: var(--color-bg-white);
     border-radius: 4px;
 }
 
 .rules-list code {
-    background-color: #f0e6e9;
+    background-color: var(--color-code-inline-bg);
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
     font-family: 'Courier New', monospace;
@@ -50,8 +50,8 @@
 }
 
 .topic-card {
-    background-color: #fff;
-    border: 1px solid #e0d0d5;
+    background-color: var(--color-bg-white);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 1rem;
@@ -77,18 +77,18 @@
 
 .topic-title-link h3 {
     margin: 0;
-    color: #602437;
+    color: var(--pink-900);
     transition: color 0.2s ease;
 }
 
 .topic-title-link:hover h3,
 .topic-title-link:focus h3 {
-    color: #8a2846;
+    color: var(--pink-700);
     text-decoration: underline;
 }
 
 .expand-btn {
-    background-color: #602437;
+    background-color: var(--pink-900);
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -100,26 +100,26 @@
 
 .expand-btn:hover,
 .expand-btn:focus {
-    background-color: #8a2846;
-    outline: 2px solid #602437;
+    background-color: var(--pink-700);
+    outline: 2px solid var(--pink-900);
     outline-offset: 2px;
 }
 
 .topic-description {
-    color: #555;
+    color: var(--color-text-secondary);
     margin: 0.75rem 0 0 0;
 }
 
 .topic-details {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid #e0d0d5;
+    border-top: 1px solid var(--color-border);
     animation: fadeIn 0.3s ease;
 }
 
 .topic-details h4 {
     margin: 0 0 0.5rem 0;
-    color: #602437;
+    color: var(--pink-900);
     font-size: 1rem;
 }
 
@@ -130,11 +130,11 @@
 
 .topic-details li {
     margin-bottom: 0.5rem;
-    color: #444;
+    color: var( --color-text-strong);
 }
 
 .study-tips {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card-hover);
     padding: 1.5rem;
     border-radius: 8px;
     margin-top: 2rem;

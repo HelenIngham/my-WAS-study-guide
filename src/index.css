@@ -3,14 +3,14 @@
 :root {
     /* New Pink Palette (WCAG-friendly) */
     --pink-0: #FFF0F4;       /* very light bg */
-    --pink-100: #ffe0e9;     /* petal frost */
+    --pink-100: var(--color-border-mid);     /* petal frost */
     --pink-200: #ffc2d4;     /* soft blossom */
     --pink-300: #ff9ebb;     /* pink mist */
     --pink-400: #ff7aa2;     /* petal rouge (active) */
     --pink-500: #e05780;     /* blush rose */
     --pink-600: #b9375e;     /* rosewood */
     --pink-700: #8a2846;     /* dark amaranth (focus/heads) */
-    --pink-800: #602437;     /* wine plum (primary) */
+    --pink-800: var(--pink-900);     /* wine plum (primary) */
     --pink-900: #522e38;     /* mauve shadow (dark) */
 
     /* Primary Brand mapped to pinks */
@@ -20,8 +20,9 @@
 
     /* Backgrounds */
     --color-bg-page: var(--pink-0);
-    --color-bg-card: #f8f4f5; /* neutral pinkish card */
+    --color-bg-card: var(--color-bg-card-hover); /* neutral pinkish card */
     --color-bg-card-hover: var(--pink-100); /* hover/active surface */
+    --color-bg-tab-hover: #e8d4d9; /* hover/active surface */
     --color-bg-white: #ffffff; /* pure white */
 
     /* Base colors */
@@ -92,6 +93,12 @@
     --accent-blue: #4a7ba7;
     --accent-green: #2d5a3d;
 
+    /* Quiz colors */
+    --color-correct-pale: #d4edda;
+    --color-correct: #28a745;
+    --color-incorrect: #dc3545;
+    --color-incorrect-pale: #f8d7da;
+
     /* Code Blocks (keep as-is for readability) */
     --color-code-bg: #2d2d2d;
     --color-code-text: #f8f8f2;
@@ -101,7 +108,7 @@
     --color-secondary: #6c757d; /* as provided */
     --color-secondary-dark: #5a6268;
     --color-border-mid: #cccccc;
-    --color-footer-bg: #333333; /* footer background */
+    --color-footer-bg: var(--color-text-primary); /* footer background */
 }
 
 

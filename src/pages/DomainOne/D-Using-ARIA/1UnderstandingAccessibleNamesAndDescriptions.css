@@ -21,7 +21,7 @@
 }
 
 .tab-button:hover {
-    background-color: #e8d4d9;
+    background-color: var(--color-bg-tab-hover);
 }
 
 .tab-button:focus {
@@ -78,7 +78,7 @@
     counter-increment: priority;
     padding: 1rem;
     margin-bottom: 1rem;
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card);
     border-radius: 8px;
     position: relative;
     padding-left: 3.5rem;
@@ -91,7 +91,7 @@
     top: 1rem;
     width: 2rem;
     height: 2rem;
-    background-color: #602437;
+    background-color: var(--pink-800);
     color: white;
     border-radius: 50%;
     display: flex;
@@ -101,16 +101,16 @@
 }
 
 .priority-list li strong {
-    color: #602437;
+    color: var(--pink-800);
 }
 
 .priority-list li p {
     margin: 0.5rem 0 0 0;
-    color: #555;
+    color: var(--color-text-secondary);
 }
 
 .priority-list code {
-    background-color: #e0d0d5;
+    background-color: var(--color-border);
     padding: 0.1rem 0.3rem;
     border-radius: 3px;
     font-size: 0.9rem;
@@ -125,22 +125,22 @@
 }
 
 .method-card {
-    background-color: #fff;
-    border: 1px solid #e0d0d5;
+    background-color: var(--color-bg-white);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 1.25rem;
 }
 
 .method-card h3 {
     margin-top: 0;
-    color: #602437;
-    border-bottom: 2px solid #602437;
+    color: var(--pink-800);
+    border-bottom: 2px solid var(--pink-800);
     padding-bottom: 0.5rem;
 }
 
 .method-card pre {
-    background-color: #2d2d2d;
-    color: #f8f8f2;
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
     padding: 1rem;
     border-radius: 4px;
     overflow-x: auto;
@@ -171,7 +171,7 @@
 
 /* Example Container */
 .example-container {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card);
     border-radius: 8px;
     margin: 1rem 0 2rem 0;
     overflow: hidden;
@@ -180,7 +180,7 @@
 .example-demo {
     padding: 1.5rem;
     background-color: white;
-    border-bottom: 1px solid #e0d0d5;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .example-demo label {
@@ -191,7 +191,7 @@
 
 .example-demo input {
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-border-mid);
     border-radius: 4px;
     font-size: 1rem;
     width: 100%;
@@ -199,21 +199,21 @@
 }
 
 .example-demo input:focus {
-    outline: 2px solid #602437;
+    outline: 2px solid var(--pink-800);
     outline-offset: 2px;
 }
 
 .example-demo .hint {
     font-size: 0.875rem;
-    color: #666;
+    color: var(--color-text-muted);
     margin-top: 0.5rem;
 }
 
 .example-code {
     margin: 0;
     padding: 1rem;
-    background-color: #2d2d2d;
-    color: #f8f8f2;
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
     overflow-x: auto;
 }
 
@@ -223,7 +223,7 @@
 }
 
 .icon-button {
-    background-color: #602437;
+    background-color: var(--pink-800);
     color: white;
     border: none;
     padding: 0.75rem;
@@ -235,21 +235,21 @@
 
 .icon-button:hover,
 .icon-button:focus {
-    background-color: #8a2846;
-    outline: 2px solid #602437;
+    background-color: var(--pink-700);
+    outline: 2px solid var(--pink-800);
     outline-offset: 2px;
 }
 
 /* Quiz Styles */
 .quiz-section {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card);
     padding: 1.5rem;
     border-radius: 8px;
     margin: 2rem 0;
 }
 
 .quiz-question {
-    border: 1px solid #e0d0d5;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 1.5rem;
@@ -258,7 +258,7 @@
 
 .quiz-question legend {
     font-weight: 600;
-    color: #602437;
+    color: var(--pink-800);
     padding: 0 0.5rem;
 }
 
@@ -274,14 +274,14 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-border-light);
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
 .quiz-option:hover {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card);
 }
 
 .quiz-option input {
@@ -317,33 +317,33 @@
 }
 
 .submit-btn {
-    background-color: #602437;
+    background-color: var(--pink-800);
     color: white;
 }
 
 .submit-btn:hover,
 .submit-btn:focus {
-    background-color: #8a2846;
-    outline: 2px solid #602437;
+    background-color: var(--pink-700);
+    outline: 2px solid var(--pink-800);
     outline-offset: 2px;
 }
 
 .reset-btn {
-    background-color: #6c757d;
+    background-color: var( --color-secondary);
     color: white;
 }
 
 .reset-btn:hover,
 .reset-btn:focus {
-    background-color: #5a6268;
-    outline: 2px solid #6c757d;
+    background-color: var(--color-secondary-dark);
+    outline: 2px solid var( --color-secondary);
     outline-offset: 2px;
 }
 
 .quiz-result {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #602437;
+    color: var(--pink-800);
     margin-bottom: 1rem;
 }
 
@@ -355,24 +355,24 @@
     gap: 1rem;
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 1px solid #e0d0d5;
+    border-top: 1px solid var(--color-border);
 }
 
 .nav-link {
-    color: #602437;
+    color: var(--pink-800);
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 1rem;
-    border: 1px solid #602437;
+    border: 1px solid var(--pink-800);
     border-radius: 4px;
     transition: all 0.2s ease;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-    background-color: #602437;
+    background-color: var(--pink-800);
     color: white;
-    outline: 2px solid #8a2846;
+    outline: 2px solid var(--pink-700);
     outline-offset: 2px;
 }
 

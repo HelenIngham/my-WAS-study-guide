@@ -136,7 +136,7 @@
 }
 
 .flashcard-counter {
-    color: #666;
+    color: var(--color-text-muted);
     font-size: 0.9rem;
 }
 
@@ -154,7 +154,7 @@
 
 .widget-card {
     background-color: white;
-    border: 1px solid #e0d0d5;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -174,34 +174,34 @@
 }
 
 .widget-toggle:hover {
-    background-color: #e8d4d9;
+    background-color: var(--color-bg-tab-hover);
 }
 
 .widget-toggle:focus {
-    outline: 3px solid #602437;
+    outline: 3px solid var(--pink-900);
     outline-offset: -3px;
 }
 
 .widget-name {
-    color: #602437;
+    color: var(--pink-900);
     font-weight: 600;
 }
 
 .toggle-icon {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #602437;
+    color: var(--pink-900);
 }
 
 .widget-description {
     padding: 0 1.25rem 1rem;
-    color: #555;
+    color: var(--color-text-secondary);
     margin: 0;
 }
 
 .widget-details {
     padding: 0 1.25rem 1.25rem;
-    border-top: 1px solid #e0d0d5;
+    border-top: 1px solid var(--color-border);
     animation: slideDown 0.3s ease;
 }
 
@@ -210,7 +210,7 @@
 }
 
 .detail-section h4 {
-    color: #602437;
+    color: var(--pink-900);
     margin: 0 0 0.5rem 0;
     font-size: 1rem;
 }
@@ -222,11 +222,11 @@
 
 .detail-section li {
     margin-bottom: 0.5rem;
-    color: #444;
+    color: var( --color-text-strong);
 }
 
 .detail-section code {
-    background-color: #f0e6e9;
+    background-color: var(--color-code-inline-bg);
     padding: 0.15rem 0.4rem;
     border-radius: 3px;
     font-family: 'Courier New', monospace;
@@ -246,17 +246,17 @@
 }
 
 .concept-card {
-    background-color: #fff;
-    border: 1px solid #e0d0d5;
+    background-color: var(--color-bg-white);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 1.25rem;
 }
 
 .concept-card h3 {
-    color: #602437;
+    color: var(--pink-900);
     margin-top: 0;
     font-size: 1.1rem;
-    border-bottom: 2px solid #602437;
+    border-bottom: 2px solid var(--pink-900);
     padding-bottom: 0.5rem;
 }
 
@@ -300,24 +300,24 @@
     gap: 1rem;
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 1px solid #e0d0d5;
+    border-top: 1px solid var(--color-border);
 }
 
 .nav-link {
-    color: #602437;
+    color: var(--pink-900);
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 1rem;
-    border: 1px solid #602437;
+    border: 1px solid var(--pink-900);
     border-radius: 4px;
     transition: all 0.2s ease;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-    background-color: #602437;
+    background-color: var(--pink-900);
     color: white;
-    outline: 2px solid #8a2846;
+    outline: 2px solid var(--pink-700);
     outline-offset: 2px;
 }
 

@@ -5,7 +5,7 @@
 }
 
 .tree-info-list {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card-hover);
     padding: 1.25rem 1.25rem 1.25rem 2.5rem;
     border-radius: 8px;
     margin: 1rem 0;
@@ -41,14 +41,14 @@
 }
 
 .html-examples {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card-hover);
     padding: 1.25rem;
     border-radius: 8px;
 }
 
 .html-examples h3 {
     margin-top: 0;
-    color: #602437;
+    color: var(--pink-900);
     font-size: 1rem;
 }
 
@@ -62,25 +62,25 @@
     padding: 0.75rem;
     margin-bottom: 0.5rem;
     background-color: white;
-    border: 1px solid #e0d0d5;
+    border: 1px solid var(--color-border);
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .html-example:hover {
-    border-color: #602437;
-    background-color: #fcf8f9;
+    border-color: var(--pink-900);
+    background-color: var( --color-bg-card-hover);
 }
 
 .html-example:focus {
-    outline: 2px solid #602437;
+    outline: 2px solid var(--pink-900);
     outline-offset: 2px;
 }
 
 .html-example.selected {
-    background-color: #602437;
-    border-color: #602437;
+    background-color: var(--pink-900);
+    border-color: var(--pink-900);
 }
 
 .html-example.selected code {
@@ -90,22 +90,22 @@
 .html-example code {
     font-family: 'Courier New', monospace;
     font-size: 0.85rem;
-    color: #333;
+    color: var( --color-text-primary);
     word-break: break-all;
 }
 
 .tree-output {
-    background-color: #2d2d2d;
-    color: #f8f8f2;
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
     padding: 1.25rem;
     border-radius: 8px;
 }
 
 .tree-output h3 {
     margin-top: 0;
-    color: #f8f8f2;
+    color: var(--color-code-text);
     font-size: 1rem;
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid var(--color-text-secondary);
     padding-bottom: 0.5rem;
 }
 
@@ -114,7 +114,7 @@
 }
 
 .node-details dt {
-    color: #BFBFBF;
+    color: var( --neutral-500);
     font-size: 0.85rem;
     margin-top: 0.75rem;
 }
@@ -127,7 +127,7 @@
 .role-badge {
     display: inline-block;
     padding: 0.25rem 0.5rem;
-    background-color: #602437;
+    background-color: var(--pink-900);
     color: white;
     border-radius: 4px;
     font-family: 'Courier New', monospace;
@@ -144,20 +144,20 @@
 }
 
 .no-states {
-    color: #BFBFBF;
+    color: var( --neutral-500);
     font-style: italic;
 }
 
 .node-description {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid #555;
-    color: #ccc;
+    border-top: 1px solid var(--color-text-secondary);
+    color: var(--color-border-mid);
     font-size: 0.9rem;
 }
 
 .select-prompt {
-    color: #BFBFBF;
+    color: var( --neutral-500);
     font-style: italic;
     text-align: center;
     padding: 2rem 0;
@@ -176,21 +176,21 @@
 }
 
 .impact-card {
-    background-color: #fff;
-    border: 1px solid #e0d0d5;
+    background-color: var(--color-bg-white);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 1.25rem;
 }
 
 .impact-card h3 {
     margin-top: 0;
-    color: #602437;
+    color: var(--pink-900);
     font-size: 1.1rem;
 }
 
 .impact-card pre {
-    background-color: #2d2d2d;
-    color: #f8f8f2;
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
     padding: 0.75rem;
     border-radius: 4px;
     overflow-x: auto;
@@ -200,7 +200,7 @@
 
 .card-note {
     font-size: 0.9rem;
-    color: #555;
+    color: var(--color-text-secondary);
     margin: 0.75rem 0 0 0;
     padding: 0.5rem;
     background-color: var(--color-warning-bg);
@@ -220,14 +220,14 @@
 }
 
 .tool-card {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card-hover);
     border-radius: 8px;
     padding: 1.25rem;
 }
 
 .tool-card h3 {
     margin-top: 0;
-    color: #602437;
+    color: var(--pink-900);
     font-size: 1rem;
 }
 
@@ -256,35 +256,35 @@
 .issues-table th,
 .issues-table td {
     padding: 0.75rem 1rem;
-    border: 1px solid #e0d0d5;
+    border: 1px solid var(--color-border);
     text-align: left;
 }
 
 .issues-table thead th {
-    background-color: #602437;
+    background-color: var(--pink-900);
     color: white;
 }
 
 .issues-table tbody th {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card-hover);
     font-weight: 600;
-    color: #602437;
+    color: var(--pink-900);
 }
 
 .issues-table tbody tr:nth-child(even) {
-    background-color: #fafafa;
+    background-color: var(--color-code-inline-bg);
 }
 
 /* Quiz Styles */
 .quiz-section {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card-hover);
     padding: 1.5rem;
     border-radius: 8px;
     margin: 2rem 0;
 }
 
 .quiz-question {
-    border: 1px solid #e0d0d5;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 1.5rem;
@@ -293,7 +293,7 @@
 
 .quiz-question legend {
     font-weight: 600;
-    color: #602437;
+    color: var(--pink-900);
     padding: 0 0.5rem;
 }
 
@@ -309,14 +309,14 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-border-light);
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
 .quiz-option:hover {
-    background-color: #f8f4f5;
+    background-color: var(--color-bg-card-hover);
 }
 
 .quiz-option input {
@@ -326,13 +326,13 @@
 }
 
 .quiz-option.correct {
-    background-color: #d4edda;
-    border-color: #198754;
+    background-color: var(--color-correct-pale);
+    border-color: var(--color-correct);
 }
 
 .quiz-option.incorrect {
-    background-color: #f8d7da;
-    border-color: #dc3545;
+    background-color: var(--color-incorrect-pale);
+    border-color: var(--color-incorrect);
 }
 
 .quiz-actions {
@@ -352,33 +352,33 @@
 }
 
 .submit-btn {
-    background-color: #602437;
+    background-color: var(--pink-900);
     color: white;
 }
 
 .submit-btn:hover,
 .submit-btn:focus {
-    background-color: #8a2846;
-    outline: 2px solid #602437;
+    background-color: var(--pink-700);
+    outline: 2px solid var(--pink-900);
     outline-offset: 2px;
 }
 
 .reset-btn {
-    background-color: #6c757d;
+    background-color: var( --color-secondary);
     color: white;
 }
 
 .reset-btn:hover,
 .reset-btn:focus {
-    background-color: #5a6268;
-    outline: 2px solid #6c757d;
+    background-color: var(--color-secondary-dark);
+    outline: 2px solid var( --color-secondary);
     outline-offset: 2px;
 }
 
 .quiz-result {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #602437;
+    color: var(--pink-900);
     margin-bottom: 1rem;
 }
 
@@ -390,24 +390,24 @@
     gap: 1rem;
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 1px solid #e0d0d5;
+    border-top: 1px solid var(--color-border);
 }
 
 .nav-link {
-    color: #602437;
+    color: var(--pink-900);
     text-decoration: none;
     font-weight: 500;
     padding: 0.5rem 1rem;
-    border: 1px solid #602437;
+    border: 1px solid var(--pink-900);
     border-radius: 4px;
     transition: all 0.2s ease;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-    background-color: #602437;
+    background-color: var(--pink-900);
     color: white;
-    outline: 2px solid #8a2846;
+    outline: 2px solid var(--pink-700);
     outline-offset: 2px;
 }
 
