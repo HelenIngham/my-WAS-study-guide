@@ -1,28 +1,60 @@
+
 /* Global Base Styles */
 /* CSS Custom Properties (Variables) */
 :root {
-    /* New Pink Palette (WCAG-friendly) */
-    --pink-0: #FFF0F4;       /* very light bg */
-    --pink-100: #ffe0e9;     /* petal frost */
-    --pink-200: #ffc2d4;     /* soft blossom */
-    --pink-300: #ff9ebb;     /* pink mist */
-    --pink-400: #ff7aa2;     /* petal rouge (active) */
-    --pink-500: #e05780;     /* blush rose */
-    --pink-600: #b9375e;     /* rosewood */
-    --pink-700: #8a2846;     /* dark amaranth (focus/heads) */
-    --pink-800: #602437;     /* wine plum (primary) */
-    --pink-900: #522e38;     /* mauve shadow (dark) */
+    /* Rainbow Palette (WCAG-friendly) */
+    /* Red tones */
+    --red-0: #FFF5F5;        /* very light bg */
+    --red-100: #FFE3E3;      /* light red */
+    --red-200: #FFC9C9;      /* soft red */
+    --red-300: #FFA8A8;      /* medium red */
+    --red-400: #FF8787;      /* bright red (active) */
+    --red-500: #E64545;      /* vivid red */
+    --red-600: #C92A2A;      /* deep red */
+    --red-700: #A51D1D;      /* dark red (focus/heads) */
+    --red-800: #801515;      /* wine red (primary) */
+    --red-900: #5C0F0F;      /* darkest red */
 
-    /* Primary Brand mapped to pinks */
-    --color-primary: var(--pink-800);
-    --color-primary-light: var(--pink-700);
-    --color-primary-dark: var(--pink-900);
+    /* Orange tones */
+    --orange-100: #FFE8CC;
+    --orange-400: #FF922B;
+    --orange-700: #D9480F;
 
-    /* Backgrounds */
-    --color-bg-page: var(--pink-0);
-    --color-bg-card: var(--pink-100); /* neutral pinkish card */
-    --color-bg-card-hover: var(--pink-100); /* hover/active surface */
-    --color-bg-tab-hover: var(--pink-100); /* hover/active surface */
+    /* Yellow tones */
+    --yellow-100: #FFF9DB;
+    --yellow-400: #FFD43B;
+    --yellow-700: #F59F00;
+
+    /* Green tones */
+    --green-100: #D3F9D8;
+    --green-400: #51CF66;
+    --green-700: #2B8A3E;
+
+    /* Blue tones */
+    --blue-100: #D0EBFF;
+    --blue-400: #339AF0;
+    --blue-700: #1864AB;
+
+    /* Indigo tones */
+    --indigo-100: #DBD8FF;
+    --indigo-400: #7950F2;
+    --indigo-700: #5229A3;
+
+    /* Violet tones */
+    --violet-100: #F3D9FA;
+    --violet-400: #CC5DE8;
+    --violet-700: #862E9C;
+
+    /* Primary Brand mapped to deep blue */
+    --color-primary: var(--blue-700);
+    --color-primary-light: var(--indigo-700);
+    --color-primary-dark: #0D3B66;
+
+    /* Backgrounds - soft warm tones */
+    --color-bg-page: #FFFBF5;           /* warm cream bg */
+    --color-bg-card: var(--yellow-100); /* soft yellow card */
+    --color-bg-card-hover: var(--orange-100); /* hover/active surface */
+    --color-bg-tab-hover: var(--orange-100); /* hover/active surface */
     --color-bg-white: #ffffff; /* pure white */
 
     /* Base colors */
@@ -54,22 +86,22 @@
     --color-text-subtle: #888888;
     --color-text-on-primary: #ffffff;
 
-    /* Semantic statuses remapped to pink family */
-    --color-info: var(--pink-700);
-    --color-info-bg: var(--pink-100);
+    /* Semantic statuses - now truly semantic with rainbow colors */
+    --color-info: var(--blue-700);
+    --color-info-bg: var(--blue-100);
 
-    --color-success: var(--pink-700);
-    --color-success-bg: var(--pink-100);
+    --color-success: var(--green-700);
+    --color-success-bg: var(--green-100);
 
-    --color-error: var(--pink-700);
-    --color-error-bg: var(--pink-100);
+    --color-error: var(--red-700);
+    --color-error-bg: var(--red-100);
 
-    --color-warning: var(--pink-700);
-    --color-warning-bg: var(--pink-100);
+    --color-warning: var(--orange-700);
+    --color-warning-bg: var(--orange-100);
 
-    /* Active & Focus */
-    --color-active: var(--pink-400);
-    --color-focus: var(--pink-700);
+    /* Active & Focus - vibrant rainbow accents */
+    --color-active: var(--orange-400);
+    --color-focus: var(--indigo-700);
 
     /* Shadows */
     --shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.10);
@@ -77,7 +109,7 @@
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.20);
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.20);
     --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.25);
-    --shadow-pink-glow: 0 4px 8px rgba(224, 87, 128, 0.40);
+    --shadow-rainbow-glow: 0 4px 8px rgba(127, 90, 240, 0.40);
 
     /* Alpha helpers */
     --alpha-white-06: rgba(255, 255, 255, 0.06);
@@ -89,26 +121,41 @@
     --dark-100: #2d2d2d;
     --dark-200: #3a3a3a;
 
-    /* Accent helpers */
-    --accent-blue: #4a7ba7;
-    --accent-green: #2d5a3d;
+    /* Accent helpers - rainbow variety */
+    --accent-blue: var(--blue-700);
+    --accent-green: var(--green-700);
+    --accent-red: var(--red-700);
+    --accent-orange: var(--orange-700);
+    --accent-violet: var(--violet-700);
 
     /* Quiz colors */
-    --color-correct-pale: #d4edda;
-    --color-correct: #28a745;
-    --color-incorrect: #dc3545;
-    --color-incorrect-pale: #f8d7da;
+    --color-correct-pale: var(--green-100);
+    --color-correct: var(--green-700);
+    --color-incorrect: var(--red-600);
+    --color-incorrect-pale: var(--red-100);
 
     /* Code Blocks (keep as-is for readability) */
     --color-code-bg: #2d2d2d;
     --color-code-text: #f8f8f2;
-    --color-code-inline-bg: var(--pink-100); /* inline code background on light surfaces (consolidated) */
+    --color-code-inline-bg: var(--yellow-100); /* inline code background on light surfaces */
 
     /* Secondary/Neutral */
     --color-secondary: #6c757d; /* as provided */
     --color-secondary-dark: #5a6268;
     --color-border-mid: var(--neutral-400); /* consolidated */
     --color-footer-bg: var(--color-text-primary); /* footer background */
+
+    /* Legacy pink mappings for backward compatibility */
+    --pink-0: var(--red-0);
+    --pink-100: var(--orange-100);
+    --pink-200: var(--yellow-100);
+    --pink-300: var(--green-100);
+    --pink-400: var(--blue-400);
+    --pink-500: var(--indigo-400);
+    --pink-600: var(--violet-700);
+    --pink-700: var(--blue-700);
+    --pink-800: var(--indigo-700);
+    --pink-900: var(--violet-700);
 }
 
 
