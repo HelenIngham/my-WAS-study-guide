@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './4TheAccessibilityTreeAndItsImpactOnUsersOfAssistiveTechnology.css';
 
 function TheAccessibilityTreeAndItsImpact() {
@@ -425,15 +424,6 @@ function TheAccessibilityTreeAndItsImpact() {
                 </form>
             </section>
 
-            {/* Navigation */}
-            <nav className="page-navigation" aria-label="Page navigation">
-                <Link to="/domain-one/d/keyboard-interaction" className="nav-link prev">
-                    ← Previous: Keyboard Interaction and Focus Management
-                </Link>
-                <Link to="/domain-one/d/wai-aria-roles" className="nav-link next">
-                    Next: WAI-ARIA Roles, States, and Properties →
-                </Link>
-            </nav>
         </div>
     );
 }

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './1UnderstandingAccessibleNamesAndDescriptions.css';
 
 function UnderstandingAccessibleNamesAndDescriptions() {
@@ -376,15 +375,6 @@ function UnderstandingAccessibleNamesAndDescriptions() {
                 </form>
             </section>
 
-            {/* Navigation */}
-            <nav className="page-navigation" aria-label="Page navigation">
-                <Link to="/domain-one/d" className="nav-link prev">
-                    ← Back to Using ARIA Overview
-                </Link>
-                <Link to="/domain-one/d/authoring-practices" className="nav-link next">
-                    Next: ARIA Authoring Practice Guide →
-                </Link>
-            </nav>
         </div>
     );
 }

@@ -10,7 +10,7 @@ function UsingAria() {
         {
             id: 1,
             title: "1. Understanding Accessible Names and Descriptions",
-            path: "/domain-one/d-using-aria/understanding-accessible-names-and-descriptions",
+            path: "/domain-one/d/accessible-names",
             description: "Learn how accessible names and descriptions are computed and their importance for assistive technology users.",
             keyPoints: [
                 "Accessible Name Computation",
@@ -22,7 +22,7 @@ function UsingAria() {
         {
             id: 2,
             title: "2. ARIA Authoring Practice Guide",
-            path: "/domain-one/d-using-aria/aria-authoring-practice-guide",
+            path: "/domain-one/d/authoring-practices",
             description: "Explore the WAI-ARIA Authoring Practices Guide and how to implement common widget patterns accessibly.",
             keyPoints: [
                 "Design patterns for widgets",
@@ -34,7 +34,7 @@ function UsingAria() {
         {
             id: 3,
             title: "3. Keyboard Interaction and Focus Management",
-            path: "/domain-one/d-using-aria/keyboard-interaction-and-focus-management",
+            path: "/domain-one/d/keyboard-interaction",
             description: "Understand keyboard interaction patterns and focus management within custom components.",
             keyPoints: [
                 "Focus management techniques",
@@ -46,7 +46,7 @@ function UsingAria() {
         {
             id: 4,
             title: "4. The Accessibility Tree and Its Impact",
-            path: "/domain-one/d-using-aria/accessibility-tree-and-impact",
+            path: "/domain-one/d/accessibility-tree",
             description: "Learn how browsers construct the accessibility tree and how it affects assistive technology users.",
             keyPoints: [
                 "DOM to accessibility tree mapping",
@@ -58,7 +58,7 @@ function UsingAria() {
         {
             id: 5,
             title: "5. WAI-ARIA Roles, States, and Properties",
-            path: "/domain-one/d-using-aria/wai-aria-roles-states-properties",
+            path: "/domain-one/d/aria-roles",
             description: "Master the various ARIA roles, states, and properties and when to apply them.",
             keyPoints: [
                 "Landmark roles",
@@ -120,7 +120,7 @@ function UsingAria() {
 
             <nav className="topic-navigation" aria-labelledby="topics-heading">
                 <h2 id="topics-heading">Topics in This Section</h2>
-                <ul className="topic-list" role="list">
+                <ul className="topic-list">
                     {topics.map((topic) => (
                         <li key={topic.id} className="topic-card">
                             <div className="topic-header">

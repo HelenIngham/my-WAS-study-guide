@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './3KeyboardInteractionAndFocusManagementWithinComponents.css';
 
 function KeyboardInteractionAndFocusManagement() {
@@ -483,15 +482,6 @@ listbox.setAttribute(
                 </div>
             </section>
 
-            {/* Navigation */}
-            <nav className="page-navigation" aria-label="Page navigation">
-                <Link to="/domain-one/d/aria-authoring-practice-guide" className="nav-link prev">
-                    ← Previous: ARIA Authoring Practice Guide
-                </Link>
-                <Link to="/domain-one/d/accessibility-tree-and-impact" className="nav-link next">
-                    Next: The Accessibility Tree →
-                </Link>
-            </nav>
         </div>
     );
 }

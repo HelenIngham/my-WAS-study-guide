@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './2ARIAAuthoringPracticeGuide.css';
 
 function ARIAAuthoringPracticeGuide() {
@@ -342,15 +341,6 @@ function ARIAAuthoringPracticeGuide() {
                 </ul>
             </section>
 
-            {/* Navigation */}
-            <nav className="page-navigation" aria-label="Page navigation">
-                <Link to="/domain-one/d/understanding-accessible-names-and-descriptions" className="nav-link prev">
-                    ← Previous: Accessible Names and Descriptions
-                </Link>
-                <Link to="/domain-one/d/keyboard-interaction-and-focus-management" className="nav-link next">
-                    Next: Keyboard Interaction and Focus Management →
-                </Link>
-            </nav>
         </div>
     );
 }

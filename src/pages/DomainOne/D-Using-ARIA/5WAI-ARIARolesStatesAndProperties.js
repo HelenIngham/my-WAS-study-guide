@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './5WAI-ARIARolesStatesAndProperties.css';
 
 function WAIARIARolesStatesAndProperties() {
@@ -652,15 +651,6 @@ function WAIARIARolesStatesAndProperties() {
                 </form>
             </section>
 
-            {/* Navigation */}
-            <nav className="page-navigation" aria-label="Page navigation">
-                <Link to="/domain-one/d/accessibility-tree" className="nav-link prev">
-                    ← Previous: The Accessibility Tree
-                </Link>
-                <Link to="/domain-one/d" className="nav-link next">
-                    Back to Using ARIA Overview →
-                </Link>
-            </nav>
         </div>
     );
 }

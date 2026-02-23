@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 import Breadcrumbs from './components/Breadcrumbs';
+import PageNav from './components/PageNav';
 
 // Pages
 import Home from './pages/Home';
@@ -244,6 +245,9 @@ function App() {
                         <Route path="/domain-three/c/mitigating-defects" element={<MitigatingAccessibilityDefects />} />
                         <Route path="/domain-three/c/procurement-maturity-model" element={<UsingAnAccessibleProcurementMaturityModel />} />
                     </Routes>
+                    <div className="container">
+                        <PageNav />
+                    </div>
                 </main>
                 <Footer />
             </div>
