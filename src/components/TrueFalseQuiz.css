@@ -1,0 +1,236 @@
+/* TrueFalseQuiz.css
+   Styles extracted from EN 301 549 page to make the quiz component reusable.
+   Preserves existing BEM classes when a classNamePrefix (e.g., en301549) is provided.
+   Also provides generic classnames when no prefix is supplied.
+*/
+
+/* ===== Prefixed (e.g., en301549) selectors ===== */
+.en301549__quiz {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 2px solid var(--neutral-220);
+}
+
+.en301549__quizIntro {
+    margin: 8px 0 16px;
+    color: var(--dark-50);
+}
+
+.en301549__quizForm {
+    margin-top: 10px;
+}
+
+.en301549__question {
+    border: 1px solid var(--color-border-mid);
+    background: var(--color-bg-white);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 12px 0;
+}
+
+.en301549__questionLegend {
+    font-weight: 800;
+    color: var(--color-text-primary);
+    padding: 0 4px;
+}
+
+.en301549__options {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.en301549__option {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--neutral-800);
+}
+
+.en301549__option input {
+    width: 18px;
+    height: 18px;
+}
+
+.en301549__feedback {
+    margin: 10px 0 0;
+    padding: 10px 12px;
+    border-radius: 8px;
+}
+
+.en301549__feedback--correct {
+    background: var(--color-correct-pale);
+    border: 1px solid var(--color-correct-pale);
+    color: var(--color-correct);
+}
+
+.en301549__feedback--incorrect {
+    background: var(--color-bg-white);
+    border: 1px solid var(--pink-200);
+    color: var(--pink-900);
+}
+
+.en301549__feedbackText {
+    font-weight: 500;
+}
+
+.en301549__quizActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+    align-items: center;
+}
+
+.en301549__btn {
+    border: 2px solid var(--pink-600);
+    background: var(--pink-600);
+    color: var(--color-bg-white);
+    font-weight: 800;
+    border-radius: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+.en301549__btn:hover {
+    filter: brightness(0.95);
+}
+
+.en301549__btn:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+.en301549__btn:disabled {
+    opacity: 0.70;
+    cursor: not-allowed;
+}
+
+.en301549__btn--secondary {
+    background: transparent;
+    color: var(--pink-800);
+}
+
+.en301549__quizHint {
+    margin-top: 10px;
+    color: var(--neutral-700);
+}
+
+.en301549__score {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: var(--pink-100);
+    border: 1px solid var(--neutral-220);
+    color: var(--color-text-primary);
+    font-weight: 700;
+}
+
+.en301549__review {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border-mid);
+    background: var(--color-bg-white);
+}
+
+.en301549__reviewTitle {
+    margin: 0 0 10px;
+}
+
+.en301549__reviewList {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.en301549__reviewItem {
+    margin: 12px 0;
+    line-height: 1.55;
+}
+
+.en301549__reviewMeta {
+    margin-top: 6px;
+    color: var(--neutral-800);
+}
+
+.en301549__reviewExplanation {
+    margin-top: 6px;
+    color: var(--dark-50);
+}
+
+/* Responsive (prefixed) */
+@media (max-width: 768px) {
+    .en301549__options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .en301549__btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .en301549__quizActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* ===== Generic (no-prefix) selectors so the component can be used elsewhere ===== */
+.quiz-section {
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 2px solid var(--neutral-220);
+}
+
+.quiz-intro {
+    margin: 8px 0 16px;
+    color: var(--dark-50);
+}
+
+.quiz-form { margin-top: 10px; }
+
+.quiz-question {
+    border: 1px solid var(--color-border-mid);
+    background: var(--color-bg-white);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 12px 0;
+}
+
+.quiz-legend { font-weight: 800; color: var(--color-text-primary); padding: 0 4px; }
+
+.quiz-options { display: flex; gap: 16px; align-items: center; margin-top: 10px; }
+
+.quiz-option { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--neutral-800); }
+.quiz-option input { width: 18px; height: 18px; }
+
+.quiz-feedback { margin: 10px 0 0; padding: 10px 12px; border-radius: 8px; }
+.quiz-feedback.correct { background: var(--color-correct-pale); border: 1px solid var(--color-correct-pale); color: var(--color-correct); }
+.quiz-feedback.incorrect { background: var(--color-bg-white); border: 1px solid var(--pink-200); color: var(--pink-900); }
+
+.quiz-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; align-items: center; }
+.submit-btn { border: 2px solid var(--pink-600); background: var(--pink-600); color: var(--color-bg-white); font-weight: 800; border-radius: 10px; padding: 10px 14px; cursor: pointer; }
+.submit-btn:hover { filter: brightness(0.95); }
+.submit-btn:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.submit-btn:disabled { opacity: 0.70; cursor: not-allowed; }
+.reset-btn { background: transparent; color: var(--pink-800); }
+
+.quiz-hint { margin-top: 10px; color: var(--neutral-700); }
+.quiz-result { margin-top: 10px; padding: 10px 12px; border-radius: 10px; background: var(--pink-100); border: 1px solid var(--neutral-220); color: var(--color-text-primary); font-weight: 700; }
+
+.quiz-review { margin-top: 14px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--color-border-mid); background: var(--color-bg-white); }
+.quiz-review-title { margin: 0 0 10px; }
+.quiz-review-list { margin: 0; padding-left: 18px; }
+.quiz-review-item { margin: 12px 0; line-height: 1.55; }
+.quiz-review-meta { margin-top: 6px; color: var(--neutral-800); }
+.quiz-review-explanation { margin-top: 6px; color: var(--dark-50); }
+
+@media (max-width: 768px) {
+    .quiz-options { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .submit-btn { width: 100%; text-align: center; }
+    .quiz-actions { flex-direction: column; align-items: stretch; }
+}

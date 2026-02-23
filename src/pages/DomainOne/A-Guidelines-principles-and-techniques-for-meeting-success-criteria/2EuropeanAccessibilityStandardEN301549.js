@@ -2,6 +2,8 @@
 import React from "react";
 import "./2EuropeanAccessibilityStandardEN301549.css";
 import ".././index.css";
+import TrueFalseQuiz from "../../../components/TrueFalseQuiz";
+import Example from "../../../components/Example";
 
 function EuropeanAccessibilityStandardEN301549() {
     const questions = React.useMemo(
@@ -80,47 +82,6 @@ function EuropeanAccessibilityStandardEN301549() {
         []
     );
 
-    const [answers, setAnswers] = React.useState(() => ({}));
-    const [submitted, setSubmitted] = React.useState(false);
-    const [showReview, setShowReview] = React.useState(false);
-
-    const results = React.useMemo(() => {
-        const entries = questions.map((q) => {
-            const userAnswer = answers[q.id]; // true/false/undefined
-            const isCorrect = userAnswer === q.correct;
-            return { ...q, userAnswer, isCorrect };
-        });
-
-        const correctCount = entries.filter((e) => e.isCorrect).length;
-        const incorrect = entries.filter((e) => submitted && !e.isCorrect);
-
-        return {
-            entries,
-            correctCount,
-            total: questions.length,
-            incorrect,
-        };
-    }, [answers, questions, submitted]);
-
-    const allAnswered = questions.every((q) => answers[q.id] === true || answers[q.id] === false);
-
-    function setAnswer(questionId, value) {
-        setAnswers((prev) => ({ ...prev, [questionId]: value }));
-        setSubmitted(false);
-        setShowReview(false);
-    }
-
-    function handleSubmit(event) {
-        event.preventDefault();
-        setSubmitted(true);
-        setShowReview(false);
-    }
-
-    function handleReset() {
-        setAnswers({});
-        setSubmitted(false);
-        setShowReview(false);
-    }
 
     return (
         <div className="container en301549">
@@ -230,14 +191,18 @@ function EuropeanAccessibilityStandardEN301549() {
                     that define when a requirement applies. This is sometimes called <strong>self-scoping</strong>.
                 </p>
 
-                <div className="en301549__example" aria-label="Example of self-scoping language">
-                    <p className="en301549__exampleLabel">Example pattern:</p>
-                    <p className="en301549__exampleText">“Where ICT displays video with synchronised audio, it shall…”</p>
+                <Example
+                    classNamePrefix="en301549"
+                    role="note"
+                    ariaLabel="Example of self-scoping language"
+                    label="Example pattern:"
+                    text="“Where ICT displays video with synchronised audio, it shall…”"
+                >
                     <ul className="en301549__bullets">
                         <li>If the precondition isn’t true, the requirement is <strong>not applicable</strong>.</li>
                         <li>If the precondition is true, you evaluate it using the related test guidance (Annex C).</li>
                     </ul>
-                </div>
+                </Example>
 
                 <div className="en301549__callout" role="note" aria-label="Testing note">
                     <h3 className="en301549__calloutTitle">Testing note</h3>
@@ -269,132 +234,14 @@ function EuropeanAccessibilityStandardEN301549() {
                 </ul>
             </footer>
 
-            <section className="en301549__quiz" aria-labelledby="en-quiz-title">
-                <h2 id="en-quiz-title">Quick Check: 10-question True/False Quiz</h2>
-                <p className="en301549__quizIntro">
-                    Answer all questions, then select <strong>Check answers</strong>. You can review only the questions
-                    you got wrong.
-                </p>
+            <TrueFalseQuiz
+                questions={questions}
+                title="Quick Check: 10-question True/False Quiz"
+                intro={"Answer all questions, then select <strong>Check answers</strong>. You can review only the questions you got wrong."}
+                classNamePrefix="en301549"
+            />
 
-                <form onSubmit={handleSubmit} className="en301549__quizForm">
-                    {questions.map((q, index) => {
-                        const currentValue = answers[q.id]; // true/false/undefined
-                        const showPerQuestionFeedback = submitted && (currentValue === true || currentValue === false);
-                        const isCorrect = showPerQuestionFeedback ? currentValue === q.correct : null;
-
-                        return (
-                            <fieldset key={q.id} className="en301549__question">
-                                <legend className="en301549__questionLegend">
-                                    {index + 1}. {q.text}
-                                </legend>
-
-                                <div className="en301549__options" role="radiogroup" aria-label={`Question ${index + 1}`}>
-                                    <label className="en301549__option">
-                                        <input
-                                            type="radio"
-                                            name={q.id}
-                                            value="true"
-                                            checked={currentValue === true}
-                                            onChange={() => setAnswer(q.id, true)}
-                                        />
-                                        True
-                                    </label>
-
-                                    <label className="en301549__option">
-                                        <input
-                                            type="radio"
-                                            name={q.id}
-                                            value="false"
-                                            checked={currentValue === false}
-                                            onChange={() => setAnswer(q.id, false)}
-                                        />
-                                        False
-                                    </label>
-                                </div>
-
-                                {showPerQuestionFeedback && (
-                                    <p
-                                        className={`en301549__feedback ${
-                                            isCorrect ? "en301549__feedback--correct" : "en301549__feedback--incorrect"
-                                        }`}
-                                    >
-                                        <strong>{isCorrect ? "Correct." : "Incorrect."}</strong>{" "}
-                                        <span className="en301549__feedbackText">{q.explanation}</span>
-                                    </p>
-                                )}
-                            </fieldset>
-                        );
-                    })}
-
-                    <div className="en301549__quizActions">
-                        <button type="submit" className="en301549__btn" disabled={!allAnswered}>
-                            Check answers
-                        </button>
-
-                        <button
-                            type="button"
-                            className="en301549__btn en301549__btn--secondary"
-                            onClick={handleReset}
-                        >
-                            Reset
-                        </button>
-
-                        {submitted && (
-                            <button
-                                type="button"
-                                className="en301549__btn en301549__btn--secondary"
-                                onClick={() => setShowReview((prev) => !prev)}
-                            >
-                                {showReview ? "Hide review" : "Review incorrect answers"}
-                            </button>
-                        )}
-                    </div>
-
-                    {!allAnswered && (
-                        <p className="en301549__quizHint" role="status">
-                            Answer all questions to enable <strong>Check answers</strong>.
-                        </p>
-                    )}
-
-                    {submitted && (
-                        <div className="en301549__score" role="status" aria-live="polite">
-                            Score: <strong>{results.correctCount}</strong> / {results.total}
-                        </div>
-                    )}
-
-                    {submitted && showReview && (
-                        <div className="en301549__review" aria-label="Incorrect answers review">
-                            {results.incorrect.length === 0 ? (
-                                <p className="en301549__reviewTitle">
-                                    Nice work—no incorrect answers to review.
-                                </p>
-                            ) : (
-                                <>
-                                    <h3 className="en301549__reviewTitle">Questions to review</h3>
-                                    <ul className="en301549__reviewList">
-                                        {results.incorrect.map((q) => (
-                                            <li key={q.id} className="en301549__reviewItem">
-                                                <div className="en301549__reviewQuestion">
-                                                    <strong>{q.text}</strong>
-                                                </div>
-                                                <div className="en301549__reviewMeta">
-                                                    Your answer:{" "}
-                                                    <strong>
-                                                        {q.userAnswer === true ? "True" : q.userAnswer === false ? "False" : "—"}
-                                                    </strong>
-                                                    {" · "}
-                                                    Correct answer: <strong>{q.correct ? "True" : "False"}</strong>
-                                                </div>
-                                                <div className="en301549__reviewExplanation">{q.explanation}</div>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </>
-                            )}
-                        </div>
-                    )}
-                </form>
-            </section>
+                {/* Removed inline quiz implementation in favor of reusable component */}
         </div>
     );
 }
