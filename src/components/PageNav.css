@@ -1,0 +1,50 @@
+/* components/PageNav.css */
+
+.page-navigation {
+  /* Use a strict two-column grid so buttons never push each other to a new row */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.nav-link {
+  color: var(--pink-900);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--pink-900);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  /* Allow long labels to wrap within the same button */
+  display: block;
+  box-sizing: border-box;
+  min-width: 0; /* allow grid item to shrink within its column */
+  white-space: normal;
+  overflow-wrap: anywhere; /* break long words/URLs if needed */
+  word-break: normal;
+}
+
+/* Align edges similar to original Domain D: left prev, right next */
+.nav-link.prev { text-align: left; justify-self: start; }
+.nav-link.next { text-align: right; justify-self: end; }
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: var(--pink-900);
+  color: white;
+  outline: 2px solid var(--pink-700);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .page-navigation {
+    grid-template-columns: 1fr; /* stack buttons vertically on small screens */
+  }
+  .nav-link {
+    text-align: center;
+  }
+}
