@@ -4,6 +4,7 @@ import "./2EuropeanAccessibilityStandardEN301549.css";
 import ".././index.css";
 import TrueFalseQuiz from "../../../components/TrueFalseQuiz";
 import Example from "../../../components/Example";
+import Callout from "../../../components/Callout";
 
 function EuropeanAccessibilityStandardEN301549() {
     const questions = React.useMemo(
@@ -204,14 +205,13 @@ function EuropeanAccessibilityStandardEN301549() {
                     </ul>
                 </Example>
 
-                <div className="en301549__callout" role="note" aria-label="Testing note">
-                    <h3 className="en301549__calloutTitle">Testing note</h3>
-                    <p className="en301549__calloutText">
-                        Even though Annex C lists tests for requirements, it doesn’t provide a complete step-by-step
-                        testing methodology. You still need sound accessibility knowledge and careful interpretation
-                        when evaluating conformance.
-                    </p>
-                </div>
+                <Callout
+                    classNamePrefix="en301549"
+                    role="note"
+                    ariaLabel="Testing note"
+                    title="Testing note"
+                    text={"Even though Annex C lists tests for requirements, it doesn’t provide a complete step-by-step testing methodology. You still need sound accessibility knowledge and careful interpretation when evaluating conformance."}
+                />
             </section>
 
             <section aria-labelledby="en-adoption">

@@ -38,24 +38,6 @@
     line-height: 1.55;
 }
 
-/* Callouts */
-.en301549__callout {
-    border-left: 6px solid var(--pink-700);
-    background: FFF5F7;
-    padding: 14px 14px;
-    border-radius: 8px;
-    margin: 14px 0;
-}
-
-.en301549__calloutTitle {
-    font-size: 1.05rem;
-    margin: 0 0 6px 0;
-}
-
-.en301549__calloutText {
-    margin: 0;
-    color: var(--neutral-800);
-}
 
 /* Two-column cards */
 .en301549__grid {
