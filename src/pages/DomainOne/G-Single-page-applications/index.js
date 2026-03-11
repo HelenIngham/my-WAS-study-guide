@@ -1,10 +1,11 @@
 import React from "react";
-import "./index.css";
-import ".././index.css"
+import "../../../index.css";
+import PageHeader from "../../../components/PageHeader";
+
 function SinglePageApplications() {
     return (
         <div className="container">
-            <h1>G Single Page Applications</h1>
+            <PageHeader title="G Single Page Applications" />
         </div>
     );
 }

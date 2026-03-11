@@ -1,6 +1,6 @@
 import React from "react";
 import "./4UsersWithCognitiveDisabilities.css";
-import ".././index.css"
+import "../../../index.css"
 function UsersWithCognitiveDisabilities() {
     return (
         <div className="container">

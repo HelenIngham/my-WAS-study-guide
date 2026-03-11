@@ -158,6 +158,27 @@
     --pink-900: var(--violet-700);
 }
 
+/* Global Utility Classes */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.intro-section {
+    margin-bottom: 2rem;
+}
+
+.concepts-section {
+    margin: 2rem 0;
+}
+
 
 
 
@@ -172,22 +193,48 @@ body {
 
 h1, h2, h3 {
     font-family: 'Roboto', sans-serif;
-    color: var(--color-primary);
+    color: var(--pink-900);
     margin-bottom: 16px;
+    margin-top: 24px;
+}
+
+h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--pink-900);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--pink-700);
+    margin-top: 20px;
 }
 
 p {
-    font-size: 16px;
-    margin: 12px 0;
+    font-size: 1rem;
+    margin: 16px 0;
+    line-height: 1.6;
+    color: var(--color-text-primary);
 }
 
-ul {
-    margin: 12px 0;
+ul, ol {
+    margin: 16px 0;
     padding-left: 20px;
 }
 
-ul li {
+ul li, ol li {
     margin-bottom: 8px;
+    line-height: 1.55;
+}
+
+strong {
+    color: var(--pink-700);
+    font-weight: bold;
 }
 
 a {
@@ -203,9 +250,10 @@ a:hover {
 .container {
     max-width: 900px;
     margin: 20px auto; /* Center page, add margin space */
-    background-color: white;
+    background-color: var(--color-bg-white, white);
+    border: 1px solid var(--color-border-light, #d0d7dc);
     border-radius: 10px;
-    box-shadow: var(--shadow-sm); /* Light shadow for depth */
+    box-shadow: var(--shadow-sm, 0 4px 8px rgba(0, 0, 0, 0.10)); /* Light shadow for depth */
     padding: 24px;
     overflow: hidden;
 }
@@ -219,9 +267,10 @@ a:hover {
 .container h1 {
     font-size: 2rem;
     text-align: left;
-    border-bottom: 2px solid var(--color-primary); /* Underline effect */
+    border-bottom: 2px solid var(--pink-900); /* Underline effect */
     padding-bottom: 10px;
     margin-bottom: 20px;
+    margin-top: 0;
 }
 
 .container h2 {
@@ -230,7 +279,7 @@ a:hover {
 
 .container h3 {
     font-size: 1.5rem;
-    color: var(--color-primary);
+    color: var(--pink-700);
 }
 
 /* Sticky footer layout */
@@ -259,10 +308,13 @@ html, body {
         font-size: 1.8rem;
     }
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
     h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+    p, ul li, ol li {
+        font-size: 0.95rem;
     }
 }
 
@@ -277,5 +329,41 @@ html, body {
     }
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 
+
+
+
+/* Sub-list styling for nested lists */
+.sub-list {
+    list-style-type: circle;
+    padding-left: 20px;
+    margin-top: 8px;
+}
+
+/* Subdomain List Styles */
+.domain-subsections {
+    list-style-type: none;
+    padding: 0;
+}
+
+.domain-subsections li {
+    margin: 8px 0;
+}
+
+.domain-subsections a {
+    text-decoration: none;
+    color: var(--pink-800);
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.domain-subsections a:hover {
+    color: var(--pink-800);
+    text-decoration: underline;
+}

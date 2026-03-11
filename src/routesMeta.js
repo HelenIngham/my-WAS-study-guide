@@ -4,8 +4,6 @@
 
 export const routes = [
   { path: '/', label: 'Home' },
-  { path: '/resources', label: 'Resources' },
-
   // Domain One overview
   { path: '/domain-one', label: 'Domain One — Creating Accessible Web Solutions' },
 
@@ -120,6 +118,7 @@ export const routes = [
   { path: '/domain-three/c/conformance-reports', label: 'Accessibility Conformance Reports' },
   { path: '/domain-three/c/mitigating-defects', label: 'Mitigating Accessibility Defects' },
   { path: '/domain-three/c/procurement-maturity-model', label: 'Using an Accessible Procurement Maturity Model' },
+  { path: '/resources', label: 'Resources' },
 ];
 
 export function getPrevNext(pathname) {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./2CustomControls.css";
-import ".././index.css"
+import "../../../index.css"
 function CustomControls() {
     return (
         <div className="container">

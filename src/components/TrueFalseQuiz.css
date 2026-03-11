@@ -37,13 +37,16 @@
 .en301549__options {
     display: flex;
     gap: 16px;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     margin-top: 10px;
 }
 
 .en301549__option {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
     gap: 8px;
     font-weight: 600;
     color: var(--neutral-800);
@@ -52,6 +55,8 @@
 .en301549__option input {
     width: 18px;
     height: 18px;
+    flex-shrink: 0;
+    margin-top: 3px;
 }
 
 .en301549__feedback {
@@ -203,9 +208,9 @@
 
 .quiz-legend { font-weight: 800; color: var(--color-text-primary); padding: 0 4px; }
 
-.quiz-options { display: flex; gap: 16px; align-items: center; margin-top: 10px; }
+.quiz-options { display: flex; gap: 16px; align-items: flex-start; justify-content: flex-start; margin-top: 10px; }
 
-.quiz-option { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--neutral-800); }
+.quiz-option { display: inline-flex; align-items: flex-start; justify-content: flex-start; text-align: left; gap: 8px; font-weight: 600; color: var(--neutral-800); }
 .quiz-option input { width: 18px; height: 18px; }
 
 .quiz-feedback { margin: 10px 0 0; padding: 10px 12px; border-radius: 8px; }

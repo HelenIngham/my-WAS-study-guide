@@ -1,13 +1,17 @@
 
-import React, { useState } from 'react';
-import './2ARIAAuthoringPracticeGuide.css';
+import React, { useMemo } from 'react';
+import Grid from "../../../components/Grid";
+import Card from "../../../components/Card";
+import CardList from "../../../components/CardList";
+import Alert from "../../../components/Alert";
+import ResourceLink from "../../../components/ResourceLink";
+import FlashcardSet from "../../../components/FlashcardSet";
+import Accordion from "../../../components/Accordion";
+
+import PageHeader from "../../../components/PageHeader";
 
 function ARIAAuthoringPracticeGuide() {
-    const [expandedWidget, setExpandedWidget] = useState(null);
-    const [flashcardIndex, setFlashcardIndex] = useState(0);
-    const [isFlipped, setIsFlipped] = useState(false);
-
-    const flashcards = [
+    const flashcards = useMemo(() => [
         {
             front: "What is the ARIA Authoring Practices Guide (APG)?",
             back: "A W3C resource that provides guidance on how to use WAI-ARIA to create accessible widgets and interactions. It includes design patterns, keyboard interactions, and code examples."
@@ -28,195 +32,177 @@ function ARIAAuthoringPracticeGuide() {
             front: "What is the difference between 'menu' and 'menubar' roles?",
             back: "A menu is a container for menu items (like a dropdown). A menubar is a horizontal menu typically at the top of an application, containing menus or menuitems."
         }
-    ];
+    ], []);
 
-    const widgetPatterns = [
+    const widgetPatterns = useMemo(() => [
         {
             id: 'accordion',
-            name: 'Accordion',
+            title: 'Accordion',
             description: 'A vertically stacked set of interactive headings that reveal/hide associated content sections.',
-            keyboardBehavior: [
-                'Enter/Space: Toggle expanded state of focused header',
-                'Tab: Move between accordion headers',
-                'Down Arrow: Move focus to next header (optional)',
-                'Up Arrow: Move focus to previous header (optional)'
-            ],
-            ariaUsage: [
-                'button role on headers (or use <button>)',
-                'aria-expanded on buttons',
-                'aria-controls pointing to panel ID',
-                'region role on panels (optional)'
-            ]
+            content: (
+                <>
+                    <div className="detail-section">
+                        <h4>Keyboard Interaction</h4>
+                        <CardList>
+                            <li>Enter/Space: Toggle expanded state of focused header</li>
+                            <li>Tab: Move between accordion headers</li>
+                            <li>Down Arrow: Move focus to next header (optional)</li>
+                            <li>Up Arrow: Move focus to previous header (optional)</li>
+                        </CardList>
+                    </div>
+                    <div className="detail-section">
+                        <h4>ARIA Requirements</h4>
+                        <CardList>
+                            <li><code>button role on headers (or use &lt;button&gt;)</code></li>
+                            <li><code>aria-expanded on buttons</code></li>
+                            <li><code>aria-controls pointing to panel ID</code></li>
+                            <li><code>region role on panels (optional)</code></li>
+                        </CardList>
+                    </div>
+                </>
+            )
         },
         {
             id: 'dialog',
-            name: 'Modal Dialog',
+            title: 'Modal Dialog',
             description: 'A dialog that requires user interaction before returning to the main content.',
-            keyboardBehavior: [
-                'Tab: Move focus to next focusable element inside dialog',
-                'Shift+Tab: Move focus to previous focusable element',
-                'Escape: Close the dialog',
-                'Focus must be trapped within the dialog'
-            ],
-            ariaUsage: [
-                'role="dialog" or role="alertdialog"',
-                'aria-modal="true"',
-                'aria-labelledby pointing to dialog title',
-                'aria-describedby for dialog description (optional)'
-            ]
+            content: (
+                <>
+                    <div className="detail-section">
+                        <h4>Keyboard Interaction</h4>
+                        <CardList>
+                            <li>Tab: Move focus to next focusable element inside dialog</li>
+                            <li>Shift+Tab: Move focus to previous focusable element</li>
+                            <li>Escape: Close the dialog</li>
+                            <li>Focus must be trapped within the dialog</li>
+                        </CardList>
+                    </div>
+                    <div className="detail-section">
+                        <h4>ARIA Requirements</h4>
+                        <CardList>
+                            <li><code>role="dialog" or role="alertdialog"</code></li>
+                            <li><code>aria-modal="true"</code></li>
+                            <li><code>aria-labelledby pointing to dialog title</code></li>
+                            <li><code>aria-describedby for dialog description (optional)</code></li>
+                        </CardList>
+                    </div>
+                </>
+            )
         },
         {
             id: 'tabs',
-            name: 'Tabs',
+            title: 'Tabs',
             description: 'A set of layered sections of content where only one panel is displayed at a time.',
-            keyboardBehavior: [
-                'Tab: Move into/out of the tab list',
-                'Left/Right Arrow: Navigate between tabs',
-                'Home: First tab (optional)',
-                'End: Last tab (optional)'
-            ],
-            ariaUsage: [
-                'role="tablist" on container',
-                'role="tab" on each tab',
-                'role="tabpanel" on each panel',
-                'aria-selected on tabs',
-                'aria-controls/aria-labelledby relationships'
-            ]
+            content: (
+                <>
+                    <div className="detail-section">
+                        <h4>Keyboard Interaction</h4>
+                        <CardList>
+                            <li>Tab: Move into/out of the tab list</li>
+                            <li>Left/Right Arrow: Navigate between tabs</li>
+                            <li>Home: First tab (optional)</li>
+                            <li>End: Last tab (optional)</li>
+                        </CardList>
+                    </div>
+                    <div className="detail-section">
+                        <h4>ARIA Requirements</h4>
+                        <CardList>
+                            <li><code>role="tablist" on container</code></li>
+                            <li><code>role="tab" on each tab</code></li>
+                            <li><code>role="tabpanel" on each panel</code></li>
+                            <li><code>aria-selected on tabs</code></li>
+                            <li><code>aria-controls/aria-labelledby relationships</code></li>
+                        </CardList>
+                    </div>
+                </>
+            )
         },
         {
             id: 'combobox',
-            name: 'Combobox',
+            title: 'Combobox',
             description: 'An input widget with an associated popup for suggesting values.',
-            keyboardBehavior: [
-                'Down Arrow: Open popup, move to first/next option',
-                'Up Arrow: Open popup, move to last/previous option',
-                'Enter: Select focused option',
-                'Escape: Close popup',
-                'Type characters: Filter options'
-            ],
-            ariaUsage: [
-                'role="combobox" on input',
-                'aria-expanded indicates popup state',
-                'aria-autocomplete indicates filtering behavior',
-                'aria-activedescendant for virtual focus',
-                'role="listbox" or "grid" on popup'
-            ]
+            content: (
+                <>
+                    <div className="detail-section">
+                        <h4>Keyboard Interaction</h4>
+                        <CardList>
+                            <li>Down Arrow: Open popup, move to first/next option</li>
+                            <li>Up Arrow: Open popup, move to last/previous option</li>
+                            <li>Enter: Select focused option</li>
+                            <li>Escape: Close popup</li>
+                            <li>Type characters: Filter options</li>
+                        </CardList>
+                    </div>
+                    <div className="detail-section">
+                        <h4>ARIA Requirements</h4>
+                        <CardList>
+                            <li><code>role="combobox" on input</code></li>
+                            <li><code>aria-expanded indicates popup state</code></li>
+                            <li><code>aria-autocomplete indicates filtering behavior</code></li>
+                            <li><code>aria-activedescendant for virtual focus</code></li>
+                            <li><code>role="listbox" or "grid" on popup</code></li>
+                        </CardList>
+                    </div>
+                </>
+            )
         },
         {
             id: 'slider',
-            name: 'Slider',
+            title: 'Slider',
             description: 'An input where the user selects a value from within a given range.',
-            keyboardBehavior: [
-                'Right/Up Arrow: Increase value',
-                'Left/Down Arrow: Decrease value',
-                'Home: Set to minimum value',
-                'End: Set to maximum value',
-                'Page Up/Down: Larger increment changes'
-            ],
-            ariaUsage: [
-                'role="slider"',
-                'aria-valuenow: Current value',
-                'aria-valuemin: Minimum value',
-                'aria-valuemax: Maximum value',
-                'aria-valuetext: Human-readable value (optional)'
-            ]
+            content: (
+                <>
+                    <div className="detail-section">
+                        <h4>Keyboard Interaction</h4>
+                        <CardList>
+                            <li>Right/Up Arrow: Increase value</li>
+                            <li>Left/Down Arrow: Decrease value</li>
+                            <li>Home: Set to minimum value</li>
+                            <li>End: Set to maximum value</li>
+                            <li>Page Up/Down: Larger increment changes</li>
+                        </CardList>
+                    </div>
+                    <div className="detail-section">
+                        <h4>ARIA Requirements</h4>
+                        <CardList>
+                            <li><code>role="slider"</code></li>
+                            <li><code>aria-valuenow: Current value</code></li>
+                            <li><code>aria-valuemin: Minimum value</code></li>
+                            <li><code>aria-valuemax: Maximum value</code></li>
+                            <li><code>aria-valuetext: Human-readable value (optional)</code></li>
+                        </CardList>
+                    </div>
+                </>
+            )
         }
-    ];
-
-    const toggleWidget = (id) => {
-        setExpandedWidget(expandedWidget === id ? null : id);
-    };
-
-    const nextCard = () => {
-        setIsFlipped(false);
-        setTimeout(() => {
-            setFlashcardIndex((prev) => (prev + 1) % flashcards.length);
-        }, 200);
-    };
-
-    const prevCard = () => {
-        setIsFlipped(false);
-        setTimeout(() => {
-            setFlashcardIndex((prev) => (prev - 1 + flashcards.length) % flashcards.length);
-        }, 200);
-    };
+    ], []);
 
     return (
         <div className="container">
 
-            <h1>ARIA Authoring Practices Guide</h1>
-
-            <section className="intro-section">
-                <h2>About the APG</h2>
-                <p>
-                    The <strong>ARIA Authoring Practices Guide (APG)</strong> is an essential W3C resource that
-                    provides developers with guidance on how to build accessible custom widgets using WAI-ARIA.
-                    It documents design patterns for common UI components including expected keyboard behaviors
-                    and required ARIA attributes.
-                </p>
-
-                <div className="resource-link">
-                    <a
-                        href="https://www.w3.org/WAI/ARIA/apg/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Visit the ARIA Authoring Practices Guide ↗
-                    </a>
-                </div>
-            </section>
+            <PageHeader 
+                title="ARIA Authoring Practices Guide"
+                lede={
+                    <>
+                        The <strong>ARIA Authoring Practices Guide (APG)</strong> is an essential W3C resource that
+                        provides developers with guidance on how to build accessible custom widgets using WAI-ARIA.
+                        It documents design patterns for common UI components including expected keyboard behaviors
+                        and required ARIA attributes.
+                    </>
+                }
+            >
+                <ResourceLink 
+                    href="https://www.w3.org/WAI/ARIA/apg/" 
+                    text="Visit the ARIA Authoring Practices Guide ↗" 
+                />
+            </PageHeader>
 
             {/* Flashcard Study Section */}
             <section className="flashcard-section" aria-labelledby="flashcard-heading">
                 <h2 id="flashcard-heading">Flashcard Study</h2>
                 <p>Test your knowledge with these flashcards. Click to flip!</p>
 
-                <div className="flashcard-container">
-                    <button
-                        className="flashcard-nav prev"
-                        onClick={prevCard}
-                        aria-label="Previous flashcard"
-                    >
-                        ←
-                    </button>
-
-                    <div
-                        className={`flashcard ${isFlipped ? 'flipped' : ''}`}
-                        onClick={() => setIsFlipped(!isFlipped)}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter' || e.key === ' ') {
-                                e.preventDefault();
-                                setIsFlipped(!isFlipped);
-                            }
-                        }}
-                        tabIndex={0}
-                        role="button"
-                        aria-pressed={isFlipped}
-                        aria-label={`Flashcard ${flashcardIndex + 1} of ${flashcards.length}. ${isFlipped ? 'Showing answer' : 'Click to reveal answer'}`}
-                    >
-                        <div className="flashcard-inner">
-                            <div className="flashcard-front">
-                                <p>{flashcards[flashcardIndex].front}</p>
-                                <span className="flip-hint">Click to flip</span>
-                            </div>
-                            <div className="flashcard-back">
-                                <p>{flashcards[flashcardIndex].back}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button
-                        className="flashcard-nav next"
-                        onClick={nextCard}
-                        aria-label="Next flashcard"
-                    >
-                        →
-                    </button>
-                </div>
-
-                <p className="flashcard-counter" aria-live="polite">
-                    Card {flashcardIndex + 1} of {flashcards.length}
-                </p>
+                <FlashcardSet cards={flashcards} />
             </section>
 
             {/* Widget Patterns */}
@@ -227,102 +213,54 @@ function ARIAAuthoringPracticeGuide() {
                     you should know for the WAS exam:
                 </p>
 
-                <div className="widget-list">
-                    {widgetPatterns.map((widget) => (
-                        <article key={widget.id} className="widget-card">
-                            <h3>
-                                <button
-                                    className="widget-toggle"
-                                    onClick={() => toggleWidget(widget.id)}
-                                    aria-expanded={expandedWidget === widget.id}
-                                    aria-controls={`widget-content-${widget.id}`}
-                                >
-                                    <span className="widget-name">{widget.name}</span>
-                                    <span className="toggle-icon" aria-hidden="true">
-                                        {expandedWidget === widget.id ? '−' : '+'}
-                                    </span>
-                                </button>
-                            </h3>
-                            <p className="widget-description">{widget.description}</p>
-
-                            {expandedWidget === widget.id && (
-                                <div
-                                    id={`widget-content-${widget.id}`}
-                                    className="widget-details"
-                                >
-                                    <div className="detail-section">
-                                        <h4>Keyboard Interaction</h4>
-                                        <ul>
-                                            {widget.keyboardBehavior.map((behavior, idx) => (
-                                                <li key={idx}>{behavior}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    <div className="detail-section">
-                                        <h4>ARIA Requirements</h4>
-                                        <ul>
-                                            {widget.ariaUsage.map((usage, idx) => (
-                                                <li key={idx}><code>{usage}</code></li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            )}
-                        </article>
-                    ))}
-                </div>
+                <Accordion items={widgetPatterns} />
             </section>
 
             {/* Key Concepts */}
             <section className="concepts-section" aria-labelledby="concepts-heading">
                 <h2 id="concepts-heading">Key Concepts from the APG</h2>
 
-                <div className="concept-grid">
-                    <article className="concept-card">
-                        <h3>Design Patterns vs. Examples</h3>
+                <Grid classNamePrefix="concept" role="list" ariaLabel="Key Concepts from the APG">
+                    <Card classNamePrefix="concept" title="Design Patterns vs. Examples">
                         <p>
                             The APG provides both abstract <strong>design patterns</strong> (the requirements)
                             and concrete <strong>examples</strong> (implementations). Always refer to the
                             pattern documentation, not just copy code from examples.
                         </p>
-                    </article>
+                    </Card>
 
-                    <article className="concept-card">
-                        <h3>Keyboard Navigation Models</h3>
+                    <Card classNamePrefix="concept" title="Keyboard Navigation Models">
                         <p>
                             The APG defines two main keyboard navigation models:
                         </p>
-                        <ul>
+                        <CardList>
                             <li><strong>Roving tabindex:</strong> Only one element in a group is in the tab order at a time</li>
                             <li><strong>aria-activedescendant:</strong> Focus stays on container, virtual focus is managed</li>
-                        </ul>
-                    </article>
+                        </CardList>
+                    </Card>
 
-                    <article className="concept-card">
-                        <h3>Progressive Enhancement</h3>
+                    <Card classNamePrefix="concept" title="Progressive Enhancement">
                         <p>
                             The APG recommends starting with native HTML elements and only adding ARIA when
                             necessary. This ensures basic functionality even if JavaScript fails.
                         </p>
-                    </article>
+                    </Card>
 
-                    <article className="concept-card">
-                        <h3>Focus Management</h3>
+                    <Card classNamePrefix="concept" title="Focus Management">
                         <p>
                             Custom widgets must manage focus appropriately. This includes:
                         </p>
-                        <ul>
+                        <CardList>
                             <li>Setting initial focus</li>
                             <li>Moving focus on user interaction</li>
                             <li>Returning focus after closing popups</li>
-                        </ul>
-                    </article>
-                </div>
+                        </CardList>
+                    </Card>
+                </Grid>
             </section>
 
             {/* Study Tips */}
-            <section className="tips-section" aria-labelledby="tips-heading">
-                <h2 id="tips-heading">Exam Study Tips</h2>
+            <Alert type="info" title="Exam Study Tips">
                 <ul className="tips-list">
                     <li>
                         <strong>Memorize keyboard interactions</strong> for common widgets like tabs, dialogs,
@@ -339,7 +277,7 @@ function ARIAAuthoringPracticeGuide() {
                         <strong>Practice identifying issues</strong> in code examples that don't follow APG patterns
                     </li>
                 </ul>
-            </section>
+            </Alert>
 
         </div>
     );

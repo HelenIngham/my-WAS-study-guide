@@ -1,12 +1,13 @@
 
 import React from "react";
 import "./2SemanticHTMLandCustomControls.css";
-import ".././index.css"
+import "../../../index.css";
+import PageHeader from "../../../components/PageHeader";
+
 function SemanticHTMLandCustomControls() {
     return (
         <div className="container">
-            <h1>2 Semantic HTML and Custom Controls</h1>
-
+            <PageHeader title="2 Semantic HTML and Custom Controls" />
         </div>
     );
 }

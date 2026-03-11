@@ -1,7 +1,7 @@
 
 import React from "react";
 import "./1SupportForJavaScriptInAccessibilityAPIsAssistiveTechnologies.css";
-import ".././index.css"
+import "../../../index.css"
 function SupportForJavaScriptInAccessibilityAPIsAssistiveTechnologies() {
     return (
         <div className="container">

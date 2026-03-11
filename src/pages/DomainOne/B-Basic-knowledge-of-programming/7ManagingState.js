@@ -1,6 +1,6 @@
 import React from "react";
 import "./7ManagingState.css";
-import ".././index.css"
+import "../../../index.css"
 function ManagingState() {
     return (
         <div className="container">

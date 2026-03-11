@@ -1,6 +1,5 @@
 import React from "react";
-import "./index.css";
-import ".././index.css"
+import "../../../index.css"
 function AccessibilitySupportedTechnologies() {
     return (
         <div className="container">

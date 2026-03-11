@@ -1,6 +1,6 @@
 import React from "react";
 import "./3DeviceIndependentEventHandlers.css";
-import ".././index.css"
+import "../../../index.css"
 function DeviceIndependentEventHandlers() {
     return (
         <div className="container">
