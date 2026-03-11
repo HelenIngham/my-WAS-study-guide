@@ -1,0 +1,27 @@
+/* components/Callout.css */
+/* Provide both prefixed (e.g., .en301549__*) and generic (.callout*) class names */
+
+/* Container */
+.en301549__callout,
+.callout {
+  border-left: 6px solid var(--pink-700);
+  background: var(--pink-100, #FFF5F7);
+  padding: 14px 14px;
+  border-radius: 8px;
+  margin: 14px 0;
+}
+
+/* Title */
+.en301549__calloutTitle,
+.callout__title {
+  font-size: 1.05rem;
+  margin: 0 0 6px 0;
+  color: var(--pink-600);
+}
+
+/* Text */
+.en301549__calloutText,
+.callout__text {
+  margin: 0;
+  color: var(--neutral-800);
+}

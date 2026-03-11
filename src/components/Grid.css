@@ -1,0 +1,35 @@
+/* components/Grid.css */
+/* Grid layout with BEM support and generic fallbacks */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.comparison-grid,
+.values-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 1.5rem 0;
+}
+
+.concept-grid,
+.roles-grid,
+.impact-grid,
+.tools-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.tools-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Default responsive for stacked view on mobile */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr !important;
+  }
+}

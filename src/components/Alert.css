@@ -1,0 +1,66 @@
+/* components/Alert.css */
+/* Reusable Alert/Box component with semantic types */
+
+.alert {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+/* Common title and content styling */
+.alert__title,
+.alertTitle {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: inherit; /* inherit color from type variant */
+}
+
+.alert__content,
+.alertContent {
+  font-size: 1rem;
+}
+
+/* Type variants mapping to semantic variables */
+.alert--info {
+  background-color: var(--color-info-bg);
+  border-left: 4px solid var(--color-info);
+  color: var(--color-text-primary);
+}
+.alert--info .alert__title {
+  color: var(--color-info);
+}
+
+.alert--warning {
+  background-color: var(--color-warning-bg);
+  border-left: 4px solid var(--color-warning);
+  color: var(--color-text-primary);
+}
+.alert--warning .alert__title {
+  color: var(--color-warning);
+}
+
+.alert--success {
+  background-color: var(--color-success-bg);
+  border-left: 4px solid var(--color-success);
+  color: var(--color-text-primary);
+}
+.alert--success .alert__title {
+  color: var(--color-success);
+}
+
+.alert--error {
+  background-color: var(--color-error-bg);
+  border-left: 4px solid var(--color-error);
+  color: var(--color-text-primary);
+}
+.alert--error .alert__title {
+  color: var(--color-error);
+}
+
+/* BEM fallback/prefix compatibility */
+[class*="__alert"] {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}

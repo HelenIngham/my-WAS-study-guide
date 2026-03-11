@@ -1,0 +1,98 @@
+/* components/Card.css */
+/* Provide both prefixed (e.g., .en301549__*) and generic (.card*) class names */
+
+.card {
+  border: 1px solid var(--color-border-mid);
+  background: var(--color-bg-white);
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.role-card,
+.impact-card,
+.value-card {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--color-code-bg)fafafa;
+}
+
+.value-card.good {
+  background-color: var(--color-success-bg);
+  border: 1px solid var(--color-success);
+}
+
+.value-card.bad {
+  background-color: var(--color-error-bg);
+  border: 1px solid var(--color-error);
+}
+
+.value-card h3 {
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+}
+
+.value-card.good h3 {
+  color: var(--color-success);
+}
+
+.value-card.bad h3 {
+  color: var(--color-error);
+}
+
+.impact-card {
+  background-color: var(--color-bg-white);
+  padding: 1.25rem;
+}
+
+.tool-card {
+  background-color: var(--color-bg-card-hover);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.concept-card {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.card__title {
+  font-size: 1rem;
+  margin: 0 0 8px 0;
+}
+
+/* Badge styles moved from Keyboard Interaction page */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.value-card.good .badge {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.badge.warning {
+    background-color: var(--color-error);
+    color: white;
+}
+
+.concept-card h3,
+.impact-card h3 {
+  font-size: 1.1rem;
+  border-bottom: 2px solid var(--pink-900);
+  padding-bottom: 0.5rem;
+}
+
+.concept-card code {
+  background-color: var(--color-border);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}

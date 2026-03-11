@@ -1,0 +1,49 @@
+/* components/FlashcardSet.css */
+
+.flashcard-set {
+  text-align: center;
+}
+
+.flashcard-container {
+  display: grid;
+  grid-template-columns: 3rem 1fr 3rem; /* fixed arrows, flexible center */
+  align-items: center;
+  column-gap: 1rem;
+  justify-items: center; /* center the card in the middle column */
+  margin: 1.5rem 0;
+}
+
+.flashcard-nav {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flashcard-nav:hover,
+.flashcard-nav:focus {
+  background-color: var(--color-primary-light);
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.flashcard-counter {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .flashcard-nav {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+}

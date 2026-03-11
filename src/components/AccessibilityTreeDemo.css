@@ -1,0 +1,139 @@
+/* components/AccessibilityTreeDemo.css */
+
+.tree-demo-section {
+  margin: 2rem 0;
+}
+
+.tree-demo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.html-examples {
+  background-color: var(--color-bg-card-hover);
+  padding: 1.25rem;
+  border-radius: 8px;
+}
+
+.html-examples h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.html-examples ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.html-example {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.html-example:hover {
+  border-color: var(--pink-900);
+  background-color: var(--color-bg-card-hover);
+}
+
+.html-example:focus {
+  outline: 2px solid var(--pink-900);
+  outline-offset: 2px;
+}
+
+.html-example.selected {
+  background-color: var(--pink-900);
+  border-color: var(--pink-900);
+}
+
+.html-example.selected code {
+  color: white;
+}
+
+.html-example code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+  word-break: break-all;
+}
+
+.tree-output {
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: 1.25rem;
+  border-radius: 8px;
+}
+
+.tree-output h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--color-text-secondary);
+  padding-bottom: 0.5rem;
+}
+
+.node-details dl {
+  margin: 0;
+}
+
+.node-details dt {
+  color: var(--neutral-500);
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.node-details dd {
+  margin: 0.25rem 0 0 0;
+  font-size: 1rem;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--pink-900);
+  color: white;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.state-badge {
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  background-color: var(--color-info);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+}
+
+.no-states {
+  color: var(--neutral-500);
+  font-style: italic;
+}
+
+.node-description {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-text-secondary);
+  color: var(--color-border-mid);
+  font-size: 0.9rem;
+}
+
+.select-prompt {
+  color: var(--neutral-500);
+  font-style: italic;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .tree-demo {
+    grid-template-columns: 1fr;
+  }
+}

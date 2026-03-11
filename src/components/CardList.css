@@ -1,0 +1,16 @@
+/* CardList.css
+   Reusable list styles to be used inside cards.
+   Supports BEM-style prefixes and provides generic fallbacks.
+*/
+
+/* Prefixed (e.g., en301549) and generic */
+.en301549__cardList,
+.card-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.en301549__cardList li,
+.card-list li {
+  margin: 6px 0;
+}

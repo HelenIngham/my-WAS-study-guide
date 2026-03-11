@@ -1,0 +1,81 @@
+/* components/Flashcard.css */
+
+.flashcard {
+  width: min(400px, 100%);
+  max-width: 100%;
+  height: 250px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flashcard:focus {
+  outline: 3px solid var(--color-primary-light);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.flashcard-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+}
+
+.flashcard-front {
+  background-color: white;
+  border: 2px solid var(--color-primary);
+}
+
+.flashcard-front p {
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-hint {
+  position: absolute;
+  bottom: 1rem;
+  font-size: 0.8rem;
+  color: var(--color-text-subtle);
+}
+
+.flashcard-back {
+  background-color: var(--color-primary);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flashcard-back p {
+  font-size: 1rem;
+  white-space: pre-line;
+  text-align: left;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .flashcard {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+  }
+}

@@ -1,0 +1,28 @@
+/* components/IconButton.css */
+/* Styles for icon-only buttons with consistent appearance and accessibility */
+
+/* Base icon-button styling, including BEM-prefixed and generic classes */
+.icon-button,
+[class$="__iconButton"] {
+    background-color: var(--pink-800);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, outline 0.2s ease;
+}
+
+.icon-button:hover,
+.icon-button:focus,
+[class$="__iconButton"]:hover,
+[class$="__iconButton"]:focus {
+    background-color: var(--pink-700);
+    outline: 2px solid var(--pink-800);
+    outline-offset: 2px;
+}

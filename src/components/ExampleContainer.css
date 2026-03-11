@@ -1,0 +1,80 @@
+/* components/ExampleContainer.css */
+/* Styles extracted from 1UnderstandingAccessibleNamesAndDescriptions.css to make example container reusable. */
+/* Supports both generic and BEM-style prefixes if needed in the future. */
+
+.example-container {
+    background-color: var(--color-bg-card);
+    border-radius: 8px;
+    margin: 1rem 0 2rem 0;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.example-demo {
+    padding: 1.5rem;
+    background-color: white;
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Generic styling for elements inside the demo area */
+.example-demo label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.example-demo input {
+    padding: 0.5rem;
+    border: 1px solid var(--color-border-mid);
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.example-demo input:focus {
+    outline: 2px solid var(--pink-800);
+    outline-offset: 2px;
+}
+
+.example-demo .hint {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+}
+
+.example-code {
+    margin: 0;
+    padding: 1rem;
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
+    overflow-x: auto;
+}
+
+.example-code code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+/* Support for classNamePrefix if provided (e.g., .en301549__exampleContainer) */
+[class$="__exampleContainer"] {
+    background-color: var(--color-bg-card);
+    border-radius: 8px;
+    margin: 1rem 0 2rem 0;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+[class$="__exampleDemo"] {
+    padding: 1.5rem;
+    background-color: white;
+    border-bottom: 1px solid var(--color-border);
+}
+
+[class$="__exampleCode"] {
+    margin: 0;
+    padding: 1rem;
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
+    overflow-x: auto;
+}

@@ -1,0 +1,27 @@
+/* ExamTakeaway.css
+   Styles extracted from EN 301 549 page to make the takeaway component reusable.
+   Preserves existing BEM classes when a classNamePrefix (e.g., en301549) is provided.
+   Also provides generic classnames when no prefix is supplied.
+*/
+
+/* ===== Prefixed (e.g., en301549) selectors ===== */
+.en301549__takeaway {
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 2px solid var(--neutral-220);
+}
+
+.en301549__takeawayTitle {
+    margin-top: 0;
+}
+
+/* ===== Generic (no-prefix) selectors ===== */
+.exam-takeaway {
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 2px solid var(--neutral-220);
+}
+
+.exam-takeaway__title {
+    margin-top: 0;
+}

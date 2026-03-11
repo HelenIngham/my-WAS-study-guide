@@ -1,0 +1,28 @@
+/* components/ResourceLink.css */
+/* Styles extracted from ARIAAuthoringPracticeGuide.css for reusable resource links */
+
+.resource-link,
+[class*="__resource-link"] {
+    margin-top: 1rem;
+}
+
+.resource-link a,
+[class*="__resource-link"] a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.resource-link a:hover,
+.resource-link a:focus,
+[class*="__resource-link"] a:hover,
+[class*="__resource-link"] a:focus {
+    background-color: var(--color-primary-light);
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}

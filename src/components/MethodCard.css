@@ -1,0 +1,52 @@
+/* components/MethodCard.css */
+
+.method-card {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.method-card h3,
+.method-card__title {
+  border-bottom: 2px solid var(--pink-800);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.method-card pre,
+.method-card__code {
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  margin: 1rem 0;
+}
+
+.method-card code,
+.method-card__code code {
+  font-family: 'Courier New', monospace;
+}
+
+.pros-cons {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+
+.pros-cons li {
+  padding: 0.25rem 0;
+  line-height: 1.4;
+}
+
+.pros-cons .pro {
+  color: var(--color-success);
+}
+
+.pros-cons .con {
+  color: var(--color-error);
+}

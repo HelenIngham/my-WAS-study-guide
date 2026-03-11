@@ -1,0 +1,25 @@
+/* components/PageHeader.css */
+/* Styles for PageHeader component, preserving BEM names when prefixed. */
+
+/* Container */
+.en301549__header,
+.page-header {
+    margin-bottom: 18px;
+}
+
+/* Lede/Description text */
+.en301549__lede,
+.page-header__lede {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--dark-50);
+    margin: 12px 0 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .en301549__lede,
+    .page-header__lede {
+        font-size: 1rem;
+    }
+}

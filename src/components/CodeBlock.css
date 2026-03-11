@@ -1,0 +1,21 @@
+/* components/CodeBlock.css */
+
+.code-example {
+  margin: 1.5rem 0;
+}
+
+.code-example h4,
+.code-example__title {
+  color: var(--pink-900);
+  margin-bottom: 0.5rem;
+}
+
+.code-example pre,
+.code-example__pre {
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
