@@ -25,3 +25,9 @@
 .exam-takeaway__title {
     margin-top: 0;
 }
+
+.exam-takeaway__text,
+.en301549__takeawayText {
+    margin-top: 12px;
+}
+

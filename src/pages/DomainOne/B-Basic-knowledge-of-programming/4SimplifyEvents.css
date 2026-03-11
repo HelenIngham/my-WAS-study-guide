@@ -1,0 +1,166 @@
+.demo-container {
+    background-color: var(--blue-050);
+    border: 2px solid var(--blue-200);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-sizing: border-box;
+}
+
+.demo-container * {
+    box-sizing: border-box;
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.demo-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.demo-column nav {
+    margin-bottom: 1.5rem;
+}
+
+.demo-subheading {
+    margin-top: 0;
+    color: var(--blue-700);
+    font-size: 1.1rem;
+}
+
+.demo-description {
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    min-height: 3rem; /* Ensure menus are aligned horizontally by giving descriptions a consistent height */
+}
+
+.demo-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+}
+
+.demo-menu-item {
+    position: relative;
+    width: 100%;
+}
+
+.demo-link, .demo-button {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: white;
+    border: 2px solid var(--blue-700);
+    color: var(--blue-700);
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.demo-badge {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    background-color: var(--orange-700);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    text-align: center;
+}
+
+.demo-button {
+    appearance: none;
+}
+
+.demo-link:hover, .demo-button:hover,
+.demo-link:focus, .demo-button:focus {
+    background-color: var(--blue-100);
+    outline: 2px solid var(--blue-800);
+    outline-offset: 2px;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.demo-submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    list-style: none;
+    padding: 0.5rem;
+    margin: 0;
+    background-color: white;
+    border: 1px solid var(--blue-200);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.demo-submenu li {
+    margin-bottom: 0.5rem;
+}
+
+.demo-submenu li:last-child {
+    margin-bottom: 0;
+}
+
+.demo-submenu a, .demo-submenu button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    text-align: left;
+    background: none;
+    border: 1px solid transparent;
+    color: var(--blue-700);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.demo-submenu a:hover, .demo-submenu button:hover,
+.demo-submenu a:focus, .demo-submenu button:focus {
+    background-color: var(--blue-050);
+    border-color: var(--blue-600);
+    border-radius: 4px;
+}
+
+.demo-status {
+    padding: 0.75rem 1rem;
+    background-color: var(--blue-050);
+    color: var(--blue-800);
+    border-left: 4px solid var(--blue-600);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    margin-top: 5rem;
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Base styles for sections */
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.section h2 {
+    border-bottom: 2px solid var(--blue-100);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}

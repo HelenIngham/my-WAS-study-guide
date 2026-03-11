@@ -1,6 +1,6 @@
 import React from "react";
 import "./1UsersWithoutVision.css";
-import ".././index.css"
+import "../../../index.css"
 function UsersWithoutVision() {
     return (
         <div className="container">

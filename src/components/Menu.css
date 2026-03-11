@@ -59,7 +59,7 @@
     color: var(--color-text-on-primary);
     text-decoration: none;
     font-size: 16px;
-    padding: 12px 18px;
+    padding: 14px 20px; /* Increased for 44px+ target size (AAA) */
     border-radius: 6px;
     transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     font-weight: 600;
@@ -69,6 +69,8 @@
     display: inline-block;
     background-color: var(--color-primary-dark);
     line-height: 1.2;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .menu-trigger {
@@ -99,6 +101,7 @@
     background-color: var(--color-active);
     border-color: var(--color-active);
     box-shadow: var(--shadow-pink-glow); /* pink glow */
+    color: var(--color-text-primary);
 }
 
 /* SUBMENU PANEL */
@@ -147,18 +150,19 @@
     display: block;
     color: var(--color-text-primary);
     text-decoration: none;
-    padding: 10px 12px;
+    padding: 12px 16px; /* Increased for target size (AAA) */
     border-radius: 8px;
     font-size: 15px;
     font-weight: 700;
     background-color: var(--color-bg-card);
     border: 1px solid var(--color-border);
     margin-bottom: 10px;
+    min-height: 44px;
 }
 
 .submenu-link:hover {
-    background-color: var(--neutral-450);
-    color: var(--color-white);
+    background-color: var(--orange-700);
+    color: var(--orange-100);
 }
 
 .submenu-link.active {
@@ -198,16 +202,16 @@
 }
 
 .submenu-list .submenu-link {
-    margin: 10px 0;
+    margin: 12px 0; /* Increased spacing */
     font-weight: 600;
     background: transparent;
     border: none;
-    padding: 10px 12px;
+    padding: 12px 16px; /* Increased for target size (AAA) */
 }
 
 .submenu-list .submenu-link:hover {
-    background-color: var(--color-bg-page);
-    color: var(--neutral-850);
+    background-color: var(--orange-700);
+    color: var(--orange-100);
 }
 
 .submenu-list .submenu-link.active {
@@ -226,12 +230,11 @@
 }
 
 .submenu::-webkit-scrollbar-thumb {
-    background: var(--neutral-600);
+    background: var(--neutral-700);
     border-radius: 8px;
 }
-
 .submenu::-webkit-scrollbar-thumb:hover {
-    background: var(--neutral-700);
+    background: var(--neutral-800);
 }
 
 /* Responsive */

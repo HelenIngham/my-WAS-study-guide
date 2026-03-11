@@ -1,6 +1,6 @@
 import React from "react";
 import "./5DynamicContent.css";
-import ".././index.css"
+import "../../../index.css"
 function DynamicContent() {
     return (
         <div className="container">

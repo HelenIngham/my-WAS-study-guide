@@ -1,10 +1,15 @@
 // 2EuropeanAccessibilityStandardEN301549.js
 import React from "react";
 import "./2EuropeanAccessibilityStandardEN301549.css";
-import ".././index.css";
+import "../../../index.css";
 import TrueFalseQuiz from "../../../components/TrueFalseQuiz";
 import Example from "../../../components/Example";
 import Callout from "../../../components/Callout";
+import PageHeader from "../../../components/PageHeader";
+import ExamTakeaway from "../../../components/ExamTakeaway";
+import Grid from "../../../components/Grid";
+import Card from "../../../components/Card";
+import CardList from "../../../components/CardList";
 
 function EuropeanAccessibilityStandardEN301549() {
     const questions = React.useMemo(
@@ -86,14 +91,13 @@ function EuropeanAccessibilityStandardEN301549() {
 
     return (
         <div className="container en301549">
-            <header className="en301549__header">
-                <h1>European Accessibility Standard: EN 301 549</h1>
-                <p className="en301549__lede">
-                    EN 301 549 is a harmonised European standard that defines accessibility requirements for
+            <PageHeader
+                classNamePrefix="en301549"
+                title="European Accessibility Standard: EN 301 549"
+                lede="EN 301 549 is a harmonised European standard that defines accessibility requirements for
                     Information and Communication Technology (ICT) products and services. It supports EU
-                    accessibility legislation and provides a practical way to demonstrate compliance.
-                </p>
-            </header>
+                    accessibility legislation and provides a practical way to demonstrate compliance."
+            />
 
             <section aria-labelledby="en-overview">
                 <h2 id="en-overview">What EN 301 549 is (and why it exists)</h2>
@@ -123,7 +127,7 @@ function EuropeanAccessibilityStandardEN301549() {
                     mapped to those needs.
                 </p>
 
-                <ul className="en301549__bullets">
+                <ul className="en301549__bullets sub-list">
                     <li>
                         <strong>Clause 4:</strong> Functional performance statements (user needs) for locating, identifying,
                         operating ICT functions, and accessing information regardless of physical, cognitive or sensory abilities.
@@ -151,23 +155,21 @@ function EuropeanAccessibilityStandardEN301549() {
                     WCAG AAA in a specific section and includes WCAG conformance requirements.
                 </p>
 
-                <div className="en301549__grid" role="list" aria-label="How EN 301 549 relates to WCAG">
-                    <div className="en301549__card" role="listitem">
-                        <h3 className="en301549__cardTitle">Similarities</h3>
-                        <ul className="en301549__cardList">
+                <Grid classNamePrefix="en301549" role="list" ariaLabel="How EN 301 549 relates to WCAG">
+                    <Card classNamePrefix="en301549" title="Similarities">
+                        <CardList classNamePrefix="en301549">
                             <li>Uses WCAG success criteria as the core basis for web requirements.</li>
                             <li>Supports consistent interpretation of accessibility requirements across organizations.</li>
-                        </ul>
-                    </div>
+                        </CardList>
+                    </Card>
 
-                    <div className="en301549__card" role="listitem">
-                        <h3 className="en301549__cardTitle">Differences</h3>
-                        <ul className="en301549__cardList">
+                    <Card classNamePrefix="en301549" title="Differences">
+                        <CardList classNamePrefix="en301549">
                             <li>Broader ICT coverage beyond websites (e.g., software, documents, hardware).</li>
                             <li>Includes additional requirements beyond WCAG that may be needed for EU directives.</li>
-                        </ul>
-                    </div>
-                </div>
+                        </CardList>
+                    </Card>
+                </Grid>
             </section>
 
             <section aria-labelledby="en-beyond">
@@ -199,7 +201,7 @@ function EuropeanAccessibilityStandardEN301549() {
                     label="Example pattern:"
                     text="“Where ICT displays video with synchronised audio, it shall…”"
                 >
-                    <ul className="en301549__bullets">
+                    <ul className="en301549__bullets sub-list">
                         <li>If the precondition isn’t true, the requirement is <strong>not applicable</strong>.</li>
                         <li>If the precondition is true, you evaluate it using the related test guidance (Annex C).</li>
                     </ul>
@@ -224,15 +226,17 @@ function EuropeanAccessibilityStandardEN301549() {
                 </p>
             </section>
 
-            <footer className="en301549__footer" aria-label="Study takeaway">
-                <h2 className="en301549__footerTitle">Exam / practice takeaway</h2>
-                <ul className="en301549__bullets">
+            <ExamTakeaway
+                classNamePrefix="en301549"
+                title="Exam / practice takeaway"
+            >
+                <ul className="en301549__bullets sub-list">
                     <li>Know EN 301 549’s broader ICT scope (not just websites).</li>
                     <li>Understand how WCAG is represented inside EN 301 549 for web requirements.</li>
                     <li>Be able to explain why EN 301 549 can include requirements beyond WCAG in EU compliance contexts.</li>
                     <li>Recognize self-scoping language and how it affects applicability when testing.</li>
                 </ul>
-            </footer>
+            </ExamTakeaway>
 
             <TrueFalseQuiz
                 questions={questions}

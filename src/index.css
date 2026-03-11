@@ -16,38 +16,81 @@
     --red-900: #5C0F0F;      /* darkest red */
 
     /* Orange tones */
+    --orange-0: #FFF9DB;
     --orange-100: #FFE8CC;
+    --orange-200: #FFD8A8;
+    --orange-300: #FFC078;
     --orange-400: #FF922B;
-    --orange-700: #D9480F;
+    --orange-500: #FD7E14;
+    --orange-600: #F76707;
+    --orange-700: #9C330B; /* Darker for AAA contrast on light bgs */
+    --orange-800: #D9480F;
+    --orange-900: #BF360C;
 
     /* Yellow tones */
-    --yellow-100: #FFF9DB;
+    --yellow-0: #FFF9DB;
+    --yellow-100: #FFF3BF;
+    --yellow-200: #FFEC99;
+    --yellow-300: #FFE066;
     --yellow-400: #FFD43B;
+    --yellow-500: #FCC419;
+    --yellow-600: #FAB005;
     --yellow-700: #F59F00;
+    --yellow-800: #F08C00;
+    --yellow-900: #E67700;
 
     /* Green tones */
+    --green-0: #EBFBEE;
     --green-100: #D3F9D8;
+    --green-200: #B2F2BB;
+    --green-300: #8CE99A;
     --green-400: #51CF66;
-    --green-700: #2B8A3E;
+    --green-500: #40C057;
+    --green-600: #37B24D;
+    --green-700: #1E622C; /* Darker for AAA contrast on light bgs */
+    --green-800: #2F9E44;
+    --green-900: #2B8A3E;
 
     /* Blue tones */
+    --blue-0: #E7F5FF;
+    --blue-050: #F0F7FF;
     --blue-100: #D0EBFF;
+    --blue-200: #A5D8FF;
+    --blue-300: #74C0FC;
     --blue-400: #339AF0;
+    --blue-500: #228BE6;
+    --blue-600: #1C7ED6;
     --blue-700: #1864AB;
+    --blue-800: #1971C2;
+    --blue-900: #102A43;
 
     /* Indigo tones */
+    --indigo-0: #EDF2FF;
     --indigo-100: #DBD8FF;
+    --indigo-200: #B197FC;
+    --indigo-300: #9775FA;
     --indigo-400: #7950F2;
+    --indigo-500: #6741D9;
+    --indigo-600: #5F3DC4;
     --indigo-700: #5229A3;
+    --indigo-800: #4C6EF5;
+    --indigo-900: #364FC7;
 
     /* Violet tones */
+    --violet-0: #F8F0FC;
     --violet-100: #F3D9FA;
+    --violet-200: #EEBEFA;
+    --violet-300: #E599F7;
     --violet-400: #CC5DE8;
+    --violet-500: #BE4BDB;
+    --violet-600: #AE3EC9;
     --violet-700: #862E9C;
+    --violet-800: #9C36B5;
+    --violet-900: #862E9C;
 
     /* Primary Brand mapped to deep blue */
     --color-primary: var(--blue-700);
-    --color-primary-light: var(--indigo-700);
+    --color-primary-light: #412182; /* Darker for AAA contrast on light bgs */
     --color-primary-dark: #0D3B66;
 
     /* Backgrounds - soft warm tones */
@@ -80,7 +123,7 @@
 
     /* Text */
     --color-text-primary: #333333;
-    --color-text-secondary: #555555;
+    --color-text-secondary: #424242; /* Darker for robust AAA contrast */
     --color-text-muted: var(--color-text-secondary);
     --color-text-strong: var(--color-text-primary);
     --color-text-subtle: #595959;
@@ -110,6 +153,7 @@
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.20);
     --shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.25);
     --shadow-rainbow-glow: 0 4px 8px rgba(127, 90, 240, 0.40);
+    --shadow-pink-glow: 0 4px 10px rgba(230, 69, 69, 0.40); /* vivid red-500 alpha */
 
     /* Alpha helpers */
     --alpha-white-06: rgba(255, 255, 255, 0.06);
@@ -158,6 +202,57 @@
     --pink-900: var(--violet-700);
 }
 
+/* Global Utility Classes */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--indigo-700);
+    color: white;
+    padding: 8px 16px;
+    z-index: 1000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--orange-400);
+}
+
+.intro-section {
+    margin-bottom: 2rem;
+}
+
+.concepts-section {
+    margin: 2rem 0;
+}
+
 
 
 
@@ -172,27 +267,102 @@ body {
 
 h1, h2, h3 {
     font-family: 'Roboto', sans-serif;
-    color: var(--color-primary);
+    color: var(--pink-900);
     margin-bottom: 16px;
+    margin-top: 24px;
+}
+
+h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--pink-900);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--pink-700);
+    margin-top: 20px;
 }
 
 p {
-    font-size: 16px;
-    margin: 12px 0;
+    font-size: 1rem;
+    margin: 16px 0;
+    line-height: 1.6;
+    color: var(--color-text-primary);
 }
 
-ul {
-    margin: 12px 0;
+ul, ol {
+    margin: 16px 0;
     padding-left: 20px;
 }
 
-ul li {
+ul li, ol li {
     margin-bottom: 8px;
+    line-height: 1.55;
+}
+
+strong {
+    color: var(--pink-700);
+    font-weight: bold;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--color-code-inline-bg, #f4f4f4);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--red-800);
+    border: 1px solid var(--neutral-400);
+}
+
+pre {
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    margin: 1.5rem 0;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* Ensure code elements are legible on colored backgrounds */
+.callout code,
+[class*="__callout"] code,
+.exam-takeaway code,
+[class*="__takeaway"] code,
+.priority-list li code,
+[class$="__priorityList"] li code,
+.quiz-section code,
+.quiz-option code,
+.flashcard code,
+.alert code,
+[class*="__alert"] code,
+.concept-card code,
+.role-details code,
+.comparison-table code,
+[class*="__table"] code,
+.interactive-comparison code {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 a {
     color: var(--color-primary-light);
-    text-decoration: none;
 }
 
 a:hover {
@@ -203,9 +373,10 @@ a:hover {
 .container {
     max-width: 900px;
     margin: 20px auto; /* Center page, add margin space */
-    background-color: white;
+    background-color: var(--color-bg-white, white);
+    border: 1px solid var(--color-border-light, #d0d7dc);
     border-radius: 10px;
-    box-shadow: var(--shadow-sm); /* Light shadow for depth */
+    box-shadow: var(--shadow-sm, 0 4px 8px rgba(0, 0, 0, 0.10)); /* Light shadow for depth */
     padding: 24px;
     overflow: hidden;
 }
@@ -219,9 +390,10 @@ a:hover {
 .container h1 {
     font-size: 2rem;
     text-align: left;
-    border-bottom: 2px solid var(--color-primary); /* Underline effect */
+    border-bottom: 2px solid var(--pink-900); /* Underline effect */
     padding-bottom: 10px;
     margin-bottom: 20px;
+    margin-top: 0;
 }
 
 .container h2 {
@@ -230,7 +402,7 @@ a:hover {
 
 .container h3 {
     font-size: 1.5rem;
-    color: var(--color-primary);
+    color: var(--pink-700);
 }
 
 /* Sticky footer layout */
@@ -259,10 +431,13 @@ html, body {
         font-size: 1.8rem;
     }
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
     h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+    p, ul li, ol li {
+        font-size: 0.95rem;
     }
 }
 
@@ -277,5 +452,41 @@ html, body {
     }
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 
+
+
+
+/* Sub-list styling for nested lists */
+.sub-list {
+    list-style-type: circle;
+    padding-left: 20px;
+    margin-top: 8px;
+}
+
+/* Subdomain List Styles */
+.domain-subsections {
+    list-style-type: none;
+    padding: 0;
+}
+
+.domain-subsections li {
+    margin: 8px 0;
+}
+
+.domain-subsections a {
+    text-decoration: none;
+    color: var(--pink-800);
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.domain-subsections a:hover {
+    color: var(--pink-800);
+    text-decoration: underline;
+}

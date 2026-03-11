@@ -1,15 +1,16 @@
 
-import React, { useState } from 'react';
-import './5WAI-ARIARolesStatesAndProperties.css';
+import React, { useMemo } from 'react';
+import Grid from "../../../components/Grid";
+import Card from "../../../components/Card";
+import CardList from "../../../components/CardList";
+import Tabs from "../../../components/Tabs";
+import MultipleChoiceQuiz from "../../../components/MultipleChoiceQuiz";
+import RoleSearch from "../../../components/RoleSearch";
+import PageHeader from "../../../components/PageHeader";
+import ComparisonTable from "../../../components/ComparisonTable";
 
 function WAIARIARolesStatesAndProperties() {
-    const [activeCategory, setActiveCategory] = useState('landmark');
-    const [searchTerm, setSearchTerm] = useState('');
-    const [expandedRole, setExpandedRole] = useState(null);
-    const [quizAnswers, setQuizAnswers] = useState({});
-    const [showQuizResults, setShowQuizResults] = useState(false);
-
-    const roleCategories = {
+    const roleCategories = useMemo(() => ({
         landmark: {
             title: 'Landmark Roles',
             description: 'Define major sections of a page for navigation purposes.',
@@ -280,9 +281,9 @@ function WAIARIARolesStatesAndProperties() {
                 }
             ]
         }
-    };
+    }), []);
 
-    const statesAndProperties = {
+    const statesAndProperties = useMemo(() => ({
         states: [
             { name: 'aria-checked', values: 'true | false | mixed', description: 'Current checked state of checkboxes, radio buttons' },
             { name: 'aria-disabled', values: 'true | false', description: 'Element is perceivable but not operable' },
@@ -313,9 +314,9 @@ function WAIARIARolesStatesAndProperties() {
             { name: 'aria-valuemax', values: 'number', description: 'Maximum allowed value for range widgets' },
             { name: 'aria-valuetext', values: 'string', description: 'Human-readable text for current value' }
         ]
-    };
+    }), []);
 
-    const quizQuestions = [
+    const quizQuestions = useMemo(() => [
         {
             id: 1,
             question: 'Which landmark role is the HTML equivalent of <header> (when not nested)?',
@@ -367,289 +368,123 @@ function WAIARIARolesStatesAndProperties() {
             ],
             correct: 2
         }
-    ];
+    ], []);
 
-    const currentRoles = roleCategories[activeCategory]?.roles || [];
-    const filteredRoles = currentRoles.filter(role =>
-        role.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        role.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    const handleQuizAnswer = (questionId, answerIndex) => {
-        setQuizAnswers(prev => ({
-            ...prev,
-            [questionId]: answerIndex
-        }));
-    };
-
-    const calculateScore = () => {
-        let correct = 0;
-        quizQuestions.forEach(q => {
-            if (quizAnswers[q.id] === q.correct) correct++;
-        });
-        return correct;
-    };
+    const roleTabs = useMemo(() => Object.keys(roleCategories).map((category) => ({
+        id: category,
+        label: roleCategories[category].title,
+        content: (
+            <RoleSearch
+                category={category}
+                title={roleCategories[category].title}
+                description={roleCategories[category].description}
+                roles={roleCategories[category].roles}
+            />
+        )
+    })), [roleCategories]);
 
     return (
         <div className="container">
-            <h1>WAI-ARIA Roles, States, and Properties</h1>
+            <PageHeader
+                title="WAI-ARIA Roles, States, and Properties"
+                lede={
+                    <>
+                        WAI-ARIA (Accessible Rich Internet Applications) defines three types of attributes
+                        that modify how elements appear in the accessibility tree. It bridges the gap between
+                        complex UI components and assistive technologies.
+                    </>
+                }
+            />
 
             <section className="intro-section">
                 <h2>Understanding ARIA Attributes</h2>
-                <p>
-                    WAI-ARIA defines three types of attributes that modify how elements appear
-                    in the accessibility tree:
-                </p>
-                <ul className="attribute-types">
-                    <li>
-                        <strong>Roles:</strong> Define what an element IS (button, checkbox, navigation, etc.)
-                    </li>
-                    <li>
-                        <strong>States:</strong> Dynamic properties that change during interaction (expanded, checked, selected)
-                    </li>
-                    <li>
-                        <strong>Properties:</strong> Relatively static characteristics (labelledby, required, haspopup)
-                    </li>
-                </ul>
+                <Card classNamePrefix="attribute-info" role="region" ariaLabel="Types of ARIA attributes">
+                    <CardList>
+                        <li>
+                            <strong>Roles:</strong> Define what an element IS (button, checkbox, navigation, etc.)
+                        </li>
+                        <li>
+                            <strong>States:</strong> Dynamic properties that change during interaction (expanded, checked, selected)
+                        </li>
+                        <li>
+                            <strong>Properties:</strong> Relatively static characteristics (labelledby, required, haspopup)
+                        </li>
+                    </CardList>
+                </Card>
             </section>
 
             {/* Roles Section */}
             <section className="roles-section" aria-labelledby="roles-heading">
                 <h2 id="roles-heading">ARIA Roles Reference</h2>
 
-                <div className="category-tabs" role="tablist" aria-label="Role categories">
-                    {Object.keys(roleCategories).map((category) => (
-                        <button
-                            key={category}
-                            role="tab"
-                            aria-selected={activeCategory === category}
-                            className={`category-tab ${activeCategory === category ? 'active' : ''}`}
-                            onClick={() => {
-                                setActiveCategory(category);
-                                setSearchTerm('');
-                                setExpandedRole(null);
-                            }}
-                        >
-                            {roleCategories[category].title}
-                        </button>
-                    ))}
-                </div>
-
-                <div className="roles-panel">
-                    <div className="panel-header">
-                        <div>
-                            <h3>{roleCategories[activeCategory].title}</h3>
-                            <p>{roleCategories[activeCategory].description}</p>
-                        </div>
-                        <div className="search-box">
-                            <label htmlFor="role-search" className="visually-hidden">
-                                Search roles
-                            </label>
-                            <input
-                                type="search"
-                                id="role-search"
-                                placeholder="Search roles..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="roles-grid">
-                        {filteredRoles.map((role) => (
-                            <article
-                                key={role.name}
-                                className={`role-card ${expandedRole === role.name ? 'expanded' : ''}`}
-                            >
-                                <button
-                                    className="role-header"
-                                    onClick={() => setExpandedRole(expandedRole === role.name ? null : role.name)}
-                                    aria-expanded={expandedRole === role.name}
-                                >
-                                    <span className="role-name">{role.name}</span>
-                                    <span className="expand-icon" aria-hidden="true">
-                                        {expandedRole === role.name ? '−' : '+'}
-                                    </span>
-                                </button>
-
-                                {expandedRole === role.name && (
-                                    <div className="role-details">
-                                        <dl>
-                                            <dt>HTML Equivalent:</dt>
-                                            <dd><code>{role.htmlEquiv}</code></dd>
-
-                                            <dt>Description:</dt>
-                                            <dd>{role.description}</dd>
-
-                                            <dt>Usage Notes:</dt>
-                                            <dd>{role.usage}</dd>
-                                        </dl>
-                                    </div>
-                                )}
-                            </article>
-                        ))}
-                    </div>
-
-                    {filteredRoles.length === 0 && (
-                        <p className="no-results">No roles match your search.</p>
-                    )}
-                </div>
+                <Tabs 
+                    tabs={roleTabs} 
+                    ariaLabel="Role categories" 
+                    classNamePrefix="category"
+                />
             </section>
 
             {/* States and Properties Section */}
             <section className="states-properties-section" aria-labelledby="states-heading">
                 <h2 id="states-heading">States and Properties Reference</h2>
 
-                <div className="tables-container">
-                    <div className="table-wrapper">
-                        <h3>ARIA States (Dynamic)</h3>
-                        <table className="aria-table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Attribute</th>
-                                <th scope="col">Values</th>
-                                <th scope="col">Description</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {statesAndProperties.states.map((state) => (
-                                <tr key={state.name}>
-                                    <th scope="row"><code>{state.name}</code></th>
-                                    <td><code>{state.values}</code></td>
-                                    <td>{state.description}</td>
-                                </tr>
-                            ))}
-                            </tbody>
-                        </table>
-                    </div>
+                <ComparisonTable
+                    title="ARIA States (Dynamic)"
+                    headers={["Attribute", "Values", "Description"]}
+                    rows={statesAndProperties.states.map(state => ({
+                        rowHeader: <code>{state.name}</code>,
+                        data: [<code>{state.values}</code>, state.description]
+                    }))}
+                />
 
-                    <div className="table-wrapper">
-                        <h3>ARIA Properties (Relatively Static)</h3>
-                        <table className="aria-table">
-                            <thead>
-                            <tr>
-                                <th scope="col">Attribute</th>
-                                <th scope="col">Values</th>
-                                <th scope="col">Description</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {statesAndProperties.properties.map((prop) => (
-                                <tr key={prop.name}>
-                                    <th scope="row"><code>{prop.name}</code></th>
-                                    <td><code>{prop.values}</code></td>
-                                    <td>{prop.description}</td>
-                                </tr>
-                            ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <ComparisonTable
+                    title="ARIA Properties (Relatively Static)"
+                    headers={["Attribute", "Values", "Description"]}
+                    rows={statesAndProperties.properties.map(prop => ({
+                        rowHeader: <code>{prop.name}</code>,
+                        data: [<code>{prop.values}</code>, prop.description]
+                    }))}
+                />
             </section>
 
             {/* Key Concepts */}
             <section className="concepts-section" aria-labelledby="concepts-heading">
                 <h2 id="concepts-heading">Key Concepts for the Exam</h2>
 
-                <div className="concept-cards">
-                    <article className="concept-card">
-                        <h3>States vs. Properties</h3>
+                <Grid classNamePrefix="concepts" role="list" ariaLabel="Key Concepts for the Exam">
+                    <Card classNamePrefix="concept" title="States vs. Properties" role="listitem">
                         <p>
                             <strong>States</strong> change frequently during user interaction
                             (aria-expanded, aria-checked). <strong>Properties</strong> are more static
                             and typically don't change (aria-labelledby, aria-required).
                         </p>
-                    </article>
+                    </Card>
 
-                    <article className="concept-card">
-                        <h3>Required vs. Supported Attributes</h3>
+                    <Card classNamePrefix="concept" title="Required vs. Supported Attributes" role="listitem">
                         <p>
                             Some roles have <strong>required</strong> attributes (e.g., slider requires
                             aria-valuenow). Others are <strong>supported</strong> but optional. Check the
                             ARIA spec for each role.
                         </p>
-                    </article>
+                    </Card>
 
-                    <article className="concept-card">
-                        <h3>Implicit vs. Explicit Roles</h3>
+                    <Card classNamePrefix="concept" title="Implicit vs. Explicit Roles" role="listitem">
                         <p>
                             Native HTML elements have <strong>implicit</strong> roles (button has button role).
                             ARIA roles are <strong>explicit</strong> and can override implicit roles.
                         </p>
-                    </article>
+                    </Card>
 
-                    <article className="concept-card">
-                        <h3>Abstract Roles</h3>
+                    <Card classNamePrefix="concept" title="Abstract Roles" role="listitem">
                         <p>
                             Some roles (like <code>widget</code>, <code>landmark</code>, <code>roletype</code>)
                             are <strong>abstract</strong> and should never be used directly in content.
                         </p>
-                    </article>
-                </div>
+                    </Card>
+                </Grid>
             </section>
 
-            {/* Quiz Section */}
-            <section className="quiz-section" aria-labelledby="quiz-heading">
-                <h2 id="quiz-heading">Knowledge Check</h2>
-
-                <form onSubmit={(e) => { e.preventDefault(); setShowQuizResults(true); }}>
-                    {quizQuestions.map((q) => (
-                        <fieldset key={q.id} className="quiz-question">
-                            <legend>{q.question}</legend>
-                            <div className="quiz-options">
-                                {q.options.map((option, idx) => (
-                                    <label
-                                        key={idx}
-                                        className={`quiz-option ${
-                                            showQuizResults
-                                                ? idx === q.correct
-                                                    ? 'correct'
-                                                    : quizAnswers[q.id] === idx
-                                                        ? 'incorrect'
-                                                        : ''
-                                                : ''
-                                        }`}
-                                    >
-                                        <input
-                                            type="radio"
-                                            name={`q-${q.id}`}
-                                            value={idx}
-                                            checked={quizAnswers[q.id] === idx}
-                                            onChange={() => handleQuizAnswer(q.id, idx)}
-                                            disabled={showQuizResults}
-                                        />
-                                        {option}
-                                    </label>
-                                ))}
-                            </div>
-                        </fieldset>
-                    ))}
-
-                    <div className="quiz-actions">
-                        {!showQuizResults ? (
-                            <button type="submit" className="submit-btn">
-                                Check Answers
-                            </button>
-                        ) : (
-                            <>
-                                <p className="quiz-result" role="status">
-                                    You scored {calculateScore()} out of {quizQuestions.length}!
-                                </p>
-                                <button
-                                    type="button"
-                                    className="reset-btn"
-                                    onClick={() => {
-                                        setQuizAnswers({});
-                                        setShowQuizResults(false);
-                                    }}
-                                >
-                                    Try Again
-                                </button>
-                            </>
-                        )}
-                    </div>
-                </form>
-            </section>
+            <MultipleChoiceQuiz questions={quizQuestions} />
 
         </div>
     );

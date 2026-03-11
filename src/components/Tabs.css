@@ -14,7 +14,7 @@
 .tab-button {
   flex: 1; /* Allow buttons to grow/shrink equally */
   min-width: 100px; /* Minimum width before wrapping the button itself */
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.5rem; /* Increased for 44px+ height */
   border: none;
   background-color: var(--color-bg-card);
   color: var(--color-primary);
@@ -28,15 +28,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 44px; /* Ensure 44px target height for AAA */
 }
 
 .tab-button:hover {
   background-color: var(--color-bg-tab-hover);
 }
 
-.tab-button:focus {
-  outline: 3px solid var(--color-focus);
-  outline-offset: -3px;
+.tab-button:focus-visible {
+  outline: 4px solid var(--color-focus);
+  outline-offset: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.tab-button:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .tab-button.active {
@@ -52,7 +59,8 @@
 
 @media (max-width: 600px) {
   .tab-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    min-height: 44px;
   }
 }

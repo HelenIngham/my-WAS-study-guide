@@ -18,18 +18,17 @@
 
 .method-card pre,
 .method-card__code {
-  background-color: var(--color-code-bg);
-  color: var(--color-code-text);
   padding: 1rem;
-  border-radius: 4px;
-  overflow-x: auto;
-  font-size: 0.85rem;
   margin: 1rem 0;
 }
 
-.method-card code,
+.method-card pre code,
 .method-card__code code {
-  font-family: 'Courier New', monospace;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  color: inherit;
 }
 
 .pros-cons {
@@ -45,8 +44,10 @@
 
 .pros-cons .pro {
   color: var(--color-success);
+  font-weight: 600;
 }
 
 .pros-cons .con {
   color: var(--color-error);
+  font-weight: 600;
 }

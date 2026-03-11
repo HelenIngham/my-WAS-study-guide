@@ -20,9 +20,18 @@ export default function ComparisonTable({ title, headers, rows, classNamePrefix 
         {headers && (
           <thead>
             <tr>
-              {headers.map((header, idx) => (
-                <th key={idx} scope="col">{header}</th>
-              ))}
+              {headers.map((header, idx) => {
+                const isObject = typeof header === 'object' && header !== null;
+                const content = isObject ? header.text : header;
+                const colSpan = isObject ? header.colspan : undefined;
+                const style = isObject && header.align ? { textAlign: header.align } : undefined;
+
+                return (
+                  <th key={idx} scope="col" colSpan={colSpan} style={style}>
+                    {content}
+                  </th>
+                );
+              })}
             </tr>
           </thead>
         )}

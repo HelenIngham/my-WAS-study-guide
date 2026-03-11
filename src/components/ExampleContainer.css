@@ -46,14 +46,15 @@
 .example-code {
     margin: 0;
     padding: 1rem;
-    background-color: var(--color-code-bg);
-    color: var(--color-code-text);
-    overflow-x: auto;
 }
 
-.example-code code {
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
+.example-code code,
+[class$="__exampleCode"] code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    color: inherit;
 }
 
 /* Support for classNamePrefix if provided (e.g., .en301549__exampleContainer) */
@@ -74,7 +75,4 @@
 [class$="__exampleCode"] {
     margin: 0;
     padding: 1rem;
-    background-color: var(--color-code-bg);
-    color: var(--color-code-text);
-    overflow-x: auto;
 }

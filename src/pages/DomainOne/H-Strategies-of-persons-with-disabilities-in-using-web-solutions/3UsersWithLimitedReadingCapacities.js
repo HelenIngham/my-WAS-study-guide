@@ -1,6 +1,6 @@
 import React from "react";
 import "./3UsersWithLimitedReadingCapacities.css";
-import ".././index.css"
+import "../../../index.css"
 function UsersWithLimitedReadingCapacities() {
     return (
         <div className="container">

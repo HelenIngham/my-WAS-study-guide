@@ -20,10 +20,12 @@ export default function TrueFalseQuiz({
   intro = '',
   classNamePrefix,
   onComplete,
+  isAccordion = true,
 }) {
   const [answers, setAnswers] = React.useState({}); // { [id]: boolean }
   const [submitted, setSubmitted] = React.useState(false);
   const [showReview, setShowReview] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const allAnswered = questions.every((q) => answers[q.id] === true || answers[q.id] === false);
 
@@ -87,6 +89,7 @@ export default function TrueFalseQuiz({
         reviewQuestion: 'quiz-review-question',
         reviewMeta: 'quiz-review-meta',
         reviewExplanation: 'quiz-review-explanation',
+        summary: 'quiz-summary',
       };
     }
     const p = classNamePrefix;
@@ -114,12 +117,12 @@ export default function TrueFalseQuiz({
       reviewQuestion: `${p}__reviewQuestion`,
       reviewMeta: `${p}__reviewMeta`,
       reviewExplanation: `${p}__reviewExplanation`,
+      summary: `${p}__quizSummary`,
     };
   }, [classNamePrefix]);
 
-  return (
-    <section className={cn.section} aria-labelledby="true-false-quiz-title">
-      <h2 id="true-false-quiz-title">{title}</h2>
+  const content = (
+    <>
       {intro ? <p className={cn.intro} dangerouslySetInnerHTML={{ __html: intro }} /> : null}
 
       <form onSubmit={handleSubmit} className={cn.form}>
@@ -134,7 +137,7 @@ export default function TrueFalseQuiz({
                 {index + 1}. {q.text}
               </legend>
 
-              <div className={cn.options} role="radiogroup" aria-label={`Question ${index + 1}`}>
+              <div className={cn.options}>
                 <label className={cn.option}>
                   <input
                     type="radio"
@@ -231,6 +234,28 @@ export default function TrueFalseQuiz({
           </div>
         )}
       </form>
+    </>
+  );
+
+  if (isAccordion) {
+    return (
+      <section className={`${cn.section} quiz-accordion`} aria-labelledby="true-false-quiz-title">
+        <details open={isOpen} onToggle={(e) => setIsOpen(e.target.open)}>
+          <summary className={cn.summary}>
+            <h2 id="true-false-quiz-title" style={{ display: 'inline', margin: 0 }}>{title}</h2>
+          </summary>
+          <div className="quiz-accordion-content">
+            {content}
+          </div>
+        </details>
+      </section>
+    );
+  }
+
+  return (
+    <section className={cn.section} aria-labelledby="true-false-quiz-title">
+      <h2 id="true-false-quiz-title">{title}</h2>
+      {content}
     </section>
   );
 }

@@ -81,13 +81,6 @@
   color: var(--color-text-strong);
 }
 
-.role-details code {
-  background-color: var(--color-code-inline-bg);
-  padding: 0.15rem 0.4rem;
-  border-radius: 3px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-}
 
 .no-results {
   text-align: center;

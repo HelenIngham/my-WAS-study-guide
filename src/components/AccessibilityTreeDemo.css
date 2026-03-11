@@ -60,8 +60,11 @@
 .html-example code {
   font-family: 'Courier New', monospace;
   font-size: 0.85rem;
-  color: var(--color-text-primary);
   word-break: break-all;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
 }
 
 .tree-output {

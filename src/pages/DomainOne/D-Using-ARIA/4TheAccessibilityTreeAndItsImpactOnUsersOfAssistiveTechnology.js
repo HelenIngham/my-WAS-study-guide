@@ -1,13 +1,16 @@
 
-import React, { useState } from 'react';
-import './4TheAccessibilityTreeAndItsImpactOnUsersOfAssistiveTechnology.css';
+import React, { useMemo } from 'react';
+import Grid from "../../../components/Grid";
+import Card from "../../../components/Card";
+import CardList from "../../../components/CardList";
+import Alert from "../../../components/Alert";
+import MultipleChoiceQuiz from "../../../components/MultipleChoiceQuiz";
+import AccessibilityTreeDemo from "../../../components/AccessibilityTreeDemo";
+import PageHeader from "../../../components/PageHeader";
+import ComparisonTable from "../../../components/ComparisonTable";
 
 function TheAccessibilityTreeAndItsImpact() {
-    const [selectedNode, setSelectedNode] = useState(null);
-    const [quizAnswers, setQuizAnswers] = useState({});
-    const [showQuizResults, setShowQuizResults] = useState(false);
-
-    const treeNodes = [
+    const treeNodes = useMemo(() => [
         {
             id: 'button',
             html: '<button>Submit</button>',
@@ -56,9 +59,9 @@ function TheAccessibilityTreeAndItsImpact() {
             states: ['focusable'],
             description: 'ARIA role overrides native div semantics to create a button'
         }
-    ];
+    ], []);
 
-    const quizQuestions = [
+    const quizQuestions = useMemo(() => [
         {
             id: 1,
             question: "What is the accessibility tree?",
@@ -114,120 +117,55 @@ function TheAccessibilityTreeAndItsImpact() {
             ],
             correct: 1
         }
-    ];
-
-    const handleQuizAnswer = (questionId, answerIndex) => {
-        setQuizAnswers(prev => ({
-            ...prev,
-            [questionId]: answerIndex
-        }));
-    };
-
-    const calculateScore = () => {
-        let correct = 0;
-        quizQuestions.forEach(q => {
-            if (quizAnswers[q.id] === q.correct) correct++;
-        });
-        return correct;
-    };
+    ], []);
 
     return (
         <div className="container">
-            <h1>The Accessibility Tree and Its Impact</h1>
+            <PageHeader
+                title="The Accessibility Tree and Its Impact"
+                lede={
+                    <>
+                        The <strong>accessibility tree</strong> is a simplified representation of the DOM
+                        (Document Object Model) that browsers create specifically for assistive technologies
+                        like screen readers. It contains only the information relevant for accessibility.
+                    </>
+                }
+            />
 
             <section className="intro-section">
                 <h2>What is the Accessibility Tree?</h2>
                 <p>
-                    The <strong>accessibility tree</strong> is a simplified representation of the DOM
-                    (Document Object Model) that browsers create specifically for assistive technologies
-                    like screen readers. It contains only the information relevant for accessibility:
+                    The accessibility tree contains several key pieces of information:
                 </p>
 
-                <ul className="tree-info-list">
-                    <li><strong>Role:</strong> What the element is (button, link, heading, etc.)</li>
-                    <li><strong>Name:</strong> The accessible name identifying the element</li>
-                    <li><strong>Description:</strong> Additional descriptive information</li>
-                    <li><strong>State:</strong> Current state (checked, expanded, selected, etc.)</li>
-                    <li><strong>Properties:</strong> Relationships and other ARIA properties</li>
-                </ul>
+                <Card classNamePrefix="tree-info" role="region" ariaLabel="Key accessibility tree components">
+                    <CardList>
+                        <li><strong>Role:</strong> What the element is (button, link, heading, etc.)</li>
+                        <li><strong>Name:</strong> The accessible name identifying the element</li>
+                        <li><strong>Description:</strong> Additional descriptive information</li>
+                        <li><strong>State:</strong> Current state (checked, expanded, selected, etc.)</li>
+                        <li><strong>Properties:</strong> Relationships and other ARIA properties</li>
+                    </CardList>
+                </Card>
 
-                <div className="info-callout" role="note">
-                    <h3>Key Insight</h3>
+                <Alert type="info" title="Key Insight">
                     <p>
                         The accessibility tree is what screen readers actually "see." If something isn't
                         in the accessibility tree, assistive technology users won't know it exists.
                         Conversely, if something is in the tree incorrectly, it can confuse users.
                     </p>
-                </div>
+                </Alert>
             </section>
 
             {/* Interactive Tree Demo */}
-            <section className="tree-demo-section" aria-labelledby="demo-heading">
-                <h2 id="demo-heading">Interactive: DOM to Accessibility Tree</h2>
-                <p>Click on each HTML example to see how it appears in the accessibility tree:</p>
-
-                <div className="tree-demo">
-                    <div className="html-examples">
-                        <h3 id="examples-list">HTML Examples</h3>
-                        <ul aria-labelledby="examples-list" role="listbox">
-                            {treeNodes.map((node) => (
-                                <li
-                                    key={node.id}
-                                    role="option"
-                                    aria-selected={selectedNode?.id === node.id}
-                                    className={`html-example ${selectedNode?.id === node.id ? 'selected' : ''}`}
-                                    onClick={() => setSelectedNode(node)}
-                                    onKeyDown={(e) => {
-                                        if (e.key === 'Enter' || e.key === ' ') {
-                                            e.preventDefault();
-                                            setSelectedNode(node);
-                                        }
-                                    }}
-                                    tabIndex={0}
-                                >
-                                    <code>{node.html}</code>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="tree-output" aria-live="polite">
-                        <h3>Accessibility Tree Node</h3>
-                        {selectedNode ? (
-                            <div className="node-details">
-                                <dl>
-                                    <dt>Role:</dt>
-                                    <dd><span className="role-badge">{selectedNode.role}</span></dd>
-
-                                    <dt>Name:</dt>
-                                    <dd>{selectedNode.name}</dd>
-
-                                    <dt>States:</dt>
-                                    <dd>
-                                        {selectedNode.states.length > 0
-                                            ? selectedNode.states.map((state, i) => (
-                                                <span key={i} className="state-badge">{state}</span>
-                                            ))
-                                            : <span className="no-states">(none)</span>
-                                        }
-                                    </dd>
-                                </dl>
-                                <p className="node-description">{selectedNode.description}</p>
-                            </div>
-                        ) : (
-                            <p className="select-prompt">← Select an HTML example to see its accessibility tree node</p>
-                        )}
-                    </div>
-                </div>
-            </section>
+            <AccessibilityTreeDemo nodes={treeNodes} />
 
             {/* How ARIA Modifies the Tree */}
             <section className="aria-impact-section" aria-labelledby="aria-impact-heading">
                 <h2 id="aria-impact-heading">How ARIA Modifies the Accessibility Tree</h2>
 
-                <div className="impact-cards">
-                    <article className="impact-card">
-                        <h3>Adding Semantics</h3>
+                <Grid classNamePrefix="impact" role="list" ariaLabel="How ARIA modifies the tree">
+                    <Card classNamePrefix="impact" title="Adding Semantics" role="listitem">
                         <p>ARIA roles add semantic meaning to elements that lack it:</p>
                         <pre><code>{`<!-- No semantic meaning -->
 <div>Click me</div>
@@ -240,10 +178,9 @@ function TheAccessibilityTreeAndItsImpact() {
                             ⚠️ Remember: ARIA only changes what's exposed to assistive tech,
                             not the actual behavior. You still need keyboard support!
                         </p>
-                    </article>
+                    </Card>
 
-                    <article className="impact-card">
-                        <h3>Removing Semantics</h3>
+                    <Card classNamePrefix="impact" title="Removing Semantics" role="listitem">
                         <p>Certain ARIA attributes remove elements from the accessibility tree:</p>
                         <pre><code>{`<!-- Removes from accessibility tree -->
 <div aria-hidden="true">
@@ -257,10 +194,9 @@ function TheAccessibilityTreeAndItsImpact() {
                         <p className="card-note">
                             ⚠️ Never use aria-hidden="true" on focusable elements!
                         </p>
-                    </article>
+                    </Card>
 
-                    <article className="impact-card">
-                        <h3>Modifying State</h3>
+                    <Card classNamePrefix="impact" title="Modifying State" role="listitem">
                         <p>ARIA states and properties communicate dynamic information:</p>
                         <pre><code>{`<button 
   aria-expanded="false"
@@ -275,8 +211,8 @@ function TheAccessibilityTreeAndItsImpact() {
                         <p className="card-note">
                             State changes must be updated via JavaScript when interactions occur.
                         </p>
-                    </article>
-                </div>
+                    </Card>
+                </Grid>
             </section>
 
             {/* Browser Tools Section */}
@@ -285,9 +221,8 @@ function TheAccessibilityTreeAndItsImpact() {
 
                 <p>Modern browsers provide tools to inspect the accessibility tree:</p>
 
-                <div className="browser-tools">
-                    <article className="tool-card">
-                        <h3>Chrome DevTools</h3>
+                <Grid classNamePrefix="tools" role="list" ariaLabel="Viewing the accessibility tree">
+                    <Card classNamePrefix="tool" title="Chrome DevTools" role="listitem">
                         <ol>
                             <li>Open DevTools (F12)</li>
                             <li>Go to Elements tab</li>
@@ -295,134 +230,46 @@ function TheAccessibilityTreeAndItsImpact() {
                             <li>Open the Accessibility pane in the right sidebar</li>
                         </ol>
                         <p>Or enable the full accessibility tree view in Experiments.</p>
-                    </article>
+                    </Card>
 
-                    <article className="tool-card">
-                        <h3>Firefox Accessibility Inspector</h3>
+                    <Card classNamePrefix="tool" title="Firefox Accessibility Inspector" role="listitem">
                         <ol>
                             <li>Open DevTools (F12)</li>
                             <li>Go to Accessibility tab</li>
                             <li>Browse the full accessibility tree</li>
                             <li>Check for issues automatically</li>
                         </ol>
-                    </article>
+                    </Card>
 
-                    <article className="tool-card">
-                        <h3>Safari Accessibility Inspector</h3>
+                    <Card classNamePrefix="tool" title="Safari Accessibility Inspector" role="listitem">
                         <ol>
                             <li>Enable Developer menu in Preferences</li>
                             <li>Open Web Inspector</li>
                             <li>Go to Elements tab</li>
                             <li>View Node panel for accessibility info</li>
                         </ol>
-                    </article>
-                </div>
+                    </Card>
+                </Grid>
             </section>
 
             {/* Common Issues Section */}
             <section className="issues-section" aria-labelledby="issues-heading">
                 <h2 id="issues-heading">Common Accessibility Tree Issues</h2>
 
-                <table className="issues-table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Issue</th>
-                        <th scope="col">Problem</th>
-                        <th scope="col">Solution</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">Missing accessible name</th>
-                        <td>Element has no name in the tree</td>
-                        <td>Add label, aria-label, or aria-labelledby</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Generic role</th>
-                        <td>Custom widget shows as "generic"</td>
-                        <td>Add appropriate ARIA role</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Missing state</th>
-                        <td>Expanded/selected state not communicated</td>
-                        <td>Add and update ARIA state attributes</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Inaccessible content</th>
-                        <td>Content hidden from assistive tech</td>
-                        <td>Check for unintended aria-hidden</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Broken relationships</th>
-                        <td>Controls/describes not working</td>
-                        <td>Verify IDs in aria-controls, aria-describedby</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <ComparisonTable
+                    title="Common Accessibility Tree Issues"
+                    headers={["Issue", "Problem", "Solution"]}
+                    rows={[
+                        { rowHeader: "Missing accessible name", data: ["Element has no name in the tree", "Add label, aria-label, or aria-labelledby"] },
+                        { rowHeader: "Generic role", data: ["Custom widget shows as \"generic\"", "Add appropriate ARIA role"] },
+                        { rowHeader: "Missing state", data: ["Expanded/selected state not communicated", "Add and update ARIA state attributes"] },
+                        { rowHeader: "Inaccessible content", data: ["Content hidden from assistive tech", "Check for unintended aria-hidden"] },
+                        { rowHeader: "Broken relationships", data: ["Controls/describes not working", "Verify IDs in aria-controls, aria-describedby"] }
+                    ]}
+                />
             </section>
 
-            {/* Quiz Section */}
-            <section className="quiz-section" aria-labelledby="quiz-heading">
-                <h2 id="quiz-heading">Knowledge Check</h2>
-
-                <form onSubmit={(e) => { e.preventDefault(); setShowQuizResults(true); }}>
-                    {quizQuestions.map((q) => (
-                        <fieldset key={q.id} className="quiz-question">
-                            <legend>{q.question}</legend>
-                            <div className="quiz-options">
-                                {q.options.map((option, idx) => (
-                                    <label
-                                        key={idx}
-                                        className={`quiz-option ${
-                                            showQuizResults
-                                                ? idx === q.correct
-                                                    ? 'correct'
-                                                    : quizAnswers[q.id] === idx
-                                                        ? 'incorrect'
-                                                        : ''
-                                                : ''
-                                        }`}
-                                    >
-                                        <input
-                                            type="radio"
-                                            name={`q-${q.id}`}
-                                            value={idx}
-                                            checked={quizAnswers[q.id] === idx}
-                                            onChange={() => handleQuizAnswer(q.id, idx)}
-                                            disabled={showQuizResults}
-                                        />
-                                        {option}
-                                    </label>
-                                ))}
-                            </div>
-                        </fieldset>
-                    ))}
-
-                    <div className="quiz-actions">
-                        {!showQuizResults ? (
-                            <button type="submit" className="submit-btn">
-                                Check Answers
-                            </button>
-                        ) : (
-                            <>
-                                <p className="quiz-result" role="status">
-                                    You scored {calculateScore()} out of {quizQuestions.length}!
-                                </p>
-                                <button
-                                    type="button"
-                                    className="reset-btn"
-                                    onClick={() => {
-                                        setQuizAnswers({});
-                                        setShowQuizResults(false);
-                                    }}
-                                >
-                                    Try Again
-                                </button>
-                            </>
-                        )}
-                    </div>
-                </form>
-            </section>
+            <MultipleChoiceQuiz questions={quizQuestions} />
 
         </div>
     );

@@ -66,11 +66,13 @@
 }
 
 .flashcard-back p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   white-space: pre-line;
   text-align: left;
   margin: 0;
+    color: white;
 }
+
 
 @media (max-width: 600px) {
   .flashcard {

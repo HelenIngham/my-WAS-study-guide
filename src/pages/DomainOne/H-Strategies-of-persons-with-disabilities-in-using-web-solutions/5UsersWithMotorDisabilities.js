@@ -1,10 +1,12 @@
 import React from "react";
 import "./5UsersWithMotorDisabilities.css";
-import ".././index.css"
+import "../../../index.css";
+import PageHeader from "../../../components/PageHeader";
+
 function UsersWithMotorDisabilities() {
     return (
         <div className="container">
-            <h1>5 Users With Motor Disabilities</h1>
+            <PageHeader title="5 Users With Motor Disabilities" />
         </div>
     );
 }

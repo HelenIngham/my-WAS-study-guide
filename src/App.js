@@ -119,12 +119,24 @@ import MitigatingAccessibilityDefects from './pages/DomainThree/C-Integrate-Acce
 import UsingAnAccessibleProcurementMaturityModel from './pages/DomainThree/C-Integrate-Accessibility-into-the-Procurement-Process/4UsingAnAccessibleProcurementMaturityModel';
 
 function App() {
+    const skipToMain = (e) => {
+        e.preventDefault();
+        const h1 = document.querySelector('h1');
+        if (h1) {
+            h1.setAttribute('tabindex', '-1');
+            h1.focus();
+        }
+    };
+
     return (
         <Router>
             <div className="app-shell">
+                <a href="#main" className="skip-link" onClick={skipToMain}>
+                    Skip to main content
+                </a>
                 <Menu />
                 <Breadcrumbs />
-                <main className="app-main">
+                <main id="main" className="app-main">
                     <Routes>
                         {/* Home and Resources */}
                         <Route path="/" element={<Home />} />

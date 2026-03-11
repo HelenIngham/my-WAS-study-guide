@@ -7,6 +7,7 @@
   border-radius: 10px;
   padding: 12px 14px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    margin: 12px 14px;
 }
 
 .role-card,
@@ -90,9 +91,3 @@
   padding-bottom: 0.5rem;
 }
 
-.concept-card code {
-  background-color: var(--color-border);
-  padding: 0.1rem 0.3rem;
-  border-radius: 3px;
-  font-family: 'Courier New', monospace;
-}

@@ -14,14 +14,14 @@ import './Grid.css';
  * - classNamePrefix?: string — BEM block prefix, e.g., "en301549". If omitted, generic classes are used.
  * - children: React.ReactNode — grid content
  * - columns?: number | string — number of columns for larger screens (default to 2)
- * - role?: string — ARIA role for the container, defaults to 'list'
+ * - role?: string — ARIA role for the container, defaults to 'region'
  * - ariaLabel?: string — aria-label on the outer container (optional)
  */
 export default function Grid({
   classNamePrefix,
   children,
   columns = 2,
-  role = 'list',
+  role = 'region',
   ariaLabel,
 }) {
   const base = classNamePrefix ? `${classNamePrefix}__grid` : 'grid-container';

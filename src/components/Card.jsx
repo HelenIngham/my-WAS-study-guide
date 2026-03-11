@@ -13,14 +13,14 @@ import './Card.css';
  * - classNamePrefix?: string — BEM block prefix, e.g., "en301549". If omitted, generic classes are used.
  * - title?: string | React.ReactNode — heading/label text displayed as the card title
  * - children?: React.ReactNode — main card content
- * - role?: string — ARIA role for the container, defaults to 'listitem' when in a grid
+ * - role?: string — ARIA role for the container, defaults to 'article'
  * - ariaLabel?: string — aria-label on the outer container (optional)
  */
 export default function Card({
   classNamePrefix,
   title,
   children,
-  role = 'listitem',
+  role = 'article',
   ariaLabel,
 }) {
   const base = classNamePrefix ? `${classNamePrefix}__card` : 'card';

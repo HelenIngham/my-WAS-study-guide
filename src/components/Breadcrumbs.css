@@ -39,6 +39,10 @@
     text-decoration: underline;
     text-underline-offset: 2px;
     font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px; /* Increased for target size (AAA) */
+    padding: 0 4px;
 }
 
 .breadcrumbs-link:hover {

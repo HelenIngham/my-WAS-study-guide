@@ -31,9 +31,14 @@
   background-color: var(--color-bg-tab-hover);
 }
 
-.accordion-toggle:focus {
-  outline: 3px solid var(--pink-900);
-  outline-offset: -3px;
+.accordion-toggle:focus-visible {
+  outline: 4px solid var(--color-focus);
+  outline-offset: 2px;
+  background-color: var(--color-bg-tab-hover);
+}
+
+.accordion-toggle:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .accordion-title {

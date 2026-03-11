@@ -42,10 +42,4 @@
     margin: 0.5rem 0 0 0;
 }
 
-.priority-list code,
-[class$="__priorityList"] code {
-    background-color: var(--color-border);
-    padding: 0.1rem 0.3rem;
-    border-radius: 3px;
-    font-size: 0.9rem;
-}
+

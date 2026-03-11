@@ -31,16 +31,20 @@ export default function PageNav() {
   // If neither prev nor next, render nothing
   if (!prev && !next) return null;
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <nav className="page-navigation" aria-label="Page navigation">
       {prev ? (
-        <Link to={prev.path} className="nav-link prev">
+        <Link to={prev.path} className="nav-link prev" onClick={scrollToTop}>
           {/* exact phrasing per Domain D style */}
           ← Previous: {labelFor(prev.path)}
         </Link>
       ) : <span />}
       {next ? (
-        <Link to={next.path} className="nav-link next">
+        <Link to={next.path} className="nav-link next" onClick={scrollToTop}>
           Next: {labelFor(next.path)} →
         </Link>
       ) : <span />}
