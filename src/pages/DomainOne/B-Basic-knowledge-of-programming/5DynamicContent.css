@@ -1,0 +1,88 @@
+.dynamic-demo {
+    background-color: var(--blue-0);
+    border: 2px solid var(--blue-200);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.demo-section {
+    margin-bottom: 1.5rem;
+}
+
+.demo-section h3 {
+    margin-top: 0;
+    color: var(--blue-700);
+    font-size: 1.1rem;
+}
+
+.demo-button {
+    background-color: var(--blue-700);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 1rem;
+}
+
+.demo-button:hover, .demo-button:focus {
+    background-color: var(--blue-800);
+    outline: 2px solid var(--orange-400);
+    outline-offset: 2px;
+}
+
+.demo-panel {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-left: 4px solid var(--blue-500);
+    border-radius: 0 4px 4px 0;
+    transition: all 0.3s ease;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.is-visible {
+    display: block;
+}
+
+.demo-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--blue-200);
+    margin: 1.5rem 0;
+}
+
+.live-region-status {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: var(--green-0);
+    color: var(--green-700);
+    border: 1px dashed var(--green-600);
+    border-radius: 4px;
+    min-height: 1.5rem;
+    font-weight: bold;
+}
+
+.demo-note {
+    font-size: 0.85rem;
+    color: #4b5563; /* generic dark grey for notes */
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Base styles for sections matching existing content */
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.section h2 {
+    border-bottom: 2px solid var(--blue-100);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
