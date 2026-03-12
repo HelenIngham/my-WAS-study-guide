@@ -133,11 +133,12 @@ export default function TrueFalseQuiz({
 
           return (
             <fieldset key={q.id} className={cn.question}>
-              <legend className={cn.legend}>
-                {index + 1}. {q.text}
-              </legend>
 
-              <div className={cn.options}>
+
+              <div className={cn.options} role="group" aria-labelledby={`legend-${q.id}`}>
+                  <legend className={cn.legend} id={`legend-${q.id}`}>
+                      {index + 1}. {q.text}
+                  </legend>
                 <label className={cn.option}>
                   <input
                     type="radio"

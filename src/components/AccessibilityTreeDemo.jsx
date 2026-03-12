@@ -40,23 +40,20 @@ export default function AccessibilityTreeDemo({
       <div className={containerCls}>
         <div className={examplesCls}>
           <h3 id="examples-list">HTML Examples</h3>
-          <ul aria-labelledby="examples-list" role="listbox">
+          <ul aria-labelledby="examples-list">
             {nodes.map((node) => (
               <li
                 key={node.id}
-                role="option"
-                aria-selected={selectedNode?.id === node.id}
                 className={`${exampleItemCls} ${selectedNode?.id === node.id ? 'selected' : ''}`}
-                onClick={() => setSelectedNode(node)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setSelectedNode(node);
-                  }
-                }}
-                tabIndex={0}
               >
-                <code>{node.html}</code>
+                <button
+                  type="button"
+                  aria-pressed={selectedNode?.id === node.id}
+                  onClick={() => setSelectedNode(node)}
+                  className="html-example-button"
+                >
+                  <code>{node.html}</code>
+                </button>
               </li>
             ))}
           </ul>

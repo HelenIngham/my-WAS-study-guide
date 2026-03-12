@@ -37,7 +37,7 @@ function DynamicContentDemo() {
                 <h3>1. Toggling CSS & ARIA</h3>
                 <p>Buttons can change state and communicate that state to screen readers.</p>
                 <button 
-                    className="demo-button"
+                    className="btn btn-primary"
                     onClick={toggleVisibility}
                     aria-expanded={isVisible}
                     aria-controls="dynamic-panel"
@@ -58,7 +58,7 @@ function DynamicContentDemo() {
                 <h3>2. ARIA Live Regions</h3>
                 <p>Live regions allow screen readers to announce updates without moving focus.</p>
                 <button 
-                    className="demo-button"
+                    className="btn btn-primary"
                     onClick={incrementCount}
                 >
                     Add Item to Cart ({count})

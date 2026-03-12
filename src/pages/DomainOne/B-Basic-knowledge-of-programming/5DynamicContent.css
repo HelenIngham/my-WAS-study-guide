@@ -16,24 +16,6 @@
     font-size: 1.1rem;
 }
 
-.demo-button {
-    background-color: var(--blue-700);
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    font-size: 1rem;
-}
-
-.demo-button:hover, .demo-button:focus {
-    background-color: var(--blue-800);
-    outline: 2px solid var(--orange-400);
-    outline-offset: 2px;
-}
-
 .demo-panel {
     margin-top: 1rem;
     padding: 1rem;

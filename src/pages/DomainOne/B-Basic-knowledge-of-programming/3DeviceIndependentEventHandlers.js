@@ -231,9 +231,8 @@ function DeviceIndependentEventHandlers() {
             </section>
 
             <ExamTakeaway 
-                title="Exam Tip: Device Independence"
-                text="On the WAS exam, remember: 'If it works with a mouse, it must work with a keyboard.' Avoid mouse-only events for critical actions. Use <code> onclick </code> for general actions and <code> onfocus </code> / <code> onblur </code> for focus-related states."
-            />
+                title="Exam Tip: Device Independence"/>
+            <p>On the WAS exam, remember: 'If it works with a mouse, it must work with a keyboard.' Avoid mouse-only events for critical actions. Use <code>onclick</code> for general actions and <code>onfocus</code> / <code>onblur</code> for focus-related states.</p>
         </div>
     );
 }

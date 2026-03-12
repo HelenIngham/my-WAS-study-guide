@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 import Breadcrumbs from './components/Breadcrumbs';
@@ -118,151 +118,180 @@ import AccessibilityConformanceReports from './pages/DomainThree/C-Integrate-Acc
 import MitigatingAccessibilityDefects from './pages/DomainThree/C-Integrate-Accessibility-into-the-Procurement-Process/3MitigatingAccessibilityDefects';
 import UsingAnAccessibleProcurementMaturityModel from './pages/DomainThree/C-Integrate-Accessibility-into-the-Procurement-Process/4UsingAnAccessibleProcurementMaturityModel';
 
-function App() {
+function AppContent() {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        // Handle focus management on route change
+        const mainHeading = document.querySelector('h1');
+        if (mainHeading) {
+            mainHeading.setAttribute('tabindex', '-1');
+            mainHeading.focus();
+        } else {
+            const main = document.getElementById('main');
+            if (main) {
+                main.setAttribute('tabindex', '-1');
+                main.focus();
+            }
+        }
+    }, [pathname]);
+
     const skipToMain = (e) => {
         e.preventDefault();
-        const h1 = document.querySelector('h1');
-        if (h1) {
-            h1.setAttribute('tabindex', '-1');
-            h1.focus();
+        const mainHeading = document.querySelector('h1');
+        if (mainHeading) {
+            mainHeading.setAttribute('tabindex', '-1');
+            mainHeading.focus();
+        } else {
+            const main = document.getElementById('main');
+            if (main) {
+                main.setAttribute('tabindex', '-1');
+                main.focus();
+            }
         }
     };
 
     return (
+        <div className="app-shell">
+            <a href="#main" className="skip-link" onClick={skipToMain}>
+                Skip to main content
+            </a>
+            <Menu />
+            <Breadcrumbs />
+            <main id="main" className="app-main">
+                <Routes>
+                    {/* Home and Resources */}
+                    <Route path="/" element={<Home />} />
+                    <Route path="/resources" element={<Resources />} />
+
+                    {/* Domain One */}
+                    <Route path="/domain-one" element={<DomainOne />} />
+
+                    {/* Domain One - A */}
+                    <Route path="/domain-one/a" element={<GuidelinePrinciples />} />
+                    <Route path="/domain-one/a/w3c-guidelines" element={<W3CGuidelinesandSpecifications />} />
+                    <Route path="/domain-one/a/en301-standard" element={<EuropeanAccessibilityStandardEN301549 />} />
+
+                    {/* Domain One - B */}
+                    <Route path="/domain-one/b" element={<BasicKnowledgeOfProgramming />} />
+                    <Route path="/domain-one/b/javascript-support" element={<SupportForJavaScriptInAccessibilityAPIsAssistiveTechnologies />} />
+                    <Route path="/domain-one/b/semantic-html" element={<SemanticHTMLandCustomControls />} />
+                    <Route path="/domain-one/b/event-handlers" element={<DeviceIndependentEventHandlers />} />
+                    <Route path="/domain-one/b/simplify-events" element={<SimplifyEvents />} />
+                    <Route path="/domain-one/b/dynamic-content" element={<DynamicContent />} />
+                    <Route path="/domain-one/b/managing-focus" element={<ManagingFocus />} />
+                    <Route path="/domain-one/b/managing-state" element={<ManagingState />} />
+
+                    {/* Domain One - C */}
+                    <Route path="/domain-one/c" element={<InteractiveWidgets />} />
+
+                    {/* Domain One - D */}
+                    <Route path="/domain-one/d" element={<UsingAria />} />
+                    <Route path="/domain-one/d/accessible-names" element={<UnderstandingAccessibleNamesAndDescriptions />} />
+                    <Route path="/domain-one/d/authoring-practices" element={<ARIAAuthoringPracticeGuide />} />
+                    <Route path="/domain-one/d/keyboard-interaction" element={<KeyboardInteractionAndFocusManagementWithinComponents />} />
+                    <Route path="/domain-one/d/accessibility-tree" element={<TheAccessibilityTreeAndItsImpactOnUsersOfAssistiveTechnology />} />
+                    <Route path="/domain-one/d/aria-roles" element={<WAIARIARolesStatesAndProperties />} />
+
+                    {/* Domain One - E */}
+                    <Route path="/domain-one/e" element={<AccessibilitySupportedTechnologies />} />
+                    <Route path="/domain-one/e/screen-readers" element={<ScreenReaders />} />
+
+                    {/* Domain One - F */}
+                    <Route path="/domain-one/f" element={<StandardControlsVsCustomControls />} />
+                    <Route path="/domain-one/f/standard-controls" element={<StandardControls />} />
+                    <Route path="/domain-one/f/custom-controls" element={<CustomControls />} />
+
+                    {/* Domain One - G */}
+                    <Route path="/domain-one/g" element={<SinglePageApplications />} />
+
+                    {/* Domain One - H */}
+                    <Route path="/domain-one/h" element={<StrategiesOfPersonsWithDisabilities />} />
+                    <Route path="/domain-one/h/users-without-vision" element={<UsersWithoutVision />} />
+                    <Route path="/domain-one/h/users-low-vision" element={<UsersWithLowVision />} />
+                    <Route path="/domain-one/h/users-limited-reading" element={<UsersWithLimitedReadingCapacities />} />
+                    <Route path="/domain-one/h/users-cognitive-disabilities" element={<UsersWithCognitiveDisabilities />} />
+                    <Route path="/domain-one/h/users-motor-disabilities" element={<UsersWithMotorDisabilities />} />
+                    <Route path="/domain-one/h/users-auditory-disabilities" element={<UsersWithAuditoryDisabilities />} />
+
+                    {/* Domain Two */}
+                    <Route path="/domain-two" element={<DomainTwo />} />
+
+                    {/* Domain Two - A */}
+                    <Route path="/domain-two/a" element={<InteroperabilityAndCompatibilityIssues />} />
+
+                    {/* Domain Two - B */}
+                    <Route path="/domain-two/b" element={<IdentifyingGuidelinesAndPrinciplesRegardingIssues />} />
+                    <Route path="/domain-two/b/accessibility-target-level" element={<AccessibilityTargetLevel />} />
+                    <Route path="/domain-two/b/conformance-requirements" element={<ConformanceRequirements />} />
+                    <Route path="/domain-two/b/wcag-em" element={<WCAGEM />} />
+                    <Route path="/domain-two/b/success-criteria-failures" element={<AssigningSuccessCriteriaAndFailures />} />
+                    <Route path="/domain-two/b/guideline-limitations" element={<AccessibilityGuidelineLimitations />} />
+
+                    {/* Domain Two - C */}
+                    <Route path="/domain-two/c" element={<TestingWithAssistiveTechnologies />} />
+                    <Route path="/domain-two/c/screen-reader-issues" element={<IdentifyIssuesForScreenReaderUsers />} />
+                    <Route path="/domain-two/c/keyboard-issues" element={<IdentifyIssuesForUsersWhoUseAKeyboardOrAlternativeInputDevice />} />
+                    <Route path="/domain-two/c/auditory-issues" element={<IdentifyIssuesForUsersWithAuditoryDisabilities />} />
+                    <Route path="/domain-two/c/low-vision-issues" element={<IdentifyIssuesForUsersWithLowVision />} />
+                    <Route path="/domain-two/c/cognitive-issues" element={<IdentifyIssuesForUsersWithCognitiveOrLearningDisabilities />} />
+                    <Route path="/domain-two/c/touch-issues" element={<IdentifyIssuesForTouchUsers />} />
+
+                    {/* Domain Two - D */}
+                    <Route path="/domain-two/d" element={<TestingToolsForTheWeb />} />
+                    <Route path="/domain-two/d/act-rules" element={<ACTRules />} />
+                    <Route path="/domain-two/d/automated-testing-tools" element={<AutomatedTestingTools />} />
+
+                    {/* Domain Two - E */}
+                    <Route path="/domain-two/e" element={<AccessibilityQualityAssurance />} />
+                    <Route path="/domain-two/e/planning-managing" element={<PlanningManagingAndImplementingAccessibility />} />
+
+                    {/* Domain Two - F */}
+                    <Route path="/domain-two/f" element={<TestingWithAssistiveTechnologiesF />} />
+                    <Route path="/domain-two/f/screen-reader-testing" element={<ScreenReaderTesting />} />
+                    <Route path="/domain-two/f/keyboard-testing" element={<KeyboardTesting />} />
+                    <Route path="/domain-two/f/content-testing" element={<ContentTesting />} />
+                    <Route path="/domain-two/f/usability-testing" element={<UsabilityTesting />} />
+
+                    {/* Domain Two - G */}
+                    <Route path="/domain-two/g" element={<TestingForEndUserImpact />} />
+
+                    {/* Domain Two - H */}
+                    <Route path="/domain-two/h" element={<TestingToolsForTheWebH />} />
+
+                    {/* Domain Three */}
+                    <Route path="/domain-three" element={<DomainThree />} />
+
+                    {/* Domain Three - A */}
+                    <Route path="/domain-three/a" element={<LevelsOfSeverityAndPrioritizationOfIssues />} />
+                    <Route path="/domain-three/a/prioritizing-issues" element={<PrioritizingAccessibilityIssues />} />
+                    <Route path="/domain-three/a/recommend-strategies" element={<RecommendStrategiesAndOrTechniquesForFixingAccessibilityIssues />} />
+
+                    {/* Domain Three - B */}
+                    <Route path="/domain-three/b" element={<RecommendationOfStrategiesAndTechniquesForFixingIssues />} />
+                    <Route path="/domain-three/b/failures-vs-practices" element={<DistinguishingBetweenFailuresAndOptionalBestPractices />} />
+                    <Route path="/domain-three/b/fixing-vs-redesign" element={<FixingVsRedesign />} />
+
+                    {/* Domain Three - C */}
+                    <Route path="/domain-three/c" element={<IntegrateAccessibilityIntoTheProcurementProcess />} />
+                    <Route path="/domain-three/c/accessibility-experts" element={<RoleOfAccessibilityExperts />} />
+                    <Route path="/domain-three/c/conformance-reports" element={<AccessibilityConformanceReports />} />
+                    <Route path="/domain-three/c/mitigating-defects" element={<MitigatingAccessibilityDefects />} />
+                    <Route path="/domain-three/c/procurement-maturity-model" element={<UsingAnAccessibleProcurementMaturityModel />} />
+                </Routes>
+                <div className="container">
+                    <PageNav />
+                </div>
+            </main>
+            <Footer />
+        </div>
+    );
+}
+
+function App() {
+    return (
         <Router>
-            <div className="app-shell">
-                <a href="#main" className="skip-link" onClick={skipToMain}>
-                    Skip to main content
-                </a>
-                <Menu />
-                <Breadcrumbs />
-                <main id="main" className="app-main">
-                    <Routes>
-                        {/* Home and Resources */}
-                        <Route path="/" element={<Home />} />
-                        <Route path="/resources" element={<Resources />} />
-
-                        {/* Domain One */}
-                        <Route path="/domain-one" element={<DomainOne />} />
-
-                        {/* Domain One - A */}
-                        <Route path="/domain-one/a" element={<GuidelinePrinciples />} />
-                        <Route path="/domain-one/a/w3c-guidelines" element={<W3CGuidelinesandSpecifications />} />
-                        <Route path="/domain-one/a/en301-standard" element={<EuropeanAccessibilityStandardEN301549 />} />
-
-                        {/* Domain One - B */}
-                        <Route path="/domain-one/b" element={<BasicKnowledgeOfProgramming />} />
-                        <Route path="/domain-one/b/javascript-support" element={<SupportForJavaScriptInAccessibilityAPIsAssistiveTechnologies />} />
-                        <Route path="/domain-one/b/semantic-html" element={<SemanticHTMLandCustomControls />} />
-                        <Route path="/domain-one/b/event-handlers" element={<DeviceIndependentEventHandlers />} />
-                        <Route path="/domain-one/b/simplify-events" element={<SimplifyEvents />} />
-                        <Route path="/domain-one/b/dynamic-content" element={<DynamicContent />} />
-                        <Route path="/domain-one/b/managing-focus" element={<ManagingFocus />} />
-                        <Route path="/domain-one/b/managing-state" element={<ManagingState />} />
-
-                        {/* Domain One - C */}
-                        <Route path="/domain-one/c" element={<InteractiveWidgets />} />
-
-                        {/* Domain One - D */}
-                        <Route path="/domain-one/d" element={<UsingAria />} />
-                        <Route path="/domain-one/d/accessible-names" element={<UnderstandingAccessibleNamesAndDescriptions />} />
-                        <Route path="/domain-one/d/authoring-practices" element={<ARIAAuthoringPracticeGuide />} />
-                        <Route path="/domain-one/d/keyboard-interaction" element={<KeyboardInteractionAndFocusManagementWithinComponents />} />
-                        <Route path="/domain-one/d/accessibility-tree" element={<TheAccessibilityTreeAndItsImpactOnUsersOfAssistiveTechnology />} />
-                        <Route path="/domain-one/d/aria-roles" element={<WAIARIARolesStatesAndProperties />} />
-
-                        {/* Domain One - E */}
-                        <Route path="/domain-one/e" element={<AccessibilitySupportedTechnologies />} />
-                        <Route path="/domain-one/e/screen-readers" element={<ScreenReaders />} />
-
-                        {/* Domain One - F */}
-                        <Route path="/domain-one/f" element={<StandardControlsVsCustomControls />} />
-                        <Route path="/domain-one/f/standard-controls" element={<StandardControls />} />
-                        <Route path="/domain-one/f/custom-controls" element={<CustomControls />} />
-
-                        {/* Domain One - G */}
-                        <Route path="/domain-one/g" element={<SinglePageApplications />} />
-
-                        {/* Domain One - H */}
-                        <Route path="/domain-one/h" element={<StrategiesOfPersonsWithDisabilities />} />
-                        <Route path="/domain-one/h/users-without-vision" element={<UsersWithoutVision />} />
-                        <Route path="/domain-one/h/users-low-vision" element={<UsersWithLowVision />} />
-                        <Route path="/domain-one/h/users-limited-reading" element={<UsersWithLimitedReadingCapacities />} />
-                        <Route path="/domain-one/h/users-cognitive-disabilities" element={<UsersWithCognitiveDisabilities />} />
-                        <Route path="/domain-one/h/users-motor-disabilities" element={<UsersWithMotorDisabilities />} />
-                        <Route path="/domain-one/h/users-auditory-disabilities" element={<UsersWithAuditoryDisabilities />} />
-
-                        {/* Domain Two */}
-                        <Route path="/domain-two" element={<DomainTwo />} />
-
-                        {/* Domain Two - A */}
-                        <Route path="/domain-two/a" element={<InteroperabilityAndCompatibilityIssues />} />
-
-                        {/* Domain Two - B */}
-                        <Route path="/domain-two/b" element={<IdentifyingGuidelinesAndPrinciplesRegardingIssues />} />
-                        <Route path="/domain-two/b/accessibility-target-level" element={<AccessibilityTargetLevel />} />
-                        <Route path="/domain-two/b/conformance-requirements" element={<ConformanceRequirements />} />
-                        <Route path="/domain-two/b/wcag-em" element={<WCAGEM />} />
-                        <Route path="/domain-two/b/success-criteria-failures" element={<AssigningSuccessCriteriaAndFailures />} />
-                        <Route path="/domain-two/b/guideline-limitations" element={<AccessibilityGuidelineLimitations />} />
-
-                        {/* Domain Two - C */}
-                        <Route path="/domain-two/c" element={<TestingWithAssistiveTechnologies />} />
-                        <Route path="/domain-two/c/screen-reader-issues" element={<IdentifyIssuesForScreenReaderUsers />} />
-                        <Route path="/domain-two/c/keyboard-issues" element={<IdentifyIssuesForUsersWhoUseAKeyboardOrAlternativeInputDevice />} />
-                        <Route path="/domain-two/c/auditory-issues" element={<IdentifyIssuesForUsersWithAuditoryDisabilities />} />
-                        <Route path="/domain-two/c/low-vision-issues" element={<IdentifyIssuesForUsersWithLowVision />} />
-                        <Route path="/domain-two/c/cognitive-issues" element={<IdentifyIssuesForUsersWithCognitiveOrLearningDisabilities />} />
-                        <Route path="/domain-two/c/touch-issues" element={<IdentifyIssuesForTouchUsers />} />
-
-                        {/* Domain Two - D */}
-                        <Route path="/domain-two/d" element={<TestingToolsForTheWeb />} />
-                        <Route path="/domain-two/d/act-rules" element={<ACTRules />} />
-                        <Route path="/domain-two/d/automated-testing-tools" element={<AutomatedTestingTools />} />
-
-                        {/* Domain Two - E */}
-                        <Route path="/domain-two/e" element={<AccessibilityQualityAssurance />} />
-                        <Route path="/domain-two/e/planning-managing" element={<PlanningManagingAndImplementingAccessibility />} />
-
-                        {/* Domain Two - F */}
-                        <Route path="/domain-two/f" element={<TestingWithAssistiveTechnologiesF />} />
-                        <Route path="/domain-two/f/screen-reader-testing" element={<ScreenReaderTesting />} />
-                        <Route path="/domain-two/f/keyboard-testing" element={<KeyboardTesting />} />
-                        <Route path="/domain-two/f/content-testing" element={<ContentTesting />} />
-                        <Route path="/domain-two/f/usability-testing" element={<UsabilityTesting />} />
-
-                        {/* Domain Two - G */}
-                        <Route path="/domain-two/g" element={<TestingForEndUserImpact />} />
-
-                        {/* Domain Two - H */}
-                        <Route path="/domain-two/h" element={<TestingToolsForTheWebH />} />
-
-                        {/* Domain Three */}
-                        <Route path="/domain-three" element={<DomainThree />} />
-
-                        {/* Domain Three - A */}
-                        <Route path="/domain-three/a" element={<LevelsOfSeverityAndPrioritizationOfIssues />} />
-                        <Route path="/domain-three/a/prioritizing-issues" element={<PrioritizingAccessibilityIssues />} />
-                        <Route path="/domain-three/a/recommend-strategies" element={<RecommendStrategiesAndOrTechniquesForFixingAccessibilityIssues />} />
-
-                        {/* Domain Three - B */}
-                        <Route path="/domain-three/b" element={<RecommendationOfStrategiesAndTechniquesForFixingIssues />} />
-                        <Route path="/domain-three/b/failures-vs-practices" element={<DistinguishingBetweenFailuresAndOptionalBestPractices />} />
-                        <Route path="/domain-three/b/fixing-vs-redesign" element={<FixingVsRedesign />} />
-
-                        {/* Domain Three - C */}
-                        <Route path="/domain-three/c" element={<IntegrateAccessibilityIntoTheProcurementProcess />} />
-                        <Route path="/domain-three/c/accessibility-experts" element={<RoleOfAccessibilityExperts />} />
-                        <Route path="/domain-three/c/conformance-reports" element={<AccessibilityConformanceReports />} />
-                        <Route path="/domain-three/c/mitigating-defects" element={<MitigatingAccessibilityDefects />} />
-                        <Route path="/domain-three/c/procurement-maturity-model" element={<UsingAnAccessibleProcurementMaturityModel />} />
-                    </Routes>
-                    <div className="container">
-                        <PageNav />
-                    </div>
-                </main>
-                <Footer />
-            </div>
+            <AppContent />
         </Router>
     );
 }

@@ -16,12 +16,25 @@ export default function Tabs({ tabs = [], ariaLabel = "Content sections", classN
   const buttonCls = classNamePrefix ? `${classNamePrefix}__tabButton` : 'tab-button';
   const panelCls = classNamePrefix ? `${classNamePrefix}__tabPanel` : 'tab-panel';
 
+  const tabRefs = React.useRef([]);
+  
   const handleKeyDown = (e) => {
+    let nextIndex = activeTab;
     if (e.key === 'ArrowRight') {
-      setActiveTab((activeTab + 1) % tabs.length);
+      nextIndex = (activeTab + 1) % tabs.length;
     } else if (e.key === 'ArrowLeft') {
-      setActiveTab((activeTab - 1 + tabs.length) % tabs.length);
+      nextIndex = (activeTab - 1 + tabs.length) % tabs.length;
+    } else if (e.key === 'Home') {
+      nextIndex = 0;
+    } else if (e.key === 'End') {
+      nextIndex = tabs.length - 1;
+    } else {
+      return;
     }
+    
+    e.preventDefault();
+    setActiveTab(nextIndex);
+    tabRefs.current[nextIndex]?.focus();
   };
 
   return (
@@ -30,6 +43,7 @@ export default function Tabs({ tabs = [], ariaLabel = "Content sections", classN
         {tabs.map((tab, index) => (
           <button
             key={tab.id}
+            ref={el => tabRefs.current[index] = el}
             role="tab"
             id={`tab-${tab.id}`}
             aria-selected={activeTab === index}

@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './index.css';
 
 function UsingAria() {
     const [expandedSection, setExpandedSection] = useState(null);
@@ -127,7 +128,7 @@ function UsingAria() {
                                     <h3>{topic.title}</h3>
                                 </Link>
                                 <button
-                                    className="expand-btn"
+                                    className="btn btn-primary"
                                     onClick={() => toggleSection(topic.id)}
                                     aria-expanded={expandedSection === topic.id}
                                     aria-controls={`details-${topic.id}`}

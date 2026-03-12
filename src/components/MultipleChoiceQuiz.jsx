@@ -61,8 +61,8 @@ export default function MultipleChoiceQuiz({
     <form onSubmit={handleSubmit}>
       {questions.map((q) => (
         <fieldset key={q.id} className={quizQuestionCls}>
-          <legend>{q.question}</legend>
-          <div className={quizOptionsCls}>
+          <div className={quizOptionsCls} role="group" aria-labelledby={`question-legend-${q.id}`}>
+              <legend id={`question-legend-${q.id}`}>{q.question}</legend>
             {q.options.map((option, oIndex) => {
               let statusClass = '';
               if (showResults) {
