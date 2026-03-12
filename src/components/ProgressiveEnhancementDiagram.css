@@ -1,0 +1,83 @@
+.pe-diagram {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: var(--red-0);
+    border-radius: 8px;
+    border: 1px solid var(--neutral-200);
+}
+
+.pe-diagram__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.pe-diagram__layer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.pe-diagram__layer--enhanced {
+    background-color: var(--blue-100);
+    border: 2px dashed var(--blue-700);
+    min-width: 280px;
+    min-height: 200px;
+}
+
+.pe-diagram__layer--core {
+    background-color: var(--green-100);
+    border: 2px solid var(--green-700);
+    margin-top: 1.5rem;
+    min-width: 200px;
+    min-height: 100px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.pe-diagram__label {
+    font-weight: bold;
+    color: var(--neutral-800);
+    margin-bottom: 0.5rem;
+}
+
+.pe-diagram__layer--core .pe-diagram__label {
+    color: var(--green-700);
+}
+
+.pe-diagram__layer--enhanced .pe-diagram__label:first-child {
+    color: var(--blue-700);
+}
+
+.pe-diagram__legend {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--neutral-200);
+}
+
+.pe-diagram__legend h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.pe-diagram__reasons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.pe-diagram__reason-item {
+    background: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    border-left: 4px solid var(--orange-700);
+    font-size: 0.9rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
