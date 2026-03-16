@@ -1,6 +1,4 @@
 import React from "react";
-import "./6ManagingFocus.css";
-import "../../../index.css";
 import PageHeader from "../../../components/PageHeader";
 import Callout from "../../../components/Callout";
 import Tabs from "../../../components/Tabs";

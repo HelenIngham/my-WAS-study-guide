@@ -1,6 +1,5 @@
 // pages/Home.js
 import React from "react";
-import '../index.css';
 import Grid from "../components/Grid";
 import Card from "../components/Card";
 import Callout from "../components/Callout";

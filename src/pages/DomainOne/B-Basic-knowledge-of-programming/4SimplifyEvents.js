@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import "./4SimplifyEvents.css";
-import "../../../index.css";
 import PageHeader from "../../../components/PageHeader";
 import Callout from "../../../components/Callout";
 import FlashcardSet from "../../../components/FlashcardSet";

@@ -1,0 +1,134 @@
+.theming-simulator {
+  background-color: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.theme-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.theme-toggle-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--blue-700);
+  background-color: white;
+  color: var(--blue-700);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  min-height: 44px;
+}
+
+.theme-toggle-btn.active {
+  background-color: var(--blue-700);
+  color: white;
+}
+
+.theme-preview-area {
+  padding: 1.5rem;
+  border: 1px dashed var(--neutral-400);
+  border-radius: 4px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.preview-content {
+  margin-top: 1rem;
+}
+
+.neon-box {
+  background-color: #39FF14; /* Neon Green */
+  color: black;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.indicator {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.red-indicator {
+  background-color: #ff0000;
+  color: white;
+}
+
+.green-indicator {
+  background-color: #008000;
+  color: white;
+}
+
+.preview-text-sample {
+  text-align: justify;
+  margin: 1.5rem 0;
+  line-height: 1.6;
+}
+
+.motion-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.moving-dot {
+  width: 20px;
+  height: 20px;
+  background-color: var(--blue-700);
+  border-radius: 50%;
+  animation: bounce 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes bounce {
+  from { transform: translateX(0); }
+  to { transform: translateX(100px); }
+}
+
+/* THEME SPECIFIC OVERRIDES */
+
+/* Color Blindness Theme: Eliminate Red and Green */
+.theming-demo-colorblind .red-indicator {
+  background-color: #0056b3; /* Deep Blue instead of Red */
+  color: white;
+}
+.theming-demo-colorblind .green-indicator {
+  background-color: #ff9900; /* Orange instead of Green */
+  color: black;
+}
+
+/* Dyslexic Theme: Remove Italics and Justification */
+.theming-demo-dyslexic .preview-text-sample {
+  text-align: left !important;
+}
+.theming-demo-dyslexic em {
+  font-style: normal !important;
+  text-decoration: underline;
+}
+
+/* Autistic Theme: No Neon, No Motion */
+.theming-demo-autistic .neon-box {
+  background-color: #e3f2fd; /* Soft Blue instead of Neon Green */
+  color: var(--blue-900);
+}
+.theming-demo-autistic .moving-dot {
+  animation: none !important;
+  transform: none !important;
+}
+
+.theming-takeaway {
+  margin-top: 1.5rem;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--neutral-700);
+}

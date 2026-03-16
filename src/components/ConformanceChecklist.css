@@ -1,0 +1,162 @@
+.conformance-checklist {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.conformance-checklist h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.scenario-box {
+  background-color: #eef7ff;
+  border-left: 5px solid #0056b3;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.scenario-box h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #0056b3;
+}
+
+.checklist-items {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.checklist-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.checklist-item.correct {
+  background-color: #d4edda;
+}
+
+.checklist-item.incorrect {
+  background-color: #f8d7da;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-right: 15px;
+  flex-shrink: 0;
+  display: inline-block;
+  position: relative;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #eee;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.req-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.req-desc {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.feedback-note {
+  margin-top: 8px;
+  margin-left: 40px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.feedback-note.met {
+  color: #155724;
+  background-color: #c3e6cb;
+}
+
+.feedback-note.not-met {
+  color: #721c24;
+  background-color: #f5c6cb;
+}
+
+.checklist-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.verify-btn, .reset-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.verify-btn {
+  background-color: #0056b3;
+  color: white;
+}
+
+.verify-btn:hover:not(:disabled) {
+  background-color: #004494;
+}
+
+.reset-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #5a6268;
+}

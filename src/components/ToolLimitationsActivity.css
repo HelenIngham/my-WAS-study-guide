@@ -1,0 +1,161 @@
+/* components/ToolLimitationsActivity.css */
+
+.tool-limitations-activity {
+    margin: 2.5rem 0;
+    padding: 2rem;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.tla-heading {
+    margin-top: 0;
+    color: var(--color-text-primary);
+}
+
+.tla-intro {
+    margin-bottom: 2rem;
+    color: var(--color-text-secondary);
+}
+
+.tla-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tla-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 6px solid #cbd5e1; /* slate-300 */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, border-color 0.3s ease;
+}
+
+.tla-card.tla-correct {
+    border-left-color: #22c55e; /* green-500 */
+}
+
+.tla-card.tla-incorrect {
+    border-left-color: #ef4444; /* red-500 */
+}
+
+.tla-task-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-primary);
+}
+
+.tla-options {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.tla-btn {
+    padding: 0.6rem 1.25rem;
+    border: 2px solid var(--color-border);
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--color-text-secondary);
+}
+
+.tla-btn:hover:not(:disabled) {
+    border-color: var(--pink-900);
+    background-color: #fff1f2; /* rose-50 */
+    color: var(--pink-900);
+}
+
+.tla-btn.tla-selected {
+    background-color: var(--pink-900);
+    color: white;
+    border-color: var(--pink-900);
+    box-shadow: 0 4px 12px rgba(131, 24, 67, 0.25);
+}
+
+.tla-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.tla-feedback {
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+    animation: tla-fadeIn 0.4s ease-out;
+}
+
+.tla-feedback.tla-success {
+    background-color: #f0fdf4; /* green-50 */
+    color: #166534; /* green-800 */
+    border: 1px solid #bbf7d0;
+}
+
+.tla-feedback.tla-error {
+    background-color: #fef2f2; /* red-50 */
+    color: #991b1b; /* red-800 */
+    border: 1px solid #fecaca;
+}
+
+.tla-feedback-header {
+    margin: 0 0 0.5rem 0;
+    display: block;
+}
+
+.tla-explanation {
+    margin: 0;
+}
+
+.tla-summary {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--color-border);
+    text-align: center;
+}
+
+.tla-submit-btn, .tla-reset-btn {
+    background-color: var(--pink-900);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tla-submit-btn:hover:not(:disabled), .tla-reset-btn:hover {
+    background-color: #9d174d; /* pink-800 */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tla-submit-btn:disabled {
+    background-color: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.tla-score {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+@keyframes tla-fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}

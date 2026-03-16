@@ -1,5 +1,4 @@
 import React from "react";
-import "../../../index.css";
 import PageHeader from "../../../components/PageHeader";
 import Card from "../../../components/Card";
 import CardList from "../../../components/CardList";

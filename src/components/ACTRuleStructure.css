@@ -1,0 +1,125 @@
+/* components/ACTRuleStructure.css */
+.act-rule-structure {
+  background: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ars-heading {
+  color: #1a1a1a;
+  margin-top: 0;
+}
+
+.ars-intro {
+  margin-bottom: 2rem;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.ars-diagram-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .ars-diagram-container {
+    flex-direction: row;
+  }
+}
+
+.ars-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.ars-part-btn {
+  background: #fff;
+  border: 2px solid #3b82f6;
+  border-radius: 4px;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #3b82f6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.ars-part-btn:hover,
+.ars-part-btn:focus {
+  background: #eff6ff;
+  border-color: #2563eb;
+  color: #2563eb;
+  outline: 3px solid #bfdbfe;
+  outline-offset: 2px;
+}
+
+.ars-part-btn.active {
+  background: #3b82f6;
+  color: #fff;
+  border-color: #3b82f6;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.ars-details-panel {
+  flex: 1.5;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ars-details-content {
+  width: 100%;
+  animation: fadeIn 0.3s ease;
+}
+
+.ars-details-content h3 {
+  margin-top: 0;
+  color: #1a1a1a;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.ars-description {
+  line-height: 1.6;
+  color: #334155;
+}
+
+.ars-example-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #10b981;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border-radius: 4px;
+}
+
+.ars-example-box code {
+  color: #047857;
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.ars-placeholder {
+  color: #64748b;
+  font-style: italic;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../../index.css";
 import PageHeader from "../../../components/PageHeader";
 import Callout from "../../../components/Callout";
 import FlashcardSet from "../../../components/FlashcardSet";

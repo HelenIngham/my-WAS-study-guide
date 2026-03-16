@@ -1,6 +1,4 @@
 import React from "react";
-import "./index.css";
-import ".././index.css"
 function TestingWithAssistiveTechnologies() {
     return (
         <div className="container">

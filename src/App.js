@@ -8,6 +8,7 @@ import PageNav from './components/PageNav';
 // Pages
 import Home from './pages/Home';
 import Resources from './pages/Resources';
+import SiteMap from './pages/Site-map';
 
 // Domain One - A
 import DomainOne from './pages/DomainOne';
@@ -159,10 +160,14 @@ function AppContent() {
             <Menu />
             <Breadcrumbs />
             <main id="main" className="app-main">
+                <div className="container">
+                    <PageNav />
+                </div>
                 <Routes>
                     {/* Home and Resources */}
                     <Route path="/" element={<Home />} />
                     <Route path="/resources" element={<Resources />} />
+                    <Route path="/site-map" element={<SiteMap />} />
 
                     {/* Domain One */}
                     <Route path="/domain-one" element={<DomainOne />} />

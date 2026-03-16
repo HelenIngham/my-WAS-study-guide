@@ -1,0 +1,44 @@
+.maturity-model-page {
+  padding-bottom: 2rem;
+}
+
+.content-section {
+  margin-bottom: 2.5rem;
+}
+
+.model-list {
+  margin-top: 1.5rem;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.model-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-left: 4px solid #0056b3;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.model-item h3 {
+  margin-top: 0;
+  color: #0056b3;
+}
+
+.resources-section {
+  margin-top: 3rem;
+  background-color: #f1f3f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.flashcard-section {
+  margin-top: 3rem;
+}
+
+.activity-section {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: #e9ecef;
+  border-radius: 8px;
+}

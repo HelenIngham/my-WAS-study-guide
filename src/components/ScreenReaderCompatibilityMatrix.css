@@ -1,0 +1,86 @@
+.sr-matrix-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: #fdfdfd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+}
+
+.sr-matrix-container h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.sr-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.sr-matrix-table caption {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  color: #666;
+}
+
+.sr-matrix-table th,
+.sr-matrix-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sr-matrix-table thead th {
+  background-color: #3498db;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.sr-matrix-table tbody tr:hover {
+  background-color: #f5faff;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge.recommended {
+  background-color: #27ae60;
+  color: white;
+}
+
+.status-badge.supported {
+  background-color: #f39c12;
+  color: white;
+}
+
+.matrix-note {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #fff9e6;
+  border-left: 4px solid #f1c40f;
+  border-radius: 4px;
+}
+
+.matrix-note p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #7f8c8d;
+}

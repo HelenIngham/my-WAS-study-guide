@@ -1,0 +1,86 @@
+.keyboard-interaction-activity {
+  margin-top: 1.5rem;
+}
+
+.keyboard-interaction-activity .task-container {
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--card-bg, #fff);
+}
+
+.keyboard-interaction-activity .task-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.keyboard-interaction-activity .task-badge {
+  display: inline-block;
+  font-size: .875rem;
+  color: var(--text-muted, #555);
+}
+
+.keyboard-interaction-activity .task-component-name {
+  margin: 0;
+}
+
+.keyboard-interaction-activity .task-question {
+  margin: .75rem 0 1rem;
+}
+
+.keyboard-interaction-activity .options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: .5rem;
+}
+
+.keyboard-interaction-activity .option-button {
+  padding: .5rem .75rem;
+  border: 1px solid var(--border-color, #ddd);
+  background: var(--btn-bg, #f8f8f8);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.keyboard-interaction-activity .option-button:focus {
+  outline: 3px solid var(--focus, #145cff);
+  outline-offset: 2px;
+}
+
+.keyboard-interaction-activity .feedback-box {
+  margin-top: 1rem;
+  padding: .75rem;
+  border-radius: 6px;
+}
+
+.keyboard-interaction-activity .feedback-box.success {
+  background: #e8f5e9;
+  border: 1px solid #66bb6a;
+}
+
+.keyboard-interaction-activity .feedback-box.error {
+  background: #fff3e0;
+  border: 1px solid #ffb74d;
+}
+
+.keyboard-interaction-activity .activity-controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: .5rem;
+}
+
+.keyboard-interaction-activity .next-btn,
+.keyboard-interaction-activity .reset-btn {
+  padding: .5rem .75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color, #ddd);
+  background: var(--btn-bg, #f8f8f8);
+}
+
+.keyboard-interaction-activity .next-btn:focus,
+.keyboard-interaction-activity .reset-btn:focus {
+  outline: 3px solid var(--focus, #145cff);
+  outline-offset: 2px;
+}

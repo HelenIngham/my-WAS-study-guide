@@ -1,0 +1,128 @@
+.conformance-picker {
+  background-color: var(--bg-secondary, #f8f9fa);
+  border: 1px solid var(--border-color, #dee2e6);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.picker-title {
+  margin-top: 0;
+  color: var(--primary-color, #0056b3);
+}
+
+.scenario-container {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: var(--bg-primary, #ffffff);
+  border-left: 4px solid var(--primary-color, #0056b3);
+}
+
+.scenario-count {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+}
+
+.scenario-context {
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.level-options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.level-btn {
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--primary-color, #0056b3);
+  background-color: transparent;
+  color: var(--primary-color, #0056b3);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.level-btn:hover:not(:disabled) {
+  background-color: rgba(0, 86, 179, 0.1);
+}
+
+.level-btn.selected {
+  background-color: var(--primary-color, #0056b3);
+  color: white;
+}
+
+.level-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.check-btn, .next-btn, .reset-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.check-btn {
+  background-color: var(--success-color, #28a745);
+  color: white;
+}
+
+.check-btn:disabled {
+  background-color: #ccc;
+}
+
+.next-btn {
+  background-color: var(--primary-color, #0056b3);
+  color: white;
+}
+
+.reset-btn {
+  background-color: var(--secondary-color, #6c757d);
+  color: white;
+  margin-top: 1rem;
+}
+
+.feedback-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.feedback-box.correct {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.feedback-box.incorrect {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.feedback-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.rationale {
+  margin-bottom: 0;
+}
+
+.finished {
+  text-align: center;
+}

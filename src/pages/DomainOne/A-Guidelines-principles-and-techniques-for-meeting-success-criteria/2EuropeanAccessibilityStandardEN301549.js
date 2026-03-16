@@ -1,7 +1,5 @@
 // 2EuropeanAccessibilityStandardEN301549.js
 import React from "react";
-import "./2EuropeanAccessibilityStandardEN301549.css";
-import "../../../index.css";
 import TrueFalseQuiz from "../../../components/TrueFalseQuiz";
 import Example from "../../../components/Example";
 import Callout from "../../../components/Callout";

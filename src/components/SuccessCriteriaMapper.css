@@ -1,0 +1,148 @@
+.sc-mapper-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 5px solid #0056b3;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sc-mapper-heading {
+  margin-top: 0;
+  color: #0056b3;
+}
+
+.sc-mapper-intro {
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.sc-scenarios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sc-scenario-item {
+  border: 1px solid #dee2e6;
+  padding: 1.25rem;
+  border-radius: 6px;
+  background-color: white;
+  margin: 0;
+}
+
+.sc-scenario-desc {
+  font-size: 1.1rem;
+  padding: 0 0.5rem;
+}
+
+.sc-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.sc-option-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 2px solid #e9ecef;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sc-option-label:hover {
+  background-color: #f1f3f5;
+  border-color: #ced4da;
+}
+
+.sc-option-label.selected {
+  border-color: #0056b3;
+  background-color: #e7f1ff;
+}
+
+.sc-feedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.sc-correct {
+  border-color: #28a745;
+  background-color: #f4fff6;
+}
+
+.sc-correct .sc-feedback {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.sc-incorrect {
+  border-color: #dc3545;
+  background-color: #fff5f6;
+}
+
+.sc-incorrect .sc-feedback {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.sc-explanation {
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 0.5rem;
+}
+
+.sc-mapper-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.sc-submit-btn, .sc-reset-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sc-submit-btn {
+  background-color: #0056b3;
+  color: white;
+}
+
+.sc-submit-btn:hover:not(:disabled) {
+  background-color: #004494;
+}
+
+.sc-submit-btn:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.sc-reset-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.sc-reset-btn:hover {
+  background-color: #5a6268;
+}
+
+.sc-results-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sc-score {
+  font-weight: bold;
+  font-size: 1.2rem;
+}

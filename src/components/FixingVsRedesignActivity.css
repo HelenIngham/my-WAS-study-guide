@@ -1,0 +1,118 @@
+/* components/FixingVsRedesignActivity.css */
+.fixing-redesign-activity {
+  background-color: var(--color-bg-alt, #f9f9f9);
+  border: 1px solid var(--color-border, #ddd);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.fixing-redesign-activity h2 {
+  margin-top: 0;
+  color: var(--color-primary, #0056b3);
+}
+
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.scenario-item {
+  background: white;
+  border: 1px solid var(--color-border, #ccc);
+  border-radius: 6px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.scenario-item h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  border-bottom: 2px solid var(--color-accent, #eee);
+  padding-bottom: 0.5rem;
+}
+
+.scenario-desc {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.activity-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.activity-option-btn {
+  padding: 0.75rem;
+  border: 2px solid var(--color-border, #ddd);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-weight: 500;
+}
+
+.activity-option-btn:hover:not(:disabled) {
+  border-color: var(--color-primary, #0056b3);
+  background: #f0f7ff;
+}
+
+.activity-option-btn.selected {
+  background: #e1f0ff;
+  border-color: var(--color-primary, #0056b3);
+}
+
+.activity-option-btn.correct {
+  background: #e6ffed;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.activity-option-btn.incorrect {
+  background: #ffeef0;
+  border-color: #d73a49;
+  color: #721c24;
+}
+
+.activity-feedback {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.activity-feedback.success {
+  background-color: #e6ffed;
+  border-left: 4px solid #28a745;
+}
+
+.activity-feedback.error {
+  background-color: #ffeef0;
+  border-left: 4px solid #d73a49;
+}
+
+.reset-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.reset-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-primary, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background-color: #004494;
+}

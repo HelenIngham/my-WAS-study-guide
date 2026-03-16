@@ -1,7 +1,5 @@
 // 1W3CGuidelinesandSpecifications.js
 import React from "react";
-import "./1W3CGuidelinesandSpecifications.css";
-import "../../../index.css";
 import PageHeader from "../../../components/PageHeader";
 import Grid from "../../../components/Grid";
 import Card from "../../../components/Card";

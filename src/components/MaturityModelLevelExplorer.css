@@ -1,0 +1,65 @@
+.maturity-explorer {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 1rem;
+}
+
+.maturity-levels-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.maturity-level-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.maturity-level-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #eee;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-weight: bold;
+}
+
+.maturity-level-btn.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.level-index {
+  background-color: #007bff;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: 0.8rem;
+}
+
+.maturity-level-btn.active .level-index {
+  background-color: white;
+  color: #007bff;
+}
+
+.maturity-level-content {
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #007bff;
+  border-top: none;
+  display: none;
+}
+
+.maturity-level-content.show {
+  display: block;
+}

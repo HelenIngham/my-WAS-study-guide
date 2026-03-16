@@ -1,0 +1,79 @@
+.transcript-demo {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.audio-player-mock {
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.play-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.progress-bar {
+  flex-grow: 1;
+  background-color: #555;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background-color: #28a745;
+  height: 100%;
+}
+
+.time {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.transcript-toggle {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.transcript-toggle:hover {
+  background-color: #5a6268;
+}
+
+.transcript-content {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.demo-explanation {
+  background-color: #e9ecef;
+  padding: 10px 15px;
+  border-left: 4px solid #007bff;
+  font-size: 0.9em;
+}

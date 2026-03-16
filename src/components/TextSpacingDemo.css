@@ -1,0 +1,66 @@
+.text-spacing-demo-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  border-radius: 8px;
+}
+
+.text-spacing-demo-container .controls {
+  margin-bottom: 1.5rem;
+}
+
+.demo-box {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  background: white;
+  border: 1px dashed var(--neutral-400);
+  border-radius: 4px;
+}
+
+.demo-card {
+  flex: 1;
+  min-width: 250px;
+  border: 1px solid var(--neutral-200);
+  padding: 1rem;
+  background-color: white;
+}
+
+.bad-example-card {
+  flex: 1;
+  min-width: 250px;
+  border: 1px solid var(--neutral-200);
+  padding: 1rem;
+  background-color: white;
+}
+
+.fixed-height-box {
+  height: 100px;
+  border: 2px solid var(--red-600);
+  padding: 0.5rem;
+  overflow: hidden;
+  background-color: var(--red-50);
+}
+
+.demo-btn {
+  background: var(--blue-700);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.takeaway {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: var(--blue-50);
+  border-left: 4px solid var(--blue-700);
+}
+
+.takeaway p {
+  margin: 0;
+  font-size: 0.95rem;
+}

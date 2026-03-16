@@ -1,0 +1,97 @@
+/* components/ConformanceVsBestPracticeActivity.css */
+.conformance-activity {
+  background-color: #f0f4f8;
+  border: 1px solid #d1d9e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.conformance-scenarios {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.conformance-item {
+  background: white;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+
+.conformance-issue {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.conformance-options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.conformance-option-btn {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #dee2e6;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.conformance-option-btn:hover:not(:disabled) {
+  border-color: #0056b3;
+  background: #f8f9fa;
+}
+
+.conformance-option-btn.correct {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.conformance-option-btn.incorrect {
+  background: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
+
+.conformance-feedback {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.conformance-feedback.success {
+  background-color: #d4edda;
+  border-left: 4px solid #28a745;
+  color: #155724;
+}
+
+.conformance-feedback.error {
+  background-color: #f8d7da;
+  border-left: 4px solid #dc3545;
+  color: #721c24;
+}
+
+.reset-container {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.reset-btn {
+  padding: 0.5rem 1rem;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background-color: #5a6268;
+}

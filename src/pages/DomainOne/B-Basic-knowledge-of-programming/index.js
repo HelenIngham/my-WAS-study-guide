@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-import "../../../index.css";
 import PageHeader from "../../../components/PageHeader";
 import Tabs from "../../../components/Tabs";
 import Alert from "../../../components/Alert";
