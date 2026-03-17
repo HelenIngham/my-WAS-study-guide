@@ -9,6 +9,7 @@ import PageNav from './components/PageNav';
 import Home from './pages/Home';
 import Resources from './pages/Resources';
 import SiteMap from './pages/Site-map';
+import TestQuestions from './pages/Test-questions';
 
 // Domain One - A
 import DomainOne from './pages/DomainOne';
@@ -168,6 +169,7 @@ function AppContent() {
                     <Route path="/" element={<Home />} />
                     <Route path="/resources" element={<Resources />} />
                     <Route path="/site-map" element={<SiteMap />} />
+                    <Route path="/test-questions" element={<TestQuestions />} />
 
                     {/* Domain One */}
                     <Route path="/domain-one" element={<DomainOne />} />

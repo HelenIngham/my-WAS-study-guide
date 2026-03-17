@@ -121,6 +121,7 @@ export const routes = [
   { path: '/domain-three/c/procurement-maturity-model', label: 'D3:C: 4.Using an Accessible Procurement Maturity Model' },
 
     { path: '/resources', label: 'Resources' },
+    { path: '/test-questions', label: 'Test Questions' },
 ];
 
 export function getPrevNext(pathname) {
