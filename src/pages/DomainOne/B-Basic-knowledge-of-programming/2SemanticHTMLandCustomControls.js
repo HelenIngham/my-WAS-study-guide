@@ -9,6 +9,7 @@ import ComparisonTable from "../../../components/ComparisonTable";
 import CodeBlock from "../../../components/CodeBlock";
 import InteractiveComparison from "../../../components/InteractiveComparison";
 import SemanticElementDropdown from "../../../components/SemanticElementDropdown";
+import NonSemanticElementDropdown from "../../../components/NonSemanticElementDropdown";
 
 function SemanticHTMLandCustomControls() {
     const flashcards = [
@@ -135,6 +136,14 @@ function SemanticHTMLandCustomControls() {
                     There are many semantic elements available in HTML. Using the correct element for the job provides automatic accessibility benefits, such as proper roles, states, and keyboard support.
                 </p>
                 <SemanticElementDropdown />
+            </section>
+
+            <section style={styles.section} aria-labelledby="non-semantic-elements-heading">
+                <h2 id="non-semantic-elements-heading" style={styles.heading}>Explore Non-Semantic Elements</h2>
+                <p style={styles.paragraph}>
+                    Non-semantic elements do not convey any meaning about their content. They are primarily used for styling and layout purposes. When using them for interactive controls, you must manually add accessibility features.
+                </p>
+                <NonSemanticElementDropdown />
             </section>
 
             <section style={styles.section} aria-labelledby="flashcards-heading">
