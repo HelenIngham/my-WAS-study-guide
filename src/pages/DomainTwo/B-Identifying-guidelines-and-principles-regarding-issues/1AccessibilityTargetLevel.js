@@ -23,29 +23,29 @@ function AccessibilityTargetLevel() {
     },
     {
       front: "How many more Success Criteria did WCAG 2.1 add compared to 2.0?",
-      back: "12 more Success Criteria at Level A and Level AA.",
+      back: "17 more Success Criteria at Level A, Level AA, and Level AAA.",
     },
     {
       front: "How many Success Criteria did WCAG 2.2 add?",
-      back: "9 new Success Criteria (2 at Level A, 4 at Level AA, and 3 at Level AAA).",
+      back: "9 new Success Criteria (1 at Level A, 4 at Level AA, and 4 at Level AAA).",
     },
     {
       front: "What is EN 301 549?",
-      back: "A European standard for digital accessibility that includes WCAG success criteria plus 38 additional requirements for web content.",
+      back: "A European standard for digital accessibility that includes WCAG success criteria plus 37 additional requirements for web content.",
     },
   ];
 
   const matchingPairs = [
-    { term: "WCAG 2.1", definition: "Added 12 SC related to cognitive, touch, and orientation." },
-    { term: "WCAG 2.2", definition: "Added 9 new SC (2xA, 4xAA, 3xAAA)." },
-    { term: "EN 301 549", definition: "European standard with 38 additional web requirements." },
+    { term: "WCAG 2.1", definition: "Added 17 SC related to cognitive, touch, and orientation." },
+    { term: "WCAG 2.2", definition: "Added 9 new SC (1xA, 4xAA, 4xAAA)." },
+    { term: "EN 301 549", definition: "European standard with 37 additional web requirements." },
     { term: "Directive 2016/2102", definition: "Web Accessibility Directive in the EU." },
   ];
 
   const correctMatches = {
-    "WCAG 2.1": "Added 12 SC related to cognitive, touch, and orientation.",
-    "WCAG 2.2": "Added 9 new SC (2xA, 4xAA, 3xAAA).",
-    "EN 301 549": "European standard with 38 additional web requirements.",
+    "WCAG 2.1": "Added 17 SC related to cognitive, touch, and orientation.",
+    "WCAG 2.2": "Added 9 new SC (1xA, 4xAA, 4xAAA).",
+    "EN 301 549": "European standard with 37 additional web requirements.",
     "Directive 2016/2102": "Web Accessibility Directive in the EU.",
   };
 
@@ -66,7 +66,7 @@ function AccessibilityTargetLevel() {
       id: "3",
       context: "A project needs to address specific mobile and touch interface issues beyond WCAG 2.0.",
       targetLevel: "AA",
-      rationale: "WCAG 2.1 added 12 SC specifically addressing touch interfaces and mobile-related issues at Level A and AA.",
+      rationale: "WCAG 2.1 added 17 SC specifically addressing touch interfaces and mobile-related issues at Level A, AA, and AAA.",
     },
   ];
 
@@ -101,14 +101,14 @@ function AccessibilityTargetLevel() {
           </p>
           <ul>
             <li>
-              <strong>WCAG 2.1:</strong> Added 12 more Success Criteria at Level A and Level AA compared to WCAG 2.0. These relate to cognitive disabilities, touch interface devices, and screen orientation.
+              <strong>WCAG 2.1:</strong> Added 17 more Success Criteria at Level A, Level AA, and Level AAA compared to WCAG 2.0. These relate to cognitive disabilities, touch interface devices, and screen orientation.
             </li>
             <li>
               <strong>WCAG 2.2:</strong> Added 9 new Success Criteria:
               <ul>
-                <li>2 at Level A</li>
+                <li>1 at Level A</li>
                 <li>4 at Level AA</li>
-                <li>3 at Level AAA</li>
+                <li>4 at Level AAA</li>
               </ul>
             </li>
           </ul>
@@ -126,7 +126,7 @@ function AccessibilityTargetLevel() {
           </p>
           <Callout title="Additional Requirements" type="warning">
             <p>
-              EN 301 549 contains <strong>38 additional requirements</strong> applicable to web content (see Annex A, Table A.1).
+              EN 301 549 contains <strong>37 additional requirements</strong> applicable to web content (see Annex A, Table A.1).
             </p>
           </Callout>
           <p>
@@ -168,8 +168,8 @@ function AccessibilityTargetLevel() {
         <ul>
           <li>Determine targets based on legal, organizational, and customer requirements.</li>
           <li>Default to the latest WCAG version if no specific law applies.</li>
-          <li>WCAG 2.1 added 12 SC; WCAG 2.2 added 9 SC.</li>
-          <li>EN 301 549 is the EU standard and contains 38 requirements beyond WCAG.</li>
+          <li>WCAG 2.1 added 17 SC; WCAG 2.2 added 9 SC.</li>
+          <li>EN 301 549 is the EU standard and contains 37 requirements beyond WCAG.</li>
           <li>Conformance levels (A, AA, AAA) define the degree of accessibility.</li>
         </ul>
       </ExamTakeaway>

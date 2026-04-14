@@ -11,7 +11,7 @@ import TouchTargetSimulator from "../../../components/TouchTargetSimulator";
 
 function IdentifyIssuesForTouchUsers() {
   const checklistItems = [
-    { id: "target-size", label: "Large touch target size (at least 44x44 CSS pixels for AAA, 24x24 for AA in WCAG 2.2)" },
+    { id: "target-size", label: "Large touch target size (at least 44x44 CSS pixels for AAA, 24x24 for AA in WCAG 2.1 and 2.2)" },
     { id: "spacing", label: "Adequate spacing between touch targets to prevent accidental activation" },
     { id: "orientation", label: "No restriction to a single display orientation (portrait or landscape)" },
     { id: "path-gestures", label: "Functionality using multipoint or path-based gestures can be operated with a single pointer" },
@@ -25,7 +25,7 @@ function IdentifyIssuesForTouchUsers() {
   const flashcards = [
     {
       front: "What are the primary touch target size requirements?",
-      back: "WCAG 2.1 (AAA) 2.5.5 requires 44x44 CSS pixels. WCAG 2.2 (AA) 2.5.8 requires at least 24x24 CSS pixels with adequate spacing.",
+      back: "WCAG 2.1 (AAA) 2.5.5 and WCAG 2.2 (AAA) 2.5.5 require 44x44 CSS pixels. WCAG 2.2 (AA) 2.5.8 requires at least 24x24 CSS pixels with adequate spacing.",
     },
     {
       front: "True or False: All touch device owners use touch interaction.",

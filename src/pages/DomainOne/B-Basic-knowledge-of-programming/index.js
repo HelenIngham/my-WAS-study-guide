@@ -16,8 +16,7 @@ function BasicKnowledgeOfProgramming() {
                     <p>
                         The WAS exam does not cover the details of JavaScript programming syntax. 
                         A person should be able to pass the exam without being a professional JavaScript programmer. 
-                        However, web designers and developers must know how <strong>asynchronous JavaScript</strong> and 
-                        <strong>interactive content</strong> affect accessibility.
+                        However, web designers and developers must know how <strong>asynchronous JavaScript</strong> and <strong>interactive content</strong> affect accessibility.
                     </p>
                     <p>
                         They must be able to identify the concepts, principles, and strategies of accessible JavaScript interaction design.

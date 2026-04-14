@@ -78,22 +78,18 @@ function TestQuestions() {
   const scorePercentage = Math.round((correctAnswersCount / totalQuestions) * 100);
   const isPass = scorePercentage >= 70;
 
-  // Domain error tracking
-  const domainErrors = {
-    "Domain I": 0,
-    "Domain II": 0,
-    "Domain III": 0
-  };
-
-  allQuestionsInSet.forEach(q => {
-    if (userAnswers[q.id] !== q.answer - 1) {
-      if (q.domainTitle.includes("Domain I")) domainErrors["Domain I"]++;
-      else if (q.domainTitle.includes("Domain II")) domainErrors["Domain II"]++;
-      else if (q.domainTitle.includes("Domain III")) domainErrors["Domain III"]++;
+  // Domain tracking logic
+  const domainStats = allQuestionsInSet.reduce((acc, q) => {
+    const domain = q.domainTitle;
+    if (!acc[domain]) {
+      acc[domain] = { total: 0, correct: 0 };
     }
-  });
-
-  const worstDomain = Object.keys(domainErrors).reduce((a, b) => domainErrors[a] >= domainErrors[b] ? a : b);
+    acc[domain].total++;
+    if (userAnswers[q.id] === q.answer - 1) {
+      acc[domain].correct++;
+    }
+    return acc;
+  }, {});
 
   const domainLinks = {
     "Domain I": "/domain-one",
@@ -101,10 +97,206 @@ function TestQuestions() {
     "Domain III": "/domain-three"
   };
 
+  const getRevisionLevel = (percentage) => {
+    if (percentage >= 90) return { label: "Mastered", class: "badge-success", feedback: "Excellent work!" };
+    if (percentage >= 70) return { label: "Proficient", class: "badge-info", feedback: "Good, but some review could help." };
+    if (percentage >= 50) return { label: "Needs Revision", class: "badge-warning", feedback: "Focus on this area during your studies." };
+    return { label: "Critical Revision", class: "badge-secondary", feedback: "This domain needs significant attention." };
+  };
+
   const currentQuestion = allQuestionsInSet[currentQuestionIndex];
 
   return (
     <div className="container py-4">
+      <style>{`
+        .quiz-results-banner {
+          border: none !important;
+          box-shadow: var(--shadow-md);
+          color: white !important;
+          border-radius: 12px !important;
+          padding: 2rem !important;
+        }
+        .pass-banner {
+          background: linear-gradient(135deg, var(--green-800) 0%, var(--green-900) 100%) !important;
+        }
+        .fail-banner {
+          background: linear-gradient(135deg, var(--dark-50) 0%, var(--dark-100) 100%) !important;
+        }
+        .result-icon {
+          font-size: 3rem;
+          background: rgba(255,255,255,0.15);
+          width: 80px;
+          height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          border: 2px solid rgba(255,255,255,0.3);
+        }
+        .domain-breakdown-card {
+          border-radius: 12px !important;
+          border: 1px solid var(--neutral-200);
+          padding: 1.5rem !important;
+        }
+        .bg-success-light {
+          background-color: var(--green-100) !important;
+          color: var(--green-900) !important;
+        }
+        .bg-success-very-light {
+          background-color: var(--green-0) !important;
+          border: 1px solid var(--green-200) !important;
+        }
+        .review-question-card {
+           padding: 0 !important;
+           margin-bottom: 2.5rem !important;
+        }
+        .review-question-card .p-4 {
+           padding: 2rem !important;
+        }
+        .explanation-box {
+          margin-top: 1.5rem;
+          padding: 1.5rem;
+          background-color: var(--blue-050);
+          border-left: 6px solid var(--blue-700);
+          border-radius: 8px;
+          box-shadow: var(--shadow-inner);
+        }
+        .shadow-inner {
+          box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06) !important;
+        }
+        .tracking-wider {
+          letter-spacing: 0.05em;
+        }
+        .rounded-lg {
+          border-radius: 12px !important;
+        }
+        .domain-row:hover {
+          background-color: var(--neutral-100);
+        }
+        .opacity-90 { opacity: 0.9; }
+        .opacity-20 { opacity: 0.2; }
+        .get-revision-level-label {
+          color: white !important;
+        }
+        
+        /* Badges */
+        .badge {
+          display: inline-block;
+          padding: 0.5em 0.8em;
+          font-size: 0.85em;
+          font-weight: 700;
+          line-height: 1;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: baseline;
+          border-radius: 0.25rem;
+        }
+        .badge-pill, .rounded-pill {
+          border-radius: 50rem !important;
+        }
+        .badge-success {
+          background-color: var(--green-700);
+          color: white;
+        }
+        .badge-info {
+          background-color: var(--blue-700);
+          color: white;
+        }
+        .badge-warning {
+          background-color: var(--orange-700);
+          color: white;
+        }
+        .badge-secondary {
+          background-color: var(--neutral-850);
+          color: white;
+        }
+
+        /* Buttons */
+        .btn-primary {
+          background-color: var(--pink-700);
+          border-color: var(--pink-700);
+          color: white;
+        }
+        .btn-primary:hover {
+          background-color: var(--pink-800);
+          border-color: var(--pink-800);
+          color: white;
+        }
+        .btn-outline-primary {
+          color: var(--pink-700);
+          border-color: var(--pink-700);
+          background-color: transparent;
+        }
+        .btn-outline-primary:hover {
+          background-color: var(--pink-700);
+          color: white;
+        }
+        .btn-info {
+          background-color: var(--blue-700);
+          border-color: var(--blue-700);
+          color: white;
+        }
+        .btn-info:hover {
+          background-color: var(--blue-800);
+          border-color: var(--blue-800);
+          color: white;
+        }
+        .btn-secondary {
+          background-color: var(--neutral-700);
+          border-color: var(--neutral-700);
+          color: white;
+        }
+        .btn-secondary:hover {
+          background-color: var(--neutral-800);
+          border-color: var(--neutral-800);
+          color: white;
+        }
+        .btn-light {
+          background-color: var(--color-bg-white);
+          border-color: var(--neutral-200);
+          color: var(--neutral-850);
+        }
+        .btn-light:hover {
+          background-color: var(--neutral-100);
+          border-color: var(--neutral-300);
+        }
+        .btn-success {
+          background-color: var(--green-700);
+          border-color: var(--green-700);
+          color: white;
+        }
+        .btn-success:hover {
+          background-color: var(--green-800);
+          border-color: var(--green-800);
+          color: white;
+        }
+
+        .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+          background-color: var(--pink-600);
+          border-color: var(--pink-600);
+        }
+
+        .border-primary { border-color: var(--pink-600) !important; }
+        .text-primary { color: var(--pink-700) !important; }
+        .text-info { color: var(--blue-700) !important; }
+        .text-success { color: var(--green-700) !important; }
+        .text-danger { color: var(--red-700) !important; }
+        
+        .progress-bar {
+          background-color: var(--pink-700);
+        }
+        
+        /* Table styles */
+        .table thead th {
+          border-bottom: 2px solid var(--neutral-200);
+          background-color: var(--neutral-100);
+          color: var(--neutral-800);
+          font-weight: 700;
+          text-transform: uppercase;
+          font-size: 0.75rem;
+          letter-spacing: 0.05em;
+        }
+      `}</style>
       <h1 className="mb-4">Test Questions</h1>
       
       {!quizStarted && !isSubmitted && (
@@ -135,20 +327,84 @@ function TestQuestions() {
       )}
 
       {isSubmitted && (
-        <div className={`mb-5 p-4 border rounded ${isPass ? 'bg-success text-white' : 'bg-danger text-white'}`}>
-          <h2 className="h3">Result: {isPass ? "PASS" : "FAIL"}</h2>
-          <p className="h5">Score: {scorePercentage}% ({correctAnswersCount}/{totalQuestions} correct)</p>
-          <hr className="border-white" />
-          <div className="mt-3">
-            <p className="mb-1">Based on your results, you had the most difficulty with <strong>{worstDomain}</strong> ({domainErrors[worstDomain]} incorrect).</p>
-            <p className="mb-3">We recommend you review the following section:</p>
-            <Link to={domainLinks[worstDomain]} className="btn btn-light font-weight-bold">
-              Study {worstDomain} again
-            </Link>
+        <div 
+          className={`quiz-results-banner mb-5 border rounded ${isPass ? 'pass-banner' : 'fail-banner'}`}
+          role="alert"
+          aria-live="polite"
+        >
+          <div className="d-flex align-items-center mb-3">
+            <div className="result-icon mr-3" aria-hidden="true">
+              {isPass ? '✅' : '📊'}
+            </div>
+            <div>
+              <h2 className="h3 mb-0">Quiz Result: {isPass ? "PASS" : "FAIL"}</h2>
+              <p className="h5 mb-0 opacity-90">Overall Score: {scorePercentage}% ({correctAnswersCount}/{totalQuestions} correct)</p>
+            </div>
           </div>
-          <button className="btn btn-outline-light mt-4 d-block" onClick={resetQuiz}>
-            Restart Quiz / Try Another Set
-          </button>
+          
+          <hr className="border-white opacity-20" />
+          
+          <div className="mt-4 bg-white text-dark rounded-lg shadow-sm domain-breakdown-card">
+            <h3 className="h5 mb-4 d-flex align-items-center">
+              <span className="mr-2">📊</span> Domain Breakdown & Feedback
+            </h3>
+            <div className="table-responsive">
+              <table className="table table-hover borderless mb-0" aria-label="Score breakdown by domain">
+                <thead className="thead-light">
+                  <tr>
+                    <th scope="col" className="py-3">Domain</th>
+                    <th scope="col" className="text-center py-3">Score</th>
+                    <th scope="col" className="py-3">Status</th>
+                    <th scope="col" className="py-3">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.entries(domainStats).map(([domain, stats]) => {
+                    const percentage = Math.round((stats.correct / stats.total) * 100);
+                    const level = getRevisionLevel(percentage);
+                    const shortDomain = Object.keys(domainLinks).find(key => domain.includes(key)) || domain;
+                    
+                    return (
+                      <tr key={domain} className="domain-row">
+                        <td className="align-middle pr-4" style={{ fontSize: '0.95rem', fontWeight: '500', color: 'var(--neutral-850)' }}>
+                          {domain}
+                        </td>
+                        <td className="text-center align-middle">
+                          <div className="h5 mb-0 font-weight-bold">{percentage}%</div>
+                          <div className="small text-muted">{stats.correct}/{stats.total}</div>
+                        </td>
+                        <td className="align-middle">
+                          <span className={`badge ${level.class} p-2 px-3 d-inline-block rounded-pill mb-1`}>
+                            {level.label}
+                          </span>
+                          <div className="small text-muted d-none d-md-block" style={{ lineHeight: '1.2' }}>
+                            {level.feedback}
+                          </div>
+                        </td>
+                        <td className="align-middle">
+                          {domainLinks[shortDomain] && (
+                            <Link 
+                              to={domainLinks[shortDomain]} 
+                              className="btn btn-sm btn-outline-primary rounded-pill px-3"
+                              aria-label={`Study ${shortDomain} again`}
+                            >
+                              Study
+                            </Link>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="text-center mt-4">
+            <button className="btn btn-light btn-lg px-5 shadow-sm rounded-pill" onClick={resetQuiz} aria-label="Restart Quiz or Try Another Set">
+              Restart Quiz / Try Another Set
+            </button>
+          </div>
         </div>
       )}
 
@@ -170,8 +426,8 @@ function TestQuestions() {
           </div>
 
           <div className="question-card mb-4 p-4 border rounded shadow-sm bg-white">
-            <h3 className="h5 mb-4">{currentQuestion.question}</h3>
-            <div className="options-list mb-4">
+            <div className="options-list mb-4" role="radiogroup" aria-labelledby={`q${currentQuestion.id}-text`}>
+              <h3 id={`q${currentQuestion.id}-text`} className="h5 mb-4">{currentQuestion.question}</h3>
               {currentQuestion.options.map((option, idx) => {
                 const isSelected = userAnswers[currentQuestion.id] === idx;
                 return (
@@ -225,47 +481,91 @@ function TestQuestions() {
           <h2 className="h4 mb-4 border-bottom pb-2">Review Your Answers</h2>
           {allQuestionsInSet.map((q, idx) => {
             const isCorrect = userAnswers[q.id] === q.answer - 1;
+            const questionLabel = `Question ${idx + 1}: ${isCorrect ? 'Correct' : 'Incorrect'}`;
+            
             return (
-              <div key={q.id} className={`question-card mb-4 p-4 border rounded shadow-sm bg-white ${!isCorrect ? 'border-danger' : 'border-success'}`}>
-                <p className="h6 text-muted mb-2">Question {idx + 1}</p>
-                <p className="h5 mb-3">{q.question}</p>
-                
-                <div className="options-list mb-3">
-                  {q.options.map((option, optIdx) => {
-                    const isSelected = userAnswers[q.id] === optIdx;
-                    const isCorrectOption = q.answer - 1 === optIdx;
-                    
-                    let optionClass = "p-2 rounded mb-1 ";
-                    if (isCorrectOption) optionClass += "bg-success text-white";
-                    else if (isSelected && !isCorrectOption) optionClass += "bg-danger text-white";
-                    else optionClass += "bg-light";
+              <section 
+                key={q.id} 
+                className={`review-question-card mb-5 p-0 border rounded-lg shadow-sm bg-white overflow-hidden ${!isCorrect ? 'border-secondary' : 'border-success'}`}
+                aria-label={questionLabel}
+              >
+                <div className={`p-3 d-flex justify-content-between align-items-center ${isCorrect ? 'bg-success-light' : 'bg-light border-bottom'}`}>
+                  <span className="h6 mb-0 font-weight-bold text-uppercase tracking-wider">
+                    Question {idx + 1}
+                  </span>
+                  <span className={`badge ${isCorrect ? 'badge-success' : 'badge-secondary'} px-3 py-2 rounded-pill shadow-sm`}>
+                    {isCorrect ? '✓ Correct' : 'Incorrect'}
+                  </span>
+                </div>
 
-                    return (
-                      <div key={optIdx} className={optionClass}>
-                        {optIdx + 1}. {option}
-                        {isSelected && !isCorrectOption && <span className="ml-2 small">(Your Answer)</span>}
-                        {isCorrectOption && <span className="ml-2 small">(Correct Answer)</span>}
+                <div className="p-4">
+                  <p className="h5 mb-4" style={{ lineHeight: '1.4' }}>{q.question}</p>
+                  
+                  <div className="options-list mb-4" role="list">
+                    {q.options.map((option, optIdx) => {
+                      const isSelected = userAnswers[q.id] === optIdx;
+                      const isCorrectOption = q.answer - 1 === optIdx;
+                      
+                      let optionClass = "p-3 rounded-lg mb-2 d-flex align-items-start border ";
+                      if (isCorrectOption) optionClass += "border-success bg-success-very-light text-dark shadow-sm";
+                      else if (isSelected && !isCorrectOption) optionClass += "border-secondary bg-light text-dark";
+                      else optionClass += "border-light bg-light text-muted opacity-80";
+
+                      return (
+                        <div key={optIdx} className={optionClass} role="listitem">
+                          <span className="font-weight-bold mr-3" style={{ minWidth: '20px' }}>{optIdx + 1}.</span> 
+                          <div className="flex-grow-1">
+                            {option}
+                            {isSelected && !isCorrectOption && (
+                              <div className="mt-1 small font-weight-bold text-danger">
+                                <span className="mr-1">⚠️</span> Your Answer
+                              </div>
+                            )}
+                            {isCorrectOption && (
+                              <div className="mt-1 small font-weight-bold text-success">
+                                <span className="mr-1">✨</span> Correct Answer
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="mt-4 pt-3 border-top">
+                    <button
+                      type="button"
+                      className={`btn btn-sm ${showExplanation[q.id] ? 'btn-secondary' : 'btn-info'} px-4 rounded-pill`}
+                      onClick={() => toggleExplanation(q.id)}
+                      aria-expanded={!!showExplanation[q.id]}
+                      aria-controls={`explanation-${q.id}`}
+                    >
+                      {showExplanation[q.id] ? "Hide Explanation" : "Show Explanation"}
+                    </button>
+                    {showExplanation[q.id] && (
+                      <div 
+                        id={`explanation-${q.id}`}
+                        className="explanation-box"
+                      >
+                        <div className="mb-3">
+                          <h4 className="h6 text-uppercase text-muted font-weight-bold small mb-2">Detailed Explanation</h4>
+                          <p className="mb-0 text-dark" style={{ fontSize: '1.05rem' }}>
+                            <strong>{q.answer}. {q.answerText}</strong>
+                          </p>
+                        </div>
+                        {q.distractors && q.distractors.length > 0 && (
+                          <div>
+                            <h4 className="h6 text-uppercase text-muted font-weight-bold small mb-2">Common Misconceptions</h4>
+                            <p className="mb-0 small text-muted italic">
+                              Distractors often focus on: {q.distractors.join(", ")}
+                            </p>
+                          </div>
+                        )}
                       </div>
-                    );
-                  })}
+                    )}
+                  </div>
                 </div>
-
-                <div className="mt-3">
-                  <button
-                    type="button"
-                    className="btn btn-sm btn-info"
-                    onClick={() => toggleExplanation(q.id)}
-                  >
-                    {showExplanation[q.id] ? "Hide Explanation" : "Show Explanation"}
-                  </button>
-                  {showExplanation[q.id] && (
-                    <div className="mt-3 p-3 bg-light border-left border-info rounded">
-                      <p className="mb-1"><strong>Distractors:</strong> {q.distractors.join(", ")}</p>
-                      <p className="mb-0"><strong>Correct Answer:</strong> {q.answer}. {q.answerText}</p>
-                    </div>
-                  )}
-                </div>
-              </div>
+              </section>
             );
           })}
         </div>
