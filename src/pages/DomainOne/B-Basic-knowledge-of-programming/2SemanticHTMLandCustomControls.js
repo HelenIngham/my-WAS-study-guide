@@ -8,6 +8,7 @@ import ExamTakeaway from "../../../components/ExamTakeaway";
 import ComparisonTable from "../../../components/ComparisonTable";
 import CodeBlock from "../../../components/CodeBlock";
 import InteractiveComparison from "../../../components/InteractiveComparison";
+import SemanticElementDropdown from "../../../components/SemanticElementDropdown";
 
 function SemanticHTMLandCustomControls() {
     const flashcards = [
@@ -126,6 +127,14 @@ function SemanticHTMLandCustomControls() {
                     title="Accessible Custom Control Pattern"
                     code={divCode}
                 />
+            </section>
+
+            <section style={styles.section} aria-labelledby="all-semantic-elements-heading">
+                <h2 id="all-semantic-elements-heading" style={styles.heading}>Explore Semantic Elements</h2>
+                <p style={styles.paragraph}>
+                    There are many semantic elements available in HTML. Using the correct element for the job provides automatic accessibility benefits, such as proper roles, states, and keyboard support.
+                </p>
+                <SemanticElementDropdown />
             </section>
 
             <section style={styles.section} aria-labelledby="flashcards-heading">
