@@ -122,6 +122,7 @@ export const routes = [
 
     { path: '/resources', label: 'Resources' },
     { path: '/test-questions', label: 'Test Questions' },
+    { path: '/knowledge-check', label: 'Knowledge Level Tracker' },
 ];
 
 export function getPrevNext(pathname) {
