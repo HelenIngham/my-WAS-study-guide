@@ -1,6 +1,7 @@
 // components/AccessibilityTreeDemo.jsx
 import React, { useState } from 'react';
 import './AccessibilityTreeDemo.css';
+import CodeBlock from './CodeBlock';
 
 /**
  * Reusable Accessibility Tree Demo component
@@ -52,7 +53,7 @@ export default function AccessibilityTreeDemo({
                   onClick={() => setSelectedNode(node)}
                   className="html-example-button"
                 >
-                  <code>{node.html}</code>
+                  <CodeBlock>{node.html}</CodeBlock>
                 </button>
               </li>
             ))}

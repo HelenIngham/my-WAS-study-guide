@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './IssueSpotter.css';
-
+import CodeBlock from './CodeBlock';
 /**
  * IssueSpotter Component
  * A learning activity where users identify accessibility issues in code or visual snippets.
@@ -69,7 +69,7 @@ export default function IssueSpotter({ issues = [], title = 'Interactive: Identi
         <div className="snippet-container">
           <p className="snippet-label">Review the snippet below:</p>
           <pre className="code-snippet">
-            <code>{currentIssue.snippet}</code>
+            <CodeBlock>{currentIssue.snippet}</CodeBlock>
           </pre>
         </div>
 

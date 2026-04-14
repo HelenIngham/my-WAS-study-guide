@@ -6,7 +6,7 @@ import FlashcardSet from "../../../components/FlashcardSet";
 import MultipleChoiceQuiz from "../../../components/MultipleChoiceQuiz";
 import ExamTakeaway from "../../../components/ExamTakeaway";
 import ProgressiveEnhancementDiagram from "../../../components/ProgressiveEnhancementDiagram";
-
+import CodeBlock from "../../../components/CodeBlock";
 function SupportForJavaScriptInAccessibilityAPIsAssistiveTechnologies() {
     const flashcards = [
         {
@@ -100,7 +100,7 @@ function SupportForJavaScriptInAccessibilityAPIsAssistiveTechnologies() {
 
             <ExamTakeaway 
                 title="Exam Tip: JavaScript Accessibility"
-                text="On the WAS exam, remember that JavaScript is NOT an inherent barrier. The focus should be on *how* it's implemented (using <code>ARIA</code>, managing focus, etc.) and ensuring a fallback through progressive enhancement."
+                text="On the WAS exam, remember that JavaScript is NOT an inherent barrier. The focus should be on *how* it's implemented (using <CodeBlock>ARIA</CodeBlock>, managing focus, etc.) and ensuring a fallback through progressive enhancement."
             />
         </div>
     );

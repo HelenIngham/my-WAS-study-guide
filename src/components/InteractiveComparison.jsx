@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CodeBlock from './CodeBlock';
 
 const InteractiveComparison = () => {
   const [lastAction, setLastAction] = useState('None');
@@ -62,11 +63,11 @@ const InteractiveComparison = () => {
   return (
     <div style={styles.container} className="interactive-comparison">
       <h3>Interactive Demo: Semantic vs. Non-Semantic</h3>
-      <p>Try clicking these elements AND try using your keyboard (<code>Tab</code> to focus, then <code>Space</code> or <code>Enter</code>).</p>
+      <p>Try clicking these elements AND try using your keyboard (<CodeBlock>Tab</CodeBlock> to focus, then <CodeBlock>Space</CodeBlock> or <CodeBlock>Enter</CodeBlock>).</p>
       
       <div style={styles.grid}>
         <div style={styles.box}>
-          <h4>Semantic <code>&lt;button&gt;</code></h4>
+          <h4>Semantic <CodeBlock>&lt;button&gt;</CodeBlock></h4>
           <p>Has built-in keyboard support.</p>
           <button 
             style={styles.button}
@@ -77,8 +78,8 @@ const InteractiveComparison = () => {
         </div>
 
         <div style={styles.box}>
-          <h4>Non-Semantic <code>&lt;div&gt;</code></h4>
-          <p>No built-in keyboard support (even with <code>tabindex</code>).</p>
+          <h4>Non-Semantic <CodeBlock>&lt;div&gt;</CodeBlock></h4>
+          <p>No built-in keyboard support (even with <CodeBlock>tabindex</CodeBlock>).</p>
           <div 
             style={styles.div}
             tabIndex="0"
@@ -99,7 +100,7 @@ const InteractiveComparison = () => {
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.9rem', color: 'var(--color-text-subtle)' }}>
-        <p><strong>Note:</strong> The <code>&lt;div&gt;</code> has <code>tabIndex="0"</code> so you can focus it, but <code>onClick</code> alone won't fire when you press <code>Enter</code> or <code>Space</code>. The <code>&lt;button&gt;</code> works with both out of the box.</p>
+        <p><strong>Note:</strong> The <CodeBlock>&lt;div&gt;</CodeBlock> has <CodeBlock>tabIndex="0"</CodeBlock> so you can focus it, but <CodeBlock>onClick</CodeBlock> alone won't fire when you press <CodeBlock>Enter</CodeBlock> or <CodeBlock>Space</CodeBlock>. The <CodeBlock>&lt;button&gt;</CodeBlock> works with both out of the box.</p>
       </div>
     </div>
   );

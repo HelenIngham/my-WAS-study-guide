@@ -4,6 +4,7 @@ import Grid from "../../../components/Grid";
 import Card from "../../../components/Card";
 import CardList from "../../../components/CardList";
 import Alert from "../../../components/Alert";
+import CodeBlock from "../../../components/CodeBlock";
 import MultipleChoiceQuiz from "../../../components/MultipleChoiceQuiz";
 import AccessibilityTreeDemo from "../../../components/AccessibilityTreeDemo";
 import PageHeader from "../../../components/PageHeader";
@@ -167,13 +168,9 @@ function TheAccessibilityTreeAndItsImpact() {
                 <Grid classNamePrefix="impact" role="list" ariaLabel="How ARIA modifies the tree">
                     <Card classNamePrefix="impact" title="Adding Semantics" role="listitem">
                         <p>ARIA roles add semantic meaning to elements that lack it:</p>
-                        <pre><code>{`<!-- No semantic meaning -->
-<div>Click me</div>
-
-<!-- Has button semantics -->
-<div role="button" tabindex="0">
-  Click me
-</div>`}</code></pre>
+                        <CodeBlock 
+                            code={`<!-- No semantic meaning -->\n<div>Click me</div>\n\n<!-- Has button semantics -->\n<div role="button" tabindex="0">\n  Click me\n</div>`}
+                        />
                         <p className="card-note">
                             ⚠️ Remember: ARIA only changes what's exposed to assistive tech,
                             not the actual behavior. You still need keyboard support!
@@ -182,15 +179,9 @@ function TheAccessibilityTreeAndItsImpact() {
 
                     <Card classNamePrefix="impact" title="Removing Semantics" role="listitem">
                         <p>Certain ARIA attributes remove elements from the accessibility tree:</p>
-                        <pre><code>{`<!-- Removes from accessibility tree -->
-<div aria-hidden="true">
-  Decorative content
-</div>
-
-<!-- Removes semantics only -->
-<table role="presentation">
-  <!-- Used for layout, not data -->
-</table>`}</code></pre>
+                        <CodeBlock 
+                            code={`<!-- Removes from accessibility tree -->\n<div aria-hidden="true">\n  Decorative content\n</div>\n\n<!-- Removes semantics only -->\n<table role="presentation">\n  <!-- Used for layout, not data -->\n</table>`}
+                        />
                         <p className="card-note">
                             ⚠️ Never use aria-hidden="true" on focusable elements!
                         </p>
@@ -198,16 +189,9 @@ function TheAccessibilityTreeAndItsImpact() {
 
                     <Card classNamePrefix="impact" title="Modifying State" role="listitem">
                         <p>ARIA states and properties communicate dynamic information:</p>
-                        <pre><code>{`<button 
-  aria-expanded="false"
-  aria-controls="menu"
->
-  Menu
-</button>
-
-<ul id="menu" aria-hidden="true">
-  <!-- Menu items -->
-</ul>`}</code></pre>
+                        <CodeBlock 
+                            code={`<button \n  aria-expanded="false"\n  aria-controls="menu"\n>\n  Menu\n</button>\n\n<ul id="menu" aria-hidden="true">\n  <!-- Menu items -->\n</ul>`}
+                        />
                         <p className="card-note">
                             State changes must be updated via JavaScript when interactions occur.
                         </p>

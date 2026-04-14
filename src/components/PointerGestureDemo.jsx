@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './PointerGestureDemo.css';
-
+import CodeBlock from './CodeBlock';
 /**
  * PointerGestureDemo component
  * 
@@ -56,7 +56,7 @@ export default function PointerGestureDemo() {
       <div className="demo-explanation">
          <p>
            <strong>The Fix:</strong> Provide a redundant control that uses a simple click or tap.
-           In this case, the <code>+</code> and <code>-</code> buttons provide the single-pointer alternative to dragging the slider.
+           In this case, the <CodeBlock>+</CodeBlock> and <CodeBlock>-</CodeBlock> buttons provide the single-pointer alternative to dragging the slider.
          </p>
       </div>
     </section>

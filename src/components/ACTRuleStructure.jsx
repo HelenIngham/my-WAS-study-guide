@@ -1,6 +1,7 @@
 // components/ACTRuleStructure.jsx
 import React, { useState } from 'react';
 import './ACTRuleStructure.css';
+import CodeBlock from './CodeBlock';
 
 /**
  * ACTRuleStructure Component
@@ -70,7 +71,7 @@ const ACTRuleStructure = ({ title = "Explore ACT Rule Structure" }) => {
               <h3>{activePart.name}</h3>
               <p className="ars-description">{activePart.description}</p>
               <div className="ars-example-box">
-                <strong>Example:</strong> <code>{activePart.example}</code>
+                <strong>Example:</strong> <CodeBlock>{activePart.example}</CodeBlock>
               </div>
             </div>
           ) : (

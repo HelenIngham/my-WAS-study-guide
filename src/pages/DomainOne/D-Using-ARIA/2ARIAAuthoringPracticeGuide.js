@@ -9,7 +9,7 @@ import FlashcardSet from "../../../components/FlashcardSet";
 import Accordion from "../../../components/Accordion";
 
 import PageHeader from "../../../components/PageHeader";
-
+import CodeBlock from "../../../components/CodeBlock";
 function ARIAAuthoringPracticeGuide() {
     const flashcards = useMemo(() => [
         {
@@ -53,10 +53,10 @@ function ARIAAuthoringPracticeGuide() {
                     <div className="detail-section">
                         <h4>ARIA Requirements</h4>
                         <CardList>
-                            <li><code>button role on headers (or use &lt;button&gt;)</code></li>
-                            <li><code>aria-expanded on buttons</code></li>
-                            <li><code>aria-controls pointing to panel ID</code></li>
-                            <li><code>region role on panels (optional)</code></li>
+                            <li><CodeBlock>button role on headers (or use &lt;button&gt;)</CodeBlock></li>
+                            <li><CodeBlock>aria-expanded on buttons</CodeBlock></li>
+                            <li><CodeBlock>aria-controls pointing to panel ID</CodeBlock></li>
+                            <li><CodeBlock>region role on panels (optional)</CodeBlock></li>
                         </CardList>
                     </div>
                 </>
@@ -80,10 +80,10 @@ function ARIAAuthoringPracticeGuide() {
                     <div className="detail-section">
                         <h4>ARIA Requirements</h4>
                         <CardList>
-                            <li><code>role="dialog" or role="alertdialog"</code></li>
-                            <li><code>aria-modal="true"</code></li>
-                            <li><code>aria-labelledby pointing to dialog title</code></li>
-                            <li><code>aria-describedby for dialog description (optional)</code></li>
+                            <li><CodeBlock>role="dialog" or role="alertdialog"</CodeBlock></li>
+                            <li><CodeBlock>aria-modal="true"</CodeBlock></li>
+                            <li><CodeBlock>aria-labelledby pointing to dialog title</CodeBlock></li>
+                            <li><CodeBlock>aria-describedby for dialog description (optional)</CodeBlock></li>
                         </CardList>
                     </div>
                 </>
@@ -107,11 +107,11 @@ function ARIAAuthoringPracticeGuide() {
                     <div className="detail-section">
                         <h4>ARIA Requirements</h4>
                         <CardList>
-                            <li><code>role="tablist" on container</code></li>
-                            <li><code>role="tab" on each tab</code></li>
-                            <li><code>role="tabpanel" on each panel</code></li>
-                            <li><code>aria-selected on tabs</code></li>
-                            <li><code>aria-controls/aria-labelledby relationships</code></li>
+                            <li><CodeBlock>role="tablist" on container</CodeBlock></li>
+                            <li><CodeBlock>role="tab" on each tab</CodeBlock></li>
+                            <li><CodeBlock>role="tabpanel" on each panel</CodeBlock></li>
+                            <li><CodeBlock>aria-selected on tabs</CodeBlock></li>
+                            <li><CodeBlock>aria-controls/aria-labelledby relationships</CodeBlock></li>
                         </CardList>
                     </div>
                 </>
@@ -136,11 +136,11 @@ function ARIAAuthoringPracticeGuide() {
                     <div className="detail-section">
                         <h4>ARIA Requirements</h4>
                         <CardList>
-                            <li><code>role="combobox" on input</code></li>
-                            <li><code>aria-expanded indicates popup state</code></li>
-                            <li><code>aria-autocomplete indicates filtering behavior</code></li>
-                            <li><code>aria-activedescendant for virtual focus</code></li>
-                            <li><code>role="listbox" or "grid" on popup</code></li>
+                            <li><CodeBlock>role="combobox" on input</CodeBlock></li>
+                            <li><CodeBlock>aria-expanded indicates popup state</CodeBlock></li>
+                            <li><CodeBlock>aria-autocomplete indicates filtering behavior</CodeBlock></li>
+                            <li><CodeBlock>aria-activedescendant for virtual focus</CodeBlock></li>
+                            <li><CodeBlock>role="listbox" or "grid" on popup</CodeBlock></li>
                         </CardList>
                     </div>
                 </>
@@ -165,11 +165,11 @@ function ARIAAuthoringPracticeGuide() {
                     <div className="detail-section">
                         <h4>ARIA Requirements</h4>
                         <CardList>
-                            <li><code>role="slider"</code></li>
-                            <li><code>aria-valuenow: Current value</code></li>
-                            <li><code>aria-valuemin: Minimum value</code></li>
-                            <li><code>aria-valuemax: Maximum value</code></li>
-                            <li><code>aria-valuetext: Human-readable value (optional)</code></li>
+                            <li><CodeBlock>role="slider"</CodeBlock></li>
+                            <li><CodeBlock>aria-valuenow: Current value</CodeBlock></li>
+                            <li><CodeBlock>aria-valuemin: Minimum value</CodeBlock></li>
+                            <li><CodeBlock>aria-valuemax: Maximum value</CodeBlock></li>
+                            <li><CodeBlock>aria-valuetext: Human-readable value (optional)</CodeBlock></li>
                         </CardList>
                     </div>
                 </>

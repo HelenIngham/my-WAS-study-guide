@@ -97,11 +97,11 @@ function DeviceIndependentEventHandlers() {
         },
         {
             front: "What are device-dependent event handlers?",
-            back: <>Handlers that rely wholly on a specific type of input, such as mouse-only events (<code>onmouseover</code>, <code>onmouseout</code>).</>
+            back: <>Handlers that rely wholly on a specific type of input, such as mouse-only events (<CodeBlock>onMouseOver()</CodeBlock>, <CodeBlock>onmouseout</CodeBlock>).</>
         },
         {
             front: "Which event is a good device-independent alternative to mouse-specific events?",
-            back: <>The <code>click</code> event is generally device-independent as it is triggered by mouse clicks, keyboard Enter/Space (on buttons), and touch taps.</>
+            back: <>The <CodeBlock>click</CodeBlock> event is generally device-independent as it is triggered by mouse clicks, keyboard Enter/Space (on buttons), and touch taps.</>
         }
     ];
 
@@ -110,10 +110,10 @@ function DeviceIndependentEventHandlers() {
             id: 1,
             question: "Which of these event handlers is device-DEPENDENT?",
             options: [
-                <><code>onclick</code></>,
-                <><code>onmouseover</code></>,
-                <><code>onfocus</code></>,
-                <><code>onchange</code></>
+                <><CodeBlock>onClick()</CodeBlock></>,
+                <><CodeBlock>onMouseOver()</CodeBlock></>,
+                <><CodeBlock>onfocus</CodeBlock></>,
+                <><CodeBlock>onchange</CodeBlock></>
             ],
             correct: 1
         },
@@ -133,11 +133,11 @@ function DeviceIndependentEventHandlers() {
     const tableRows = [
         {
             rowHeader: "Mouse / Pointer (Dependent)",
-            data: [<><code>onmouseover</code></>, <><code>onmouseout</code></>, <><code>onmousedown</code></>, <><code>onmouseup</code></>]
+            data: [<><CodeBlock>onMouseOver()</CodeBlock></>, <><CodeBlock>onmouseout</CodeBlock></>, <><CodeBlock>onMouseDown()</CodeBlock></>, <><CodeBlock>onMouseUp()</CodeBlock></>]
         },
         {
             rowHeader: "Keyboard / Independent (Alternative)",
-            data: [<><code>onfocus</code></>, <><code>onblur</code></>, <><code>onkeydown</code> / <code>onclick</code></>, <><code>onkeyup</code> / <code>onclick</code></>]
+            data: [<><CodeBlock>onfocus</CodeBlock></>, <><CodeBlock>onblur</CodeBlock></>, <><CodeBlock>onkeydown</CodeBlock> / <CodeBlock>onClick()</CodeBlock></>, <><CodeBlock>onkeyup</CodeBlock> / <CodeBlock>onClick()</CodeBlock></>]
         }
     ];
 
@@ -192,7 +192,7 @@ function DeviceIndependentEventHandlers() {
             <section style={styles.section} aria-labelledby="comparison-heading">
                 <h2 id="comparison-heading" style={styles.heading}>Dependent vs. Independent Handlers</h2>
                 <p style={styles.paragraph}>
-                    Device-dependent event handlers rely on specific input types. For example, <code>onmouseover</code> requires a pointing device to move over an element.
+                    Device-dependent event handlers rely on specific input types. For example, <CodeBlock>onMouseOver()</CodeBlock> requires a pointing device to move over an element.
                 </p>
                 
                 <ComparisonTable 
@@ -207,7 +207,7 @@ function DeviceIndependentEventHandlers() {
             <section style={styles.section} aria-labelledby="implementation-heading">
                 <h2 id="implementation-heading" style={styles.heading}>Best Practices</h2>
                 <p style={styles.paragraph}>
-                    The easiest way to ensure device independence is to use high-level event handlers like <code>onclick</code> on semantic elements, which browsers map to multiple input types automatically.
+                    The easiest way to ensure device independence is to use high-level event handlers like <CodeBlock>onClick()</CodeBlock> on semantic elements, which browsers map to multiple input types automatically.
                 </p>
                 
                 <CodeBlock 
@@ -231,7 +231,7 @@ function DeviceIndependentEventHandlers() {
 
             <ExamTakeaway 
                 title="Exam Tip: Device Independence"/>
-            <p>On the WAS exam, remember: 'If it works with a mouse, it must work with a keyboard.' Avoid mouse-only events for critical actions. Use <code>onclick</code> for general actions and <code>onfocus</code> / <code>onblur</code> for focus-related states.</p>
+            <p>On the WAS exam, remember: 'If it works with a mouse, it must work with a keyboard.' Avoid mouse-only events for critical actions. Use <CodeBlock>onClick()</CodeBlock> for general actions and <CodeBlock>onfocus</CodeBlock> / <CodeBlock>onblur</CodeBlock> for focus-related states.</p>
         </div>
     );
 }

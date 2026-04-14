@@ -8,7 +8,7 @@ import MultipleChoiceQuiz from "../../../components/MultipleChoiceQuiz";
 import RoleSearch from "../../../components/RoleSearch";
 import PageHeader from "../../../components/PageHeader";
 import ComparisonTable from "../../../components/ComparisonTable";
-
+import CodeBlock from "../../../components/CodeBlock";
 function WAIARIARolesStatesAndProperties() {
     const roleCategories = useMemo(() => ({
         landmark: {
@@ -432,8 +432,8 @@ function WAIARIARolesStatesAndProperties() {
                     title="ARIA States (Dynamic)"
                     headers={["Attribute", "Values", "Description"]}
                     rows={statesAndProperties.states.map(state => ({
-                        rowHeader: <code>{state.name}</code>,
-                        data: [<code>{state.values}</code>, state.description]
+                        rowHeader: <CodeBlock>{state.name}</CodeBlock>,
+                        data: [<CodeBlock>{state.values}</CodeBlock>, state.description]
                     }))}
                 />
 
@@ -441,8 +441,8 @@ function WAIARIARolesStatesAndProperties() {
                     title="ARIA Properties (Relatively Static)"
                     headers={["Attribute", "Values", "Description"]}
                     rows={statesAndProperties.properties.map(prop => ({
-                        rowHeader: <code>{prop.name}</code>,
-                        data: [<code>{prop.values}</code>, prop.description]
+                        rowHeader: <CodeBlock>{prop.name}</CodeBlock>,
+                        data: [<CodeBlock>{prop.values}</CodeBlock>, prop.description]
                     }))}
                 />
             </section>
@@ -477,7 +477,7 @@ function WAIARIARolesStatesAndProperties() {
 
                     <Card classNamePrefix="concept" title="Abstract Roles" role="listitem">
                         <p>
-                            Some roles (like <code>widget</code>, <code>landmark</code>, <code>roletype</code>)
+                            Some roles (like <CodeBlock>widget</CodeBlock>, <CodeBlock>landmark</CodeBlock>, <CodeBlock>roletype</CodeBlock>)
                             are <strong>abstract</strong> and should never be used directly in content.
                         </p>
                     </Card>

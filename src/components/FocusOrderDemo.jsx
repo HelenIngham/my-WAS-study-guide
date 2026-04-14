@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './FocusOrderDemo.css';
-
+import CodeBlock from './CodeBlock';
 /**
  * FocusOrderDemo - A component that demonstrates logical vs. illogical focus order.
  */
@@ -67,7 +67,7 @@ export default function FocusOrderDemo() {
           </p>
         ) : (
           <p className="status-warning">
-            <strong>Illogical:</strong> The visual order (1, 2, 3, 4) is achieved using CSS <code>order</code>, but the DOM order remains 1, 4, 2, 3. Tabbing will jump from 1 to 4, then back to 2.
+            <strong>Illogical:</strong> The visual order (1, 2, 3, 4) is achieved using CSS <CodeBlock>order</CodeBlock>, but the DOM order remains 1, 4, 2, 3. Tabbing will jump from 1 to 4, then back to 2.
           </p>
         )}
       </div>

@@ -9,7 +9,11 @@
 }
 
 .flashcard:focus {
-  outline: 3px solid var(--color-primary-light);
+  outline: none;
+}
+
+.flashcard:focus-visible {
+  outline: 4px solid var(--color-focus);
   outline-offset: 4px;
   border-radius: 12px;
 }

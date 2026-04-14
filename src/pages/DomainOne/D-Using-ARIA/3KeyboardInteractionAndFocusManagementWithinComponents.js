@@ -20,7 +20,7 @@ function KeyboardInteractionAndFocusManagement() {
                     <h2 id="tabindex-heading">Understanding Tabindex</h2>
 
                     <p>
-                        The <code>tabindex</code> attribute controls whether an element is focusable and
+                        The <CodeBlock>tabindex</CodeBlock> attribute controls whether an element is focusable and
                         where it appears in the keyboard navigation order.
                     </p>
 
@@ -30,20 +30,20 @@ function KeyboardInteractionAndFocusManagement() {
                                 Makes a non-focusable element focusable and places it in the natural
                                 tab order based on its position in the DOM.
                             </p>
-                            <pre><code>{`<div tabindex="0" role="button">
-  Custom Button
-</div>`}</code></pre>
+                            <CodeBlock 
+                                code={`<div tabindex="0" role="button">\n  Custom Button\n</div>`}
+                            />
                             <span className="badge">✓ Recommended</span>
                         </Card>
 
                         <Card classNamePrefix="value good" title='tabindex="-1"' role="listitem">
                             <p>
-                                Makes an element focusable via JavaScript (<code>element.focus()</code>)
+                                Makes an element focusable via JavaScript (<CodeBlock>element.focus()</CodeBlock>)
                                 but removes it from the natural tab order.
                             </p>
-                            <pre><code>{`<div tabindex="-1" id="panel">
-  <!-- Focus set programmatically -->
-</div>`}</code></pre>
+                            <CodeBlock 
+                                code={`<div tabindex="-1" id="panel">\n  <!-- Focus set programmatically -->\n</div>`}
+                            />
                             <span className="badge">✓ Recommended</span>
                         </Card>
 
@@ -52,18 +52,17 @@ function KeyboardInteractionAndFocusManagement() {
                                 Places element at the beginning of the tab order. <strong>Avoid this!</strong>
                                 It disrupts the natural reading order and confuses users.
                             </p>
-                            <pre><code>{`<!-- ANTI-PATTERN -->
-<input tabindex="2">
-<input tabindex="1">
-<input tabindex="3">`}</code></pre>
+                            <CodeBlock 
+                                code={`<!-- ANTI-PATTERN -->\n<input tabindex="2">\n<input tabindex="1">\n<input tabindex="3">`}
+                            />
                             <span className="badge warning">✗ Anti-pattern</span>
                         </Card>
                     </Grid>
 
                     <Alert type="warning" title="Key Exam Point">
                         <p>
-                            Interactive elements like <code>&lt;button&gt;</code>, <code>&lt;a href&gt;</code>,
-                            and form controls are natively focusable. Only use <code>tabindex="0"</code> on
+                            Interactive elements like <CodeBlock>&lt;button&gt;</CodeBlock>, <CodeBlock>&lt;a href&gt;</CodeBlock>,
+                            and form controls are natively focusable. Only use <CodeBlock>tabindex="0"</CodeBlock> on
                             custom interactive elements that aren't natively focusable.
                         </p>
                     </Alert>
@@ -85,8 +84,8 @@ function KeyboardInteractionAndFocusManagement() {
 
                     <h3>How It Works</h3>
                     <ol>
-                        <li>One item has <code>tabindex="0"</code> (the "active" item)</li>
-                        <li>All other items have <code>tabindex="-1"</code></li>
+                        <li>One item has <CodeBlock>tabindex="0"</CodeBlock> (the "active" item)</li>
+                        <li>All other items have <CodeBlock>tabindex="-1"</CodeBlock></li>
                         <li>Arrow keys move focus and "rove" the tabindex values</li>
                         <li>Tab moves focus out of the entire group</li>
                     </ol>
@@ -126,7 +125,7 @@ if (e.key === 'ArrowRight') {
 
                     <h3>When to Use Focus Trapping</h3>
                     <ul>
-                        <li>Modal dialogs (<code>role="dialog"</code> with <code>aria-modal="true"</code>)</li>
+                        <li>Modal dialogs (<CodeBlock>role="dialog"</CodeBlock> with <CodeBlock>aria-modal="true"</CodeBlock>)</li>
                         <li>Alert dialogs that require a response</li>
                         <li>Full-screen overlays</li>
                     </ul>
@@ -160,16 +159,16 @@ if (e.key === 'ArrowRight') {
                     <h2 id="activedescendant-heading">aria-activedescendant</h2>
 
                     <p>
-                        <code>aria-activedescendant</code> is an alternative to roving tabindex for
+                        <CodeBlock>aria-activedescendant</CodeBlock> is an alternative to roving tabindex for
                         managing focus within composite widgets. Instead of moving DOM focus, it maintains
                         "virtual" focus while the container keeps actual focus.
                     </p>
 
                     <h3>How It Works</h3>
                     <ol>
-                        <li>Container element has <code>tabindex="0"</code> and keeps focus</li>
-                        <li>Container's <code>aria-activedescendant</code> points to the ID of the "active" item</li>
-                        <li>Arrow keys update the <code>aria-activedescendant</code> value</li>
+                        <li>Container element has <CodeBlock>tabindex="0"</CodeBlock> and keeps focus</li>
+                        <li>Container's <CodeBlock>aria-activedescendant</CodeBlock> points to the ID of the "active" item</li>
+                        <li>Arrow keys update the <CodeBlock>aria-activedescendant</CodeBlock> value</li>
                         <li>Screen readers announce the referenced element as if it has focus</li>
                     </ol>
 

@@ -9,7 +9,7 @@ import TrueFalseQuiz from "../../../components/TrueFalseQuiz";
 import ExamTakeaway from "../../../components/ExamTakeaway";
 import FocusTrapDemo from "../../../components/FocusTrapDemo";
 import RovingTabindexDemo from "../../../components/RovingTabindexDemo";
-
+import CodeBlock from "../../../components/CodeBlock";
 function ManagingFocus() {
   const tabs = [
     {
@@ -64,8 +64,8 @@ function ManagingFocus() {
             There are two primary strategies for managing focus inside composite widgets:
           </p>
           <ul>
-            <li><strong>Roving tabindex:</strong> Dynamically changing <code>tabindex="0"</code> and <code>tabindex="-1"</code> on elements.</li>
-            <li><strong>aria-activedescendant:</strong> Using the <code>aria-activedescendant</code> property to point to the currently active sub-element.</li>
+            <li><strong>Roving tabindex:</strong> Dynamically changing <CodeBlock>tabindex="0"</CodeBlock> and <CodeBlock>tabindex="-1"</CodeBlock> on elements.</li>
+            <li><strong>aria-activedescendant:</strong> Using the <CodeBlock>aria-activedescendant</CodeBlock> property to point to the currently active sub-element.</li>
           </ul>
           
           <div className="demo-section">
@@ -168,7 +168,7 @@ function ManagingFocus() {
           <li><strong>Predictability:</strong> Focus movement must be logical and meet user expectations.</li>
           <li><strong>Synchronization:</strong> Visual focus and keyboard focus must be kept in sync using JavaScript.</li>
           <li><strong>Placement:</strong> Dynamic content should be placed after the current focus point in the DOM.</li>
-          <li><strong>Composite Widgets:</strong> Use Roving Tabindex or <code>aria-activedescendant</code> for widgets like tabs or menus.</li>
+          <li><strong>Composite Widgets:</strong> Use Roving Tabindex or <CodeBlock>aria-activedescendant</CodeBlock> for widgets like tabs or menus.</li>
           <li><strong>Modals:</strong> Implement focus traps for modal dialogs to prevent keyboard escape.</li>
         </ul>
       </ExamTakeaway>

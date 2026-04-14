@@ -4,7 +4,7 @@ import Callout from "../../../components/Callout";
 import FlashcardSet from "../../../components/FlashcardSet";
 import LiveRegionDemo from "../../../components/LiveRegionDemo";
 import ResourceLink from "../../../components/ResourceLink";
-
+import CodeBlock from "../../../components/CodeBlock";
 function SinglePageApplications() {
     const flashcards = [
         {
@@ -41,7 +41,7 @@ function SinglePageApplications() {
                 >
                     <ul>
                         <li><strong>Focus Control:</strong> Sending the focus to the new content.</li>
-                        <li><strong>Aria-Live:</strong> Using <code>aria-live</code> to announce content without moving the focus.</li>
+                        <li><strong>Aria-Live:</strong> Using <CodeBlock>aria-live</CodeBlock> to announce content without moving the focus.</li>
                         <li><strong>Passive Loading:</strong> If content loads passively, notification may not be needed depending on importance and position.</li>
                     </ul>
                 </Callout>
@@ -57,9 +57,9 @@ function SinglePageApplications() {
                 
                 <h3>Recommendations for SPAs</h3>
                 <ul>
-                    <li>Update the page title via JavaScript (<code>document.title</code>).</li>
+                    <li>Update the page title via JavaScript (<CodeBlock>document.title</CodeBlock>).</li>
                     <li>Send the focus to the new content.</li>
-                    <li>Use <code>aria-live</code> to announce content without moving the focus (e.g., “New Page: [Name of new page]”).</li>
+                    <li>Use <CodeBlock>aria-live</CodeBlock> to announce content without moving the focus (e.g., “New Page: [Name of new page]”).</li>
                 </ul>
             </section>
 

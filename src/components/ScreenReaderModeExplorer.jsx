@@ -1,7 +1,7 @@
 // src/components/ScreenReaderModeExplorer.jsx
 import React, { useState } from 'react';
 import './ScreenReaderModeExplorer.css';
-
+import CodeBlock from './CodeBlock';
 const modes = [
   {
     name: 'Browse Mode / Read Mode',
@@ -58,7 +58,7 @@ export default function ScreenReaderModeExplorer() {
           <p><strong>Description:</strong> {modes[activeMode].description}</p>
           <div className="mode-behavior">
             <strong>Key Behavior:</strong> 
-            <code>{modes[activeMode].behavior}</code>
+            <CodeBlock>{modes[activeMode].behavior}</CodeBlock>
           </div>
           <p className="mode-scenario">
             <strong>When to use:</strong> {modes[activeMode].scenario}

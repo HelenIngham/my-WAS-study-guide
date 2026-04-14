@@ -7,7 +7,7 @@ import MethodCard from "../../../components/MethodCard";
 import ExampleContainer from "../../../components/ExampleContainer";
 import IconButton from "../../../components/IconButton";
 import MultipleChoiceQuiz from "../../../components/MultipleChoiceQuiz";
-
+import CodeBlock from "../../../components/CodeBlock";
 function UnderstandingAccessibleNamesAndDescriptions() {
     const tabsData = useMemo(() => [
         {
@@ -68,8 +68,8 @@ function UnderstandingAccessibleNamesAndDescriptions() {
                         <li>
                             <strong>Native HTML Mechanisms</strong>
                             <p>
-                                Includes: <code>&lt;label&gt;</code> for form controls,
-                                <code>alt</code> for images, text content for buttons/links.
+                                Includes: <CodeBlock>&lt;label&gt;</CodeBlock> for form controls,
+                                <CodeBlock>alt</CodeBlock> for images, text content for buttons/links.
                             </p>
                         </li>
                         <li>
@@ -84,7 +84,7 @@ function UnderstandingAccessibleNamesAndDescriptions() {
 
                     <Alert type="warning" title="⚠️ Important Warning">
                         <p>
-                            <code>aria-label</code> and <code>aria-labelledby</code> override other naming
+                            <CodeBlock>aria-label</CodeBlock> and <CodeBlock>aria-labelledby</CodeBlock> override other naming
                             mechanisms. Use them intentionally, not as a quick fix.
                         </p>
                     </Alert>

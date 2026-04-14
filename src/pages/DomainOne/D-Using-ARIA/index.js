@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import CodeBlock from '../../../components/CodeBlock';
 function UsingAria() {
     const [expandedSection, setExpandedSection] = useState(null);
 
@@ -108,8 +108,8 @@ function UsingAria() {
                         <strong>Third Rule:</strong> All interactive ARIA controls must be usable with the keyboard.
                     </li>
                     <li>
-                        <strong>Fourth Rule:</strong> Do not use <code>role="presentation"</code> or
-                        <code>aria-hidden="true"</code> on focusable elements.
+                        <strong>Fourth Rule:</strong> Do not use <CodeBlock>role="presentation"</CodeBlock> or
+                        <CodeBlock>aria-hidden="true"</CodeBlock> on focusable elements.
                     </li>
                     <li>
                         <strong>Fifth Rule:</strong> All interactive elements must have an accessible name.

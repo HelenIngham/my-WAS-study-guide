@@ -83,7 +83,7 @@ export default function RoleSearch({
                 <dl>
                   <dt>HTML Equivalent:</dt>
                   <dd>
-                    <code>{role.htmlEquiv}</code>
+                    <CodeBlock>{role.htmlEquiv}</CodeBlock>
                   </dd>
 
                   <dt>Description:</dt>

@@ -1,7 +1,7 @@
 // components/ExamTakeaway.jsx
 import React from 'react';
 import './ExamTakeaway.css';
-
+import CodeBlock from "./CodeBlock";
 /**
  * Reusable Exam Takeaway component
  *

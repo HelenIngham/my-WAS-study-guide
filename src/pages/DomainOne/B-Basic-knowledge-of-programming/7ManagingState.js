@@ -7,7 +7,7 @@ import FlashcardSet from "../../../components/FlashcardSet";
 import MultipleChoiceQuiz from "../../../components/MultipleChoiceQuiz";
 import TrueFalseQuiz from "../../../components/TrueFalseQuiz";
 import ExamTakeaway from "../../../components/ExamTakeaway";
-
+import CodeBlock from "../../../components/CodeBlock";
 function ManagingState() {
   const [liveMessage, setLiveMessage] = useState("");
 
@@ -35,10 +35,10 @@ function ManagingState() {
           </p>
           <Example label="Common ARIA States">
             <ul>
-              <li><code>aria-expanded</code>: Indicates if a collapsible component (like an accordion or menu) is open or closed.</li>
-              <li><code>aria-selected</code>: Indicates the selected state of an element in a set (like a tab or tree item).</li>
-              <li><code>aria-pressed</code>: Indicates the state of a toggle button.</li>
-              <li><code>aria-checked</code>: Indicates the state of a checkbox or radio button.</li>
+              <li><CodeBlock>aria-expanded</CodeBlock>: Indicates if a collapsible component (like an accordion or menu) is open or closed.</li>
+              <li><CodeBlock>aria-selected</CodeBlock>: Indicates the selected state of an element in a set (like a tab or tree item).</li>
+              <li><CodeBlock>aria-pressed</CodeBlock>: Indicates the state of a toggle button.</li>
+              <li><CodeBlock>aria-checked</CodeBlock>: Indicates the state of a checkbox or radio button.</li>
             </ul>
           </Example>
         </div>
@@ -60,14 +60,14 @@ function ManagingState() {
           <div className="demo-section">
             <h4>Live Region Requirements</h4>
             <ul>
-              <li><strong>Presence in DOM:</strong> The container marked up as a live region (e.g., <code>aria-live="polite"</code> or <code>role="alert"</code>) must be present in the DOM when the page loads.</li>
+              <li><strong>Presence in DOM:</strong> The container marked up as a live region (e.g., <CodeBlock>aria-live="polite"</CodeBlock> or <CodeBlock>role="alert"</CodeBlock>) must be present in the DOM when the page loads.</li>
               <li><strong>Dynamic Injection:</strong> Only the <em>content</em> within that container should be added or exchanged dynamically to trigger an announcement.</li>
             </ul>
           </div>
 
           <div className="demo-section">
             <h4>Interactive Demo: Live Region</h4>
-            <p>Select a button to simulate a background update. The status message is inside an <code>aria-live="polite"</code> region.</p>
+            <p>Select a button to simulate a background update. The status message is inside an <CodeBlock>aria-live="polite"</CodeBlock> region.</p>
             <div className="live-region-demo">
               <div className="controls">
                 <button className="btn btn-primary" onClick={() => updateMessage("Data saved successfully.")}>Save Data</button>
@@ -172,9 +172,9 @@ function ManagingState() {
       <ExamTakeaway title="Managing State for the Exam">
         <ul>
           <li><strong>Native Semantics:</strong> Standard elements manage state automatically; custom ones do not.</li>
-          <li><strong>ARIA State Attributes:</strong> Use attributes like <code>aria-expanded</code>, <code>aria-selected</code>, and <code>aria-checked</code> for custom controls.</li>
+          <li><strong>ARIA State Attributes:</strong> Use attributes like <CodeBlock>aria-expanded</CodeBlock>, <CodeBlock>aria-selected</CodeBlock>, and <CodeBlock>aria-checked</CodeBlock> for custom controls.</li>
           <li><strong>JavaScript Role:</strong> Use JavaScript to dynamically toggle ARIA state values based on user interaction.</li>
-          <li><strong>Live Regions:</strong> Use <code>aria-live</code> or ARIA live roles (like <code>alert</code>, <code>status</code>) for content that updates without moving focus.</li>
+          <li><strong>Live Regions:</strong> Use <CodeBlock>aria-live</CodeBlock> or ARIA live roles (like <CodeBlock>alert</CodeBlock>, <CodeBlock>status</CodeBlock>) for content that updates without moving focus.</li>
           <li><strong>Reliability Rule:</strong> Ensure live region containers exist in the DOM on page load.</li>
         </ul>
       </ExamTakeaway>

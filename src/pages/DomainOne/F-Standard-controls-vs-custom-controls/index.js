@@ -7,7 +7,7 @@ import Callout from "../../../components/Callout";
 import ExamTakeaway from "../../../components/ExamTakeaway";
 import FlashcardSet from "../../../components/FlashcardSet";
 import MultipleChoiceQuiz from "../../../components/MultipleChoiceQuiz";
-
+import CodeBlock from "../../../components/CodeBlock";
 function StandardControlsVsCustomControls() {
     const studyTasks = [
         "Become familiar with the keyboard interaction model for ARIA custom widgets, including general and widget-specific patterns.",
@@ -107,10 +107,10 @@ function StandardControlsVsCustomControls() {
                     If you must build custom controls, they should be built using WAI-ARIA best practices to communicate their type, state, and structure to assistive technologies:
                 </p>
                 <ul>
-                    <li><strong>Roles:</strong> Describe the type of widget (e.g., <code>menu</code>, <code>slider</code>, <code>progressbar</code>) or page structure (e.g., <code>heading</code>, <code>table</code>).</li>
-                    <li><strong>Properties:</strong> Define characteristics like <code>aria-checked</code> for checkboxes or <code>aria-expanded</code> for menus.</li>
+                    <li><strong>Roles:</strong> Describe the type of widget (e.g., <CodeBlock>menu</CodeBlock>, <CodeBlock>slider</CodeBlock>, <CodeBlock>progressbar</CodeBlock>) or page structure (e.g., <CodeBlock>heading</CodeBlock>, <CodeBlock>table</CodeBlock>).</li>
+                    <li><strong>Properties:</strong> Define characteristics like <CodeBlock>aria-checked</CodeBlock> for checkboxes or <CodeBlock>aria-expanded</CodeBlock> for menus.</li>
                     <li><strong>States:</strong> Communicate dynamic changes to the screen reader.</li>
-                    <li><strong>Live Regions:</strong> Define areas likely to get updates (e.g., stock quotes) and set interruption policies (e.g., <code>aria-live="polite"</code> vs. <code>"assertive"</code>).</li>
+                    <li><strong>Live Regions:</strong> Define areas likely to get updates (e.g., stock quotes) and set interruption policies (e.g., <CodeBlock>aria-live="polite"</CodeBlock> vs. <CodeBlock>"assertive"</CodeBlock>).</li>
                 </ul>
             </section>
 
@@ -128,7 +128,7 @@ function StandardControlsVsCustomControls() {
 
             <ExamTakeaway title="Key Exam Takeaway">
                 <CardList>
-                    <li><strong>Native First:</strong> Always prefer <code>&lt;button&gt;</code> over <code>&lt;div role="button"&gt;</code>.</li>
+                    <li><strong>Native First:</strong> Always prefer <CodeBlock>&lt;button&gt;</CodeBlock> over <CodeBlock>&lt;div role="button"&gt;</CodeBlock>.</li>
                     <li><strong>Keyboard Pattern:</strong> Tab to widget, Arrows within widget.</li>
                     <li><strong>Role Overrides:</strong> ARIA roles replace native semantics completely.</li>
                     <li><strong>Application Role:</strong> Use very sparingly to avoid breaking AT navigation.</li>

@@ -1,7 +1,7 @@
 // components/MethodCard.jsx
 import React from 'react';
 import './MethodCard.css';
-
+import CodeBlock from "./CodeBlock";
 /**
  * Reusable MethodCard component for documenting accessibility labeling methods
  *
@@ -35,7 +35,7 @@ export default function MethodCard({
       
       {code ? (
         <pre className={codeCls}>
-          <code>{code}</code>
+          <CodeBlock>{code}</CodeBlock>
         </pre>
       ) : null}
 

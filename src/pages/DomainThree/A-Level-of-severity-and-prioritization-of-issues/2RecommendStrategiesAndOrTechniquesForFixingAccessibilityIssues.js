@@ -134,7 +134,7 @@ function RecommendStrategiesAndOrTechniquesForFixingAccessibilityIssues() {
                     
                     <Example label="Recommended Fix" classNamePrefix="remediation">
                         <CodeBlock title="Accessible Image Button" code={afterCode} />
-                        <p className="mt-2 text-sm"><em>Fix:</em> Added <code>aria-label</code> to the button and empty <code>alt</code> to the decorative image.</p>
+                        <p className="mt-2 text-sm"><em>Fix:</em> Added <CodeBlock>aria-label</CodeBlock> to the button and empty <CodeBlock>alt</CodeBlock> to the decorative image.</p>
                     </Example>
                 </div>
             </section>

@@ -16,7 +16,7 @@ export default function CodeBlock({ title, code, classNamePrefix }) {
     <div className={classNamePrefix ? classNamePrefix : 'code-example'}>
       {title && <h4 className={`${prefix}title`}>{title}</h4>}
       <pre className={`${prefix}pre`}>
-        <code>{code}</code>
+        <CodeBlock>{code}</CodeBlock>
       </pre>
     </div>
   );

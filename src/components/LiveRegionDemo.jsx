@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './LiveRegionDemo.css';
-
+import CodeBlock from './CodeBlock';
 /**
  * Component to demonstrate AJAX-like content updates and screen reader notifications.
  * It shows two methods:
@@ -114,7 +114,7 @@ export default function LiveRegionDemo() {
         {method === 'focus' ? (
           <p><strong>Focus Method:</strong> When the content is loaded, the focus is programmatically moved to the container of the new content. Screen readers will start reading from the beginning of the focused element.</p>
         ) : (
-          <p><strong>Aria-live Method:</strong> When the content is loaded, an invisible <code>aria-live</code> region is updated with a summary of the change. The screen reader announces this message without moving the user's focus.</p>
+          <p><strong>Aria-live Method:</strong> When the content is loaded, an invisible <CodeBlock>aria-live</CodeBlock> region is updated with a summary of the change. The screen reader announces this message without moving the user's focus.</p>
         )}
       </div>
     </div>

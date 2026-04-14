@@ -1,5 +1,6 @@
 import React from 'react';
 import './ExampleContainer.css';
+import CodeBlock from "./CodeBlock";
 
 /**
  * Reusable ExampleContainer component for live demos and their code snippets.
@@ -28,7 +29,7 @@ export default function ExampleContainer({
         {children}
       </div>
       <pre className={codeCls}>
-        <code>{code}</code>
+        <CodeBlock>{code}</CodeBlock>
       </pre>
     </div>
   );

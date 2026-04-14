@@ -16,7 +16,7 @@ function InteractiveWidgets() {
             <li><strong>Rule 1:</strong> If you can use a native HTML element or attribute with the semantics and behavior you require already built in, then do so.</li>
             <li><strong>Rule 2:</strong> Do not change native semantics unless you really have to.</li>
             <li><strong>Rule 3:</strong> All interactive ARIA controls must be usable with the keyboard.</li>
-            <li><strong>Rule 4:</strong> Do not use <code>role="presentation"</code> or <code>aria-hidden="true"</code> on focusable elements.</li>
+            <li><strong>Rule 4:</strong> Do not use <CodeBlock>role="presentation"</CodeBlock> or <CodeBlock>aria-hidden="true"</CodeBlock> on focusable elements.</li>
             <li><strong>Rule 5:</strong> All interactive elements must have an accessible name.</li>
         </ul>
     );
@@ -151,8 +151,8 @@ function InteractiveWidgets() {
                     <section className="concepts-section">
                         <h2>Semantic Structure & Roles</h2>
                         <p>
-                            Roles define what an element is. Some roles require parent/child relationships (like <code>tablist</code> & <code>tab</code>) 
-                            or specific attributes (like <code>aria-expanded</code> for a disclosure).
+                            Roles define what an element is. Some roles require parent/child relationships (like <CodeBlock>tablist</CodeBlock> & <CodeBlock>tab</CodeBlock>) 
+                            or specific attributes (like <CodeBlock>aria-expanded</CodeBlock> for a disclosure).
                         </p>
                         <MatchingExercise 
                             title="Practice: Match Widget Roles"
@@ -180,7 +180,7 @@ function InteractiveWidgets() {
                     <section className="concepts-section">
                         <h2>Keyboard Interaction Model</h2>
                         <p>
-                            Custom widgets must follow established keyboard patterns. This usually involves managing <code>tabindex</code> 
+                            Custom widgets must follow established keyboard patterns. This usually involves managing <CodeBlock>tabindex</CodeBlock> 
                             and handling key events like Arrows, Home, End, and Escape.
                         </p>
                         <MultipleChoiceQuiz 

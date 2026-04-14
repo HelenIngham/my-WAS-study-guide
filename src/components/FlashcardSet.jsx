@@ -32,7 +32,12 @@ export default function FlashcardSet({ cards = [] }) {
   const currentCard = cards[currentIndex];
 
   return (
-    <div className="flashcard-set">
+    <div className="flashcard-set" aria-roledescription="flashcards">
+      <div className="flashcard-status" aria-live="polite">
+        <p className="flashcard-counter">
+          Flashcard {currentIndex + 1} of {cards.length}
+        </p>
+      </div>
       <div className="flashcard-container">
         <button
           className="flashcard-nav prev"
@@ -47,7 +52,7 @@ export default function FlashcardSet({ cards = [] }) {
           back={currentCard.back}
           isFlipped={isFlipped}
           onFlip={() => setIsFlipped(!isFlipped)}
-          ariaLabel={`Flashcard ${currentIndex + 1} of ${cards.length}. ${isFlipped ? 'Showing answer' : 'Click to reveal answer'}`}
+          ariaLabel={`Flashcard ${currentIndex + 1} of ${cards.length}. ${isFlipped ? 'Answer showing' : 'Click to flip'}`}
         />
 
         <button
@@ -58,10 +63,6 @@ export default function FlashcardSet({ cards = [] }) {
           →
         </button>
       </div>
-
-      <p className="flashcard-counter" aria-live="polite">
-        Card {currentIndex + 1} of {cards.length}
-      </p>
     </div>
   );
 }

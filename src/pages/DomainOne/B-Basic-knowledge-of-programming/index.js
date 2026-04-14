@@ -4,7 +4,7 @@ import Tabs from "../../../components/Tabs";
 import Alert from "../../../components/Alert";
 import PriorityList from "../../../components/PriorityList";
 import MultipleChoiceQuiz from "../../../components/MultipleChoiceQuiz";
-
+import CodeBlock from "../../../components/CodeBlock";
 function BasicKnowledgeOfProgramming() {
     const tabsData = useMemo(() => [
         {
@@ -80,11 +80,11 @@ function BasicKnowledgeOfProgramming() {
                     </p>
                     <PriorityList ariaLabel="Impact of Event Handlers">
                         <li>
-                            <strong>Device Independence:</strong> Use events like <code>onclick</code> (which is triggered 
-                            by keyboard Enter/Space on focusable elements) instead of <code>onmousedown</code> or <code>onmouseover</code> alone.
+                            <strong>Device Independence:</strong> Use events like <CodeBlock>onClick()</CodeBlock> (which is triggered 
+                            by keyboard Enter/Space on focusable elements) instead of <CodeBlock>onMouseDown()</CodeBlock> or <CodeBlock>onMouseOver()</CodeBlock> alone.
                         </li>
                         <li>
-                            <strong>Semantic Elements:</strong> Applying <code>onClick()</code> to a native <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> is superior because:
+                            <strong>Semantic Elements:</strong> Applying <CodeBlock>onClick()</CodeBlock> to a native <CodeBlock>&lt;a&gt;</CodeBlock> or <CodeBlock>&lt;button&gt;</CodeBlock> is superior because:
                             <ul>
                                 <li>They are natively keyboard accessible.</li>
                                 <li>They have built-in roles and states (e.g., "button").</li>
@@ -92,10 +92,10 @@ function BasicKnowledgeOfProgramming() {
                             </ul>
                         </li>
                         <li>
-                            <strong>Non-Semantic Elements:</strong> Applying <code>onClick()</code> to a <code>&lt;div&gt;</code> requires extra work:
+                            <strong>Non-Semantic Elements:</strong> Applying <CodeBlock>onClick()</CodeBlock> to a <CodeBlock>&lt;div&gt;</CodeBlock> requires extra work:
                             <ul>
-                                <li>Adding <code>tabindex="0"</code> for focus.</li>
-                                <li>Adding <code>role="button"</code>.</li>
+                                <li>Adding <CodeBlock>tabindex="0"</CodeBlock> for focus.</li>
+                                <li>Adding <CodeBlock>role="button"</CodeBlock>.</li>
                                 <li>Adding keyboard event listeners (Enter/Space).</li>
                             </ul>
                         </li>
@@ -116,7 +116,7 @@ function BasicKnowledgeOfProgramming() {
                     </p>
                     <h3>Sending Focus</h3>
                     <p>
-                        Use JavaScript <code>.focus()</code> to send focus when:
+                        Use JavaScript <CodeBlock>.focus()</CodeBlock> to send focus when:
                     </p>
                     <ul>
                         <li>New content is loaded (e.g., single-page application navigation).</li>
@@ -129,9 +129,9 @@ function BasicKnowledgeOfProgramming() {
                         Common methods include:
                     </p>
                     <ul>
-                        <li><strong>ARIA Live Regions:</strong> Using <code>aria-live="polite"</code> or <code>"assertive"</code>.</li>
+                        <li><strong>ARIA Live Regions:</strong> Using <CodeBlock>aria-live="polite"</CodeBlock> or <CodeBlock>"assertive"</CodeBlock>.</li>
                         <li><strong>Focus Management:</strong> Moving focus directly to the new content.</li>
-                        <li><strong>Status Messages:</strong> Using <code>role="status"</code> or <code>role="alert"</code>.</li>
+                        <li><strong>Status Messages:</strong> Using <CodeBlock>role="status"</CodeBlock> or <CodeBlock>role="alert"</CodeBlock>.</li>
                     </ul>
                 </section>
             )
@@ -145,7 +145,7 @@ function BasicKnowledgeOfProgramming() {
                     <p>Practice these activities to reinforce your understanding of accessible JavaScript:</p>
                     <PriorityList ariaLabel="Practice Activities">
                         <li>
-                            <strong>Semantic vs. Non-semantic:</strong> Create a button using a <code>&lt;button&gt;</code> tag and another using a <code>&lt;div&gt;</code>. Try to make the <code>&lt;div&gt;</code> behave exactly like the button using only keyboard navigation and a screen reader.
+                            <strong>Semantic vs. Non-semantic:</strong> Create a button using a <CodeBlock>&lt;button&gt;</CodeBlock> tag and another using a <CodeBlock>&lt;div&gt;</CodeBlock>. Try to make the <CodeBlock>&lt;div&gt;</CodeBlock> behave exactly like the button using only keyboard navigation and a screen reader.
                         </li>
                         <li>
                             <strong>Focus Audit:</strong> Open a complex website and navigate using only the Tab key. 
@@ -155,11 +155,11 @@ function BasicKnowledgeOfProgramming() {
                         <li>
                             <strong>Live Region Test:</strong> Create a simple "Toast" notification system 
                             (a brief, non-modal status message that appears and then disappears) and test it 
-                            with a screen reader using different <code>aria-live</code> settings. 
+                            with a screen reader using different <CodeBlock>aria-live</CodeBlock> settings. 
                             Refer to the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/" target="_blank" rel="noopener noreferrer">WAI-ARIA Alert Pattern</a> for implementation guidance.
                         </li>
                         <li>
-                            <strong>Device Independence:</strong> Review a project and replace any <code>onmouseover</code> events with <code>onfocus</code>/<code>onblur</code> or CSS equivalents.
+                            <strong>Device Independence:</strong> Review a project and replace any <CodeBlock>onMouseOver()</CodeBlock> events with <CodeBlock>onfocus</CodeBlock>/<CodeBlock>onblur</CodeBlock> or CSS equivalents.
                         </li>
                     </PriorityList>
                 </section>

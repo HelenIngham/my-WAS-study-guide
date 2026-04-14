@@ -5,7 +5,7 @@ import FlashcardSet from "../../../components/FlashcardSet";
 import MultipleChoiceQuiz from "../../../components/MultipleChoiceQuiz";
 import ExamTakeaway from "../../../components/ExamTakeaway";
 import Example from "../../../components/Example";
-
+import CodeBlock from "../../../components/CodeBlock";
 /**
  * Interactive Demo for Dynamic Content
  * Demonstrates:
@@ -46,7 +46,7 @@ function DynamicContentDemo() {
                     id="dynamic-panel"
                     className={`demo-panel ${isVisible ? 'is-visible' : 'is-hidden'}`}
                 >
-                    <p>This content was dynamically toggled using a CSS class and its state is reflected via <code>aria-expanded</code>.</p>
+                    <p>This content was dynamically toggled using a CSS class and its state is reflected via <CodeBlock>aria-expanded</CodeBlock>.</p>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@ function DynamicContentDemo() {
                 >
                     {liveMessage && <span>Status update: {liveMessage}</span>}
                 </div>
-                <p className="demo-note">The text above is in an <code>aria-live="polite"</code> region.</p>
+                <p className="demo-note">The text above is in an <CodeBlock>aria-live="polite"</CodeBlock> region.</p>
             </div>
         </div>
     );
@@ -169,8 +169,8 @@ function DynamicContent() {
             <ExamTakeaway title="Dynamic Content for the Exam">
                 <ul>
                     <li>Understand that JavaScript can manipulate the DOM to change content and styles.</li>
-                    <li>Recognize the importance of synchronizing visual state changes with ARIA attributes (e.g., <code>aria-expanded</code>).</li>
-                    <li>Identify <code>aria-live</code> regions as the primary method for announcing non-focused content updates.</li>
+                    <li>Recognize the importance of synchronizing visual state changes with ARIA attributes (e.g., <CodeBlock>aria-expanded</CodeBlock>).</li>
+                    <li>Identify <CodeBlock>aria-live</CodeBlock> regions as the primary method for announcing non-focused content updates.</li>
                     <li>Ensure dynamic content remains keyboard accessible (e.g., focus management if a modal opens).</li>
                 </ul>
             </ExamTakeaway>

@@ -1,6 +1,7 @@
 // components/AutomatedScanDemo.jsx
 import React, { useState } from 'react';
 import './AutomatedScanDemo.css';
+import CodeBlock from './CodeBlock';
 
 const AutomatedScanDemo = () => {
   const [isScanning, setIsScanning] = useState(false);
@@ -64,7 +65,7 @@ const AutomatedScanDemo = () => {
                   <td>{issue.code}</td>
                   <td>
                     <div>{issue.message}</div>
-                    <code className="snippet">{issue.snippet}</code>
+                    <CodeBlock className="snippet">{issue.snippet}</CodeBlock>
                   </td>
                   <td>{issue.severity}</td>
                 </tr>

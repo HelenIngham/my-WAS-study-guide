@@ -17,32 +17,32 @@ function SemanticHTMLandCustomControls() {
         },
         {
             front: "What happens when you use onClick on a <div>?",
-            back: <>Keyboard functionality is NOT automatically included, even if the element is focusable (using <code>tabindex</code>).</>
+            back: <>Keyboard functionality is NOT automatically included, even if the element is focusable (using <CodeBlock>tabindex</CodeBlock>).</>
         },
         {
             front: "How do you make a non-semantic element accessible to keyboards?",
-            back: <>You must add <code>keydown</code> or <code>keyup</code> event listeners to detect <code>Enter</code> or <code>Space</code> key presses.</>
+            back: <>You must add <CodeBlock>keydown</CodeBlock> or <CodeBlock>keyup</CodeBlock> event listeners to detect <CodeBlock>Enter</CodeBlock> or <CodeBlock>Space</CodeBlock> key presses.</>
         }
     ];
 
     const quizQuestions = [
         {
             id: 1,
-            question: <>Which of these elements includes keyboard support for <code>onClick()</code> by default?</>,
+            question: <>Which of these elements includes keyboard support for <CodeBlock>onClick()</CodeBlock> by default?</>,
             options: [
-                <><code>&lt;div&gt;</code></>,
-                <><code>&lt;span&gt;</code></>,
-                <><code>&lt;button&gt;</code></>,
-                <><code>&lt;p&gt;</code></>
+                <><CodeBlock>&lt;div&gt;</CodeBlock></>,
+                <><CodeBlock>&lt;span&gt;</CodeBlock></>,
+                <><CodeBlock>&lt;button&gt;</CodeBlock></>,
+                <><CodeBlock>&lt;p&gt;</CodeBlock></>
             ],
             correct: 2
         },
         {
             id: 2,
-            question: <>If you use a <code>&lt;div&gt;</code> as a button, you must manually handle:</>,
+            question: <>If you use a <CodeBlock>&lt;div&gt;</CodeBlock> as a button, you must manually handle:</>,
             options: [
                 "Mouse clicks only.",
-                <>Tab index and <code>keydown</code> / <code>keyup</code> events for <code>Space</code> and <code>Enter</code>.</>,
+                <>Tab index and <CodeBlock>keydown</CodeBlock> / <CodeBlock>keyup</CodeBlock> events for <CodeBlock>Space</CodeBlock> and <CodeBlock>Enter</CodeBlock>.</>,
                 "Color contrast only.",
                 "Text alignment."
             ],
@@ -52,12 +52,12 @@ function SemanticHTMLandCustomControls() {
 
     const tableRows = [
         {
-            rowHeader: <>Semantic (<code>&lt;button&gt;</code>, <code>&lt;a&gt;</code>)</>,
+            rowHeader: <>Semantic (<CodeBlock>&lt;button&gt;</CodeBlock>, <CodeBlock>&lt;a&gt;</CodeBlock>)</>,
             data: ["Built-in", "Built-in", "Built-in", "Yes"]
         },
         {
-            rowHeader: <>Non-Semantic (<code>&lt;div&gt;</code>, <code>&lt;span&gt;</code>)</>,
-            data: ["None", <>Manual (<code>tabindex</code>)</>, <>Manual (JS events)</>, "No"]
+            rowHeader: <>Non-Semantic (<CodeBlock>&lt;div&gt;</CodeBlock>, <CodeBlock>&lt;span&gt;</CodeBlock>)</>,
+            data: ["None", <>Manual (<CodeBlock>tabindex</CodeBlock>)</>, <>Manual (JS events)</>, "No"]
         }
     ];
 
@@ -105,7 +105,7 @@ function SemanticHTMLandCustomControls() {
             <section style={styles.section} aria-labelledby="comparison-heading">
                 <h2 id="comparison-heading" style={styles.heading}>Semantic vs. Custom Controls</h2>
                 <p style={styles.paragraph}>
-                    If you use an <code>onClick()</code> event on a semantic HTML element, such as a <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code>, it includes both mouse and keyboard functionality by default.
+                    If you use an <CodeBlock>onClick()</CodeBlock> event on a semantic HTML element, such as a <CodeBlock>&lt;button&gt;</CodeBlock> or <CodeBlock>&lt;a&gt;</CodeBlock>, it includes both mouse and keyboard functionality by default.
                 </p>
                 
                 <ComparisonTable 
@@ -119,7 +119,7 @@ function SemanticHTMLandCustomControls() {
             <section style={styles.section} aria-labelledby="custom-controls-heading">
                 <h2 id="custom-controls-heading" style={styles.heading}>Implementing Custom Controls</h2>
                 <p style={styles.paragraph}>
-                    If you use a non-semantic element, like a <code>&lt;div&gt;</code>, keyboard functionality is <strong>not</strong> automatically included. Even if you make it focusable using <code>tabindex</code>, you must still add event listeners to detect key presses.
+                    If you use a non-semantic element, like a <CodeBlock>&lt;div&gt;</CodeBlock>, keyboard functionality is <strong>not</strong> automatically included. Even if you make it focusable using <CodeBlock>tabindex</CodeBlock>, you must still add event listeners to detect key presses.
                 </p>
                 
                 <CodeBlock 
@@ -142,7 +142,7 @@ function SemanticHTMLandCustomControls() {
 
             <ExamTakeaway 
                 title="Exam Tip: Keyboard Support"
-                text={<>Always prefer native semantic elements like <code>&lt;button&gt;</code> over <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code> for interactivity. If you must use a non-semantic element, you are responsible for managing focus (<code>tabindex</code>) and keyboard events (<code>Enter</code> and <code>Space</code>).</>}
+                text={<>Always prefer native semantic elements like <CodeBlock>&lt;button&gt;</CodeBlock> over <CodeBlock>&lt;div&gt;</CodeBlock> or <CodeBlock>&lt;span&gt;</CodeBlock> for interactivity. If you must use a non-semantic element, you are responsible for managing focus (<CodeBlock>tabindex</CodeBlock>) and keyboard events (<CodeBlock>Enter</CodeBlock> and <CodeBlock>Space</CodeBlock>).</>}
             />
         </div>
     );
