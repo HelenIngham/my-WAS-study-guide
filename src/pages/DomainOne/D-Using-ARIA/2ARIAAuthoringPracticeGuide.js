@@ -174,6 +174,36 @@ function ARIAAuthoringPracticeGuide() {
                     </div>
                 </>
             )
+        },
+        {
+            id: 'menubar',
+            title: 'Menu or Menubar',
+            description: 'A presentation of a set of choices to the user. A menubar is usually a horizontal list of menu items, each of which may open a menu.',
+            content: (
+                <>
+                    <div className="detail-section">
+                        <h4>Keyboard Interaction</h4>
+                        <CardList>
+                            <li>Right/Left Arrow: Navigate between items in a menubar (horizontal)</li>
+                            <li>Up/Down Arrow: Navigate between items in a menu (vertical)</li>
+                            <li>Enter/Space/Down Arrow: Open a submenu and move focus to first item</li>
+                            <li>Escape: Close the current menu and return focus to the parent menuitem</li>
+                            <li>Home/End: Move focus to the first or last item</li>
+                            <li>Any printable character: Move focus to the next item starting with that character</li>
+                        </CardList>
+                    </div>
+                    <div className="detail-section">
+                        <h4>ARIA Requirements</h4>
+                        <CardList>
+                            <li><code>role="menubar"</code> for horizontal bars, <code>role="menu"</code> for dropdowns</li>
+                            <li><code>role="menuitem"</code> for standard items</li>
+                            <li><code>role="menuitemcheckbox"</code> or <code>role="menuitemradio"</code> for specific item types</li>
+                            <li><code>aria-haspopup</code> indicates that a menuitem opens a submenu</li>
+                            <li><code>aria-expanded</code> indicates if a submenu is visible</li>
+                        </CardList>
+                    </div>
+                </>
+            )
         }
     ], []);
 

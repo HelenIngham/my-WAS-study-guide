@@ -1,10 +1,11 @@
 /* components/MatchingExercise.css */
 
 .matching-section {
-  background-color: var(--color-bg-card-hover);
+  background-color: var(--blue-050);
   padding: 1.5rem;
   border-radius: 8px;
   margin: 2rem 0;
+  border: 1px solid var(--blue-200);
 }
 
 .matching-exercise {
@@ -27,8 +28,9 @@
 
 .term-cell {
   font-family: 'Courier New', monospace;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--pink-900);
+  font-weight: 700;
 }
 
 .select-cell select {
@@ -50,20 +52,25 @@
 }
 
 .select-cell select.correct {
-  background-color: var(--color-correct-pale);
-  border-color: var(--color-correct);
+  background-color: var(--green-0);
+  border-color: var(--color-success);
+  color: var(--green-700);
+  font-weight: 600;
 }
 
 .select-cell select.incorrect {
-  background-color: var(--color-incorrect-pale);
-  border-color: var(--color-incorrect);
+  background-color: var(--red-0);
+  border-color: var(--color-error);
+  color: var(--red-900);
+  font-weight: 600;
 }
 
 .correct-answer {
   display: block;
-  font-size: 0.85rem;
-  color: var(--color-correct);
+  font-size: 0.95rem;
+  color: var(--green-700);
   margin-top: 0.5rem;
+  font-weight: 700;
 }
 
 .matching-actions {
@@ -108,10 +115,14 @@
 }
 
 .match-result {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--pink-900);
   margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--color-bg-white);
+  border: 2px solid var(--pink-900);
+  border-radius: 4px;
 }
 
 @media (max-width: 768px) {
